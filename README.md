@@ -1,0 +1,1 @@
+Quick & Dirty project to generate java enumeration class for all mimetype in Apache Tika
