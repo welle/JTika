@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="javasource"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="annotationpath" value="/JTIka/externalAnnotations"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="org.eclipse.jdt.annotation_2.0.100.v20150311-1658.jar"/>
 	<classpathentry kind="lib" path="slf4j-api-1.7.21.jar"/>
 	<classpathentry kind="lib" path="tika-core-1.13.jar"/>

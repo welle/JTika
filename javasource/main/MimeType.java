@@ -1,5 +1,8 @@
 package main;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.eclipse.jdt.annotation.NonNull;
 import org.eclipse.jdt.annotation.Nullable;
 
@@ -18,7 +21,7 @@ public enum MimeType {
     /**
      * APPLICATION_ANDREW_INSET.
      */
-    APPLICATION_ANDREW_INSET("application/andrew-inset"),
+    APPLICATION_ANDREW_INSET("application/andrew-inset", "ez"),
 
     /**
      * APPLICATION_APPLEFILE.
@@ -28,22 +31,22 @@ public enum MimeType {
     /**
      * APPLICATION_APPLIXWARE.
      */
-    APPLICATION_APPLIXWARE("application/applixware"),
+    APPLICATION_APPLIXWARE("application/applixware", "aw"),
 
     /**
      * TEXT_ISO19139_PLUS_XML.
      */
-    TEXT_ISO19139_PLUS_XML("text/iso19139+xml"),
+    TEXT_ISO19139_PLUS_XML("text/iso19139+xml", "iso19139"),
 
     /**
      * APPLICATION_ATOM_PLUS_XML.
      */
-    APPLICATION_ATOM_PLUS_XML("application/atom+xml"),
+    APPLICATION_ATOM_PLUS_XML("application/atom+xml", "atom"),
 
     /**
      * APPLICATION_ATOMCAT_PLUS_XML.
      */
-    APPLICATION_ATOMCAT_PLUS_XML("application/atomcat+xml"),
+    APPLICATION_ATOMCAT_PLUS_XML("application/atomcat+xml", "atomcat"),
 
     /**
      * APPLICATION_ATOMICMAIL.
@@ -53,7 +56,7 @@ public enum MimeType {
     /**
      * APPLICATION_ATOMSVC_PLUS_XML.
      */
-    APPLICATION_ATOMSVC_PLUS_XML("application/atomsvc+xml"),
+    APPLICATION_ATOMSVC_PLUS_XML("application/atomsvc+xml", "atomsvc"),
 
     /**
      * APPLICATION_AUTH_POLICY_PLUS_XML.
@@ -73,7 +76,7 @@ public enum MimeType {
     /**
      * APPLICATION_BIZAGI_MODELER.
      */
-    APPLICATION_BIZAGI_MODELER("application/bizagi-modeler"),
+    APPLICATION_BIZAGI_MODELER("application/bizagi-modeler", "bpm"),
 
     /**
      * APPLICATION_CALS_1840.
@@ -83,12 +86,12 @@ public enum MimeType {
     /**
      * APPLICATION_CBOR.
      */
-    APPLICATION_CBOR("application/cbor"),
+    APPLICATION_CBOR("application/cbor", "cbor"),
 
     /**
      * APPLICATION_CCXML_PLUS_XML.
      */
-    APPLICATION_CCXML_PLUS_XML("application/ccxml+xml"),
+    APPLICATION_CCXML_PLUS_XML("application/ccxml+xml", "ccxml"),
 
     /**
      * APPLICATION_CEA_2018_PLUS_XML.
@@ -133,7 +136,7 @@ public enum MimeType {
     /**
      * APPLICATION_CU_SEEME.
      */
-    APPLICATION_CU_SEEME("application/cu-seeme"),
+    APPLICATION_CU_SEEME("application/cu-seeme", "cu"),
 
     /**
      * APPLICATION_CYBERCASH.
@@ -143,7 +146,7 @@ public enum MimeType {
     /**
      * APPLICATION_DAVMOUNT_PLUS_XML.
      */
-    APPLICATION_DAVMOUNT_PLUS_XML("application/davmount+xml"),
+    APPLICATION_DAVMOUNT_PLUS_XML("application/davmount+xml", "davmount"),
 
     /**
      * APPLICATION_DCA_RFT.
@@ -173,12 +176,12 @@ public enum MimeType {
     /**
      * APPLICATION_DITA_PLUS_XMLFORMATMAP.
      */
-    APPLICATION_DITA_PLUS_XMLFORMATMAP("application/dita+xml;format=map"),
+    APPLICATION_DITA_PLUS_XMLFORMATMAP("application/dita+xml;format=map", "ditamap"),
 
     /**
      * APPLICATION_DITA_PLUS_XMLFORMATTOPIC.
      */
-    APPLICATION_DITA_PLUS_XMLFORMATTOPIC("application/dita+xml;format=topic"),
+    APPLICATION_DITA_PLUS_XMLFORMATTOPIC("application/dita+xml;format=topic", "dita"),
 
     /**
      * APPLICATION_DITA_PLUS_XMLFORMATTASK.
@@ -193,7 +196,7 @@ public enum MimeType {
     /**
      * APPLICATION_DITA_PLUS_XMLFORMATVAL.
      */
-    APPLICATION_DITA_PLUS_XMLFORMATVAL("application/dita+xml;format=val"),
+    APPLICATION_DITA_PLUS_XMLFORMATVAL("application/dita+xml;format=val", "ditaval"),
 
     /**
      * APPLICATION_DNS.
@@ -208,7 +211,7 @@ public enum MimeType {
     /**
      * APPLICATION_ECMASCRIPT.
      */
-    APPLICATION_ECMASCRIPT("application/ecmascript"),
+    APPLICATION_ECMASCRIPT("application/ecmascript", "ecma"),
 
     /**
      * APPLICATION_EDI_CONSENT.
@@ -228,7 +231,7 @@ public enum MimeType {
     /**
      * APPLICATION_EMMA_PLUS_XML.
      */
-    APPLICATION_EMMA_PLUS_XML("application/emma+xml"),
+    APPLICATION_EMMA_PLUS_XML("application/emma+xml", "emma"),
 
     /**
      * APPLICATION_EPP_PLUS_XML.
@@ -238,7 +241,7 @@ public enum MimeType {
     /**
      * APPLICATION_EPUB_PLUS_ZIP.
      */
-    APPLICATION_EPUB_PLUS_ZIP("application/epub+zip"),
+    APPLICATION_EPUB_PLUS_ZIP("application/epub+zip", "epub"),
 
     /**
      * APPLICATION_ESHOP.
@@ -263,12 +266,12 @@ public enum MimeType {
     /**
      * APPLICATION_FITS.
      */
-    APPLICATION_FITS("application/fits"),
+    APPLICATION_FITS("application/fits", "fits", "fit", "fts"),
 
     /**
      * APPLICATION_FONT_TDPFR.
      */
-    APPLICATION_FONT_TDPFR("application/font-tdpfr"),
+    APPLICATION_FONT_TDPFR("application/font-tdpfr", "pfr"),
 
     /**
      * APPLICATION_H224.
@@ -283,7 +286,7 @@ public enum MimeType {
     /**
      * APPLICATION_HYPERSTUDIO.
      */
-    APPLICATION_HYPERSTUDIO("application/hyperstudio"),
+    APPLICATION_HYPERSTUDIO("application/hyperstudio", "stk"),
 
     /**
      * APPLICATION_IBE_KEY_REQUEST_PLUS_XML.
@@ -308,7 +311,7 @@ public enum MimeType {
     /**
      * APPLICATION_ILLUSTRATOR.
      */
-    APPLICATION_ILLUSTRATOR("application/illustrator"),
+    APPLICATION_ILLUSTRATOR("application/illustrator", "ai"),
 
     /**
      * APPLICATION_IM_ISCOMPOSING_PLUS_XML.
@@ -363,22 +366,22 @@ public enum MimeType {
     /**
      * APPLICATION_JAVA_ARCHIVE.
      */
-    APPLICATION_JAVA_ARCHIVE("application/java-archive"),
+    APPLICATION_JAVA_ARCHIVE("application/java-archive", "jar"),
 
     /**
      * APPLICATION_VND_DOT_ANDROID_DOT_PACKAGE_ARCHIVE.
      */
-    APPLICATION_VND_DOT_ANDROID_DOT_PACKAGE_ARCHIVE("application/vnd.android.package-archive"),
+    APPLICATION_VND_DOT_ANDROID_DOT_PACKAGE_ARCHIVE("application/vnd.android.package-archive", "apk"),
 
     /**
      * APPLICATION_X_TIKA_JAVA_ENTERPRISE_ARCHIVE.
      */
-    APPLICATION_X_TIKA_JAVA_ENTERPRISE_ARCHIVE("application/x-tika-java-enterprise-archive"),
+    APPLICATION_X_TIKA_JAVA_ENTERPRISE_ARCHIVE("application/x-tika-java-enterprise-archive", "ear"),
 
     /**
      * APPLICATION_X_TIKA_JAVA_WEB_ARCHIVE.
      */
-    APPLICATION_X_TIKA_JAVA_WEB_ARCHIVE("application/x-tika-java-web-archive"),
+    APPLICATION_X_TIKA_JAVA_WEB_ARCHIVE("application/x-tika-java-web-archive", "war"),
 
     /**
      * APPLICATION_X_TIKA_UNIX_DUMP.
@@ -388,27 +391,27 @@ public enum MimeType {
     /**
      * APPLICATION_JAVA_SERIALIZED_OBJECT.
      */
-    APPLICATION_JAVA_SERIALIZED_OBJECT("application/java-serialized-object"),
+    APPLICATION_JAVA_SERIALIZED_OBJECT("application/java-serialized-object", "ser"),
 
     /**
      * APPLICATION_JAVASCRIPT.
      */
-    APPLICATION_JAVASCRIPT("application/javascript"),
+    APPLICATION_JAVASCRIPT("application/javascript", "js"),
 
     /**
      * APPLICATION_JSON.
      */
-    APPLICATION_JSON("application/json"),
+    APPLICATION_JSON("application/json", "json"),
 
     /**
      * APPLICATION_JAVA_VM.
      */
-    APPLICATION_JAVA_VM("application/java-vm"),
+    APPLICATION_JAVA_VM("application/java-vm", "class"),
 
     /**
      * APPLICATION_X_JAVA_JNILIB.
      */
-    APPLICATION_X_JAVA_JNILIB("application/x-java-jnilib"),
+    APPLICATION_X_JAVA_JNILIB("application/x-java-jnilib", "jnilib"),
 
     /**
      * APPLICATION_KPML_REQUEST_PLUS_XML.
@@ -423,17 +426,17 @@ public enum MimeType {
     /**
      * APPLICATION_LOST_PLUS_XML.
      */
-    APPLICATION_LOST_PLUS_XML("application/lost+xml"),
+    APPLICATION_LOST_PLUS_XML("application/lost+xml", "lostxml"),
 
     /**
      * APPLICATION_MAC_BINHEX40.
      */
-    APPLICATION_MAC_BINHEX40("application/mac-binhex40"),
+    APPLICATION_MAC_BINHEX40("application/mac-binhex40", "hqx"),
 
     /**
      * APPLICATION_MAC_COMPACTPRO.
      */
-    APPLICATION_MAC_COMPACTPRO("application/mac-compactpro"),
+    APPLICATION_MAC_COMPACTPRO("application/mac-compactpro", "cpt"),
 
     /**
      * APPLICATION_MACWRITEII.
@@ -443,17 +446,17 @@ public enum MimeType {
     /**
      * APPLICATION_MARC.
      */
-    APPLICATION_MARC("application/marc"),
+    APPLICATION_MARC("application/marc", "mrc"),
 
     /**
      * APPLICATION_MATHEMATICA.
      */
-    APPLICATION_MATHEMATICA("application/mathematica"),
+    APPLICATION_MATHEMATICA("application/mathematica", "ma", "nb", "mb"),
 
     /**
      * APPLICATION_MATHML_PLUS_XML.
      */
-    APPLICATION_MATHML_PLUS_XML("application/mathml+xml"),
+    APPLICATION_MATHML_PLUS_XML("application/mathml+xml", "mathml"),
 
     /**
      * APPLICATION_MBMS_ASSOCIATED_PROCEDURE_DESCRIPTION_PLUS_XML.
@@ -508,7 +511,7 @@ public enum MimeType {
     /**
      * APPLICATION_MBOX.
      */
-    APPLICATION_MBOX("application/mbox"),
+    APPLICATION_MBOX("application/mbox", "mbox"),
 
     /**
      * APPLICATION_MEDIA_CONTROL_PLUS_XML.
@@ -518,7 +521,7 @@ public enum MimeType {
     /**
      * APPLICATION_MEDIASERVERCONTROL_PLUS_XML.
      */
-    APPLICATION_MEDIASERVERCONTROL_PLUS_XML("application/mediaservercontrol+xml"),
+    APPLICATION_MEDIASERVERCONTROL_PLUS_XML("application/mediaservercontrol+xml", "mscml"),
 
     /**
      * APPLICATION_MIKEY.
@@ -553,7 +556,7 @@ public enum MimeType {
     /**
      * APPLICATION_MP4.
      */
-    APPLICATION_MP4("application/mp4"),
+    APPLICATION_MP4("application/mp4", "mp4s"),
 
     /**
      * APPLICATION_MPEG4_GENERIC.
@@ -573,7 +576,7 @@ public enum MimeType {
     /**
      * APPLICATION_MSWORD.
      */
-    APPLICATION_MSWORD("application/msword"),
+    APPLICATION_MSWORD("application/msword", "doc", "dot"),
 
     /**
      * APPLICATION_MSWORD2.
@@ -588,7 +591,7 @@ public enum MimeType {
     /**
      * APPLICATION_MXF.
      */
-    APPLICATION_MXF("application/mxf"),
+    APPLICATION_MXF("application/mxf", "mxf"),
 
     /**
      * APPLICATION_NASDATA.
@@ -628,22 +631,22 @@ public enum MimeType {
     /**
      * APPLICATION_OCTET_STREAM.
      */
-    APPLICATION_OCTET_STREAM("application/octet-stream"),
+    APPLICATION_OCTET_STREAM("application/octet-stream", "bin", "dms", "lha", "lrf", "lzh", "so", "dist", "distz", "pkg", "bpk", "dump", "elc", "deploy"),
 
     /**
      * APPLICATION_ODA.
      */
-    APPLICATION_ODA("application/oda"),
+    APPLICATION_ODA("application/oda", "oda"),
 
     /**
      * APPLICATION_OEBPS_PACKAGE_PLUS_XML.
      */
-    APPLICATION_OEBPS_PACKAGE_PLUS_XML("application/oebps-package+xml"),
+    APPLICATION_OEBPS_PACKAGE_PLUS_XML("application/oebps-package+xml", "opf"),
 
     /**
      * APPLICATION_OGG.
      */
-    APPLICATION_OGG("application/ogg"),
+    APPLICATION_OGG("application/ogg", "ogx"),
 
     /**
      * APPLICATION_KATE.
@@ -653,7 +656,7 @@ public enum MimeType {
     /**
      * APPLICATION_ONENOTE.
      */
-    APPLICATION_ONENOTE("application/onenote"),
+    APPLICATION_ONENOTE("application/onenote", "onetoc", "onetoc2", "onetmp", "onepkg"),
 
     /**
      * APPLICATION_PARITYFEC.
@@ -663,17 +666,17 @@ public enum MimeType {
     /**
      * APPLICATION_PATCH_OPS_ERROR_PLUS_XML.
      */
-    APPLICATION_PATCH_OPS_ERROR_PLUS_XML("application/patch-ops-error+xml"),
+    APPLICATION_PATCH_OPS_ERROR_PLUS_XML("application/patch-ops-error+xml", "xer"),
 
     /**
      * APPLICATION_PDF.
      */
-    APPLICATION_PDF("application/pdf"),
+    APPLICATION_PDF("application/pdf", "pdf"),
 
     /**
      * APPLICATION_PGP_ENCRYPTED.
      */
-    APPLICATION_PGP_ENCRYPTED("application/pgp-encrypted"),
+    APPLICATION_PGP_ENCRYPTED("application/pgp-encrypted", "pgp"),
 
     /**
      * APPLICATION_PGP_KEYS.
@@ -683,12 +686,12 @@ public enum MimeType {
     /**
      * APPLICATION_PGP_SIGNATURE.
      */
-    APPLICATION_PGP_SIGNATURE("application/pgp-signature"),
+    APPLICATION_PGP_SIGNATURE("application/pgp-signature", "asc", "sig"),
 
     /**
      * APPLICATION_PICS_RULES.
      */
-    APPLICATION_PICS_RULES("application/pics-rules"),
+    APPLICATION_PICS_RULES("application/pics-rules", "prf"),
 
     /**
      * APPLICATION_PIDF_PLUS_XML.
@@ -703,42 +706,42 @@ public enum MimeType {
     /**
      * APPLICATION_PKCS10.
      */
-    APPLICATION_PKCS10("application/pkcs10"),
+    APPLICATION_PKCS10("application/pkcs10", "p10"),
 
     /**
      * APPLICATION_PKCS7_MIME.
      */
-    APPLICATION_PKCS7_MIME("application/pkcs7-mime"),
+    APPLICATION_PKCS7_MIME("application/pkcs7-mime", "p7m", "p7c"),
 
     /**
      * APPLICATION_PKCS7_SIGNATURE.
      */
-    APPLICATION_PKCS7_SIGNATURE("application/pkcs7-signature"),
+    APPLICATION_PKCS7_SIGNATURE("application/pkcs7-signature", "p7s"),
 
     /**
      * APPLICATION_PKIX_CERT.
      */
-    APPLICATION_PKIX_CERT("application/pkix-cert"),
+    APPLICATION_PKIX_CERT("application/pkix-cert", "cer"),
 
     /**
      * APPLICATION_PKIX_CRL.
      */
-    APPLICATION_PKIX_CRL("application/pkix-crl"),
+    APPLICATION_PKIX_CRL("application/pkix-crl", "crl"),
 
     /**
      * APPLICATION_PKIX_PKIPATH.
      */
-    APPLICATION_PKIX_PKIPATH("application/pkix-pkipath"),
+    APPLICATION_PKIX_PKIPATH("application/pkix-pkipath", "pkipath"),
 
     /**
      * APPLICATION_PKIXCMP.
      */
-    APPLICATION_PKIXCMP("application/pkixcmp"),
+    APPLICATION_PKIXCMP("application/pkixcmp", "pki"),
 
     /**
      * APPLICATION_PLS_PLUS_XML.
      */
-    APPLICATION_PLS_PLUS_XML("application/pls+xml"),
+    APPLICATION_PLS_PLUS_XML("application/pls+xml", "pls"),
 
     /**
      * APPLICATION_POC_SETTINGS_PLUS_XML.
@@ -748,7 +751,7 @@ public enum MimeType {
     /**
      * APPLICATION_POSTSCRIPT.
      */
-    APPLICATION_POSTSCRIPT("application/postscript"),
+    APPLICATION_POSTSCRIPT("application/postscript", "ps", "eps", "epsf", "epsi"),
 
     /**
      * APPLICATION_PRS_DOT_ALVESTRAND_DOT_TITRAX_SHEET.
@@ -758,7 +761,7 @@ public enum MimeType {
     /**
      * APPLICATION_PRS_DOT_CWW.
      */
-    APPLICATION_PRS_DOT_CWW("application/prs.cww"),
+    APPLICATION_PRS_DOT_CWW("application/prs.cww", "cww"),
 
     /**
      * APPLICATION_PRS_DOT_NPREND.
@@ -778,17 +781,17 @@ public enum MimeType {
     /**
      * APPLICATION_RDF_PLUS_XML.
      */
-    APPLICATION_RDF_PLUS_XML("application/rdf+xml"),
+    APPLICATION_RDF_PLUS_XML("application/rdf+xml", "rdf", "owl", "xmp"),
 
     /**
      * APPLICATION_REGINFO_PLUS_XML.
      */
-    APPLICATION_REGINFO_PLUS_XML("application/reginfo+xml"),
+    APPLICATION_REGINFO_PLUS_XML("application/reginfo+xml", "rif"),
 
     /**
      * APPLICATION_RELAX_NG_COMPACT_SYNTAX.
      */
-    APPLICATION_RELAX_NG_COMPACT_SYNTAX("application/relax-ng-compact-syntax"),
+    APPLICATION_RELAX_NG_COMPACT_SYNTAX("application/relax-ng-compact-syntax", "rnc"),
 
     /**
      * APPLICATION_REMOTE_PRINTING.
@@ -798,12 +801,12 @@ public enum MimeType {
     /**
      * APPLICATION_RESOURCE_LISTS_PLUS_XML.
      */
-    APPLICATION_RESOURCE_LISTS_PLUS_XML("application/resource-lists+xml"),
+    APPLICATION_RESOURCE_LISTS_PLUS_XML("application/resource-lists+xml", "rl"),
 
     /**
      * APPLICATION_RESOURCE_LISTS_DIFF_PLUS_XML.
      */
-    APPLICATION_RESOURCE_LISTS_DIFF_PLUS_XML("application/resource-lists-diff+xml"),
+    APPLICATION_RESOURCE_LISTS_DIFF_PLUS_XML("application/resource-lists-diff+xml", "rld"),
 
     /**
      * APPLICATION_RISCOS.
@@ -818,22 +821,22 @@ public enum MimeType {
     /**
      * APPLICATION_RLS_SERVICES_PLUS_XML.
      */
-    APPLICATION_RLS_SERVICES_PLUS_XML("application/rls-services+xml"),
+    APPLICATION_RLS_SERVICES_PLUS_XML("application/rls-services+xml", "rs"),
 
     /**
      * APPLICATION_RSD_PLUS_XML.
      */
-    APPLICATION_RSD_PLUS_XML("application/rsd+xml"),
+    APPLICATION_RSD_PLUS_XML("application/rsd+xml", "rsd"),
 
     /**
      * APPLICATION_RSS_PLUS_XML.
      */
-    APPLICATION_RSS_PLUS_XML("application/rss+xml"),
+    APPLICATION_RSS_PLUS_XML("application/rss+xml", "rss"),
 
     /**
      * APPLICATION_RTF.
      */
-    APPLICATION_RTF("application/rtf"),
+    APPLICATION_RTF("application/rtf", "rtf"),
 
     /**
      * APPLICATION_RTX.
@@ -853,37 +856,37 @@ public enum MimeType {
     /**
      * APPLICATION_SBML_PLUS_XML.
      */
-    APPLICATION_SBML_PLUS_XML("application/sbml+xml"),
+    APPLICATION_SBML_PLUS_XML("application/sbml+xml", "sbml"),
 
     /**
      * APPLICATION_SCVP_CV_REQUEST.
      */
-    APPLICATION_SCVP_CV_REQUEST("application/scvp-cv-request"),
+    APPLICATION_SCVP_CV_REQUEST("application/scvp-cv-request", "scq"),
 
     /**
      * APPLICATION_SCVP_CV_RESPONSE.
      */
-    APPLICATION_SCVP_CV_RESPONSE("application/scvp-cv-response"),
+    APPLICATION_SCVP_CV_RESPONSE("application/scvp-cv-response", "scs"),
 
     /**
      * APPLICATION_SCVP_VP_REQUEST.
      */
-    APPLICATION_SCVP_VP_REQUEST("application/scvp-vp-request"),
+    APPLICATION_SCVP_VP_REQUEST("application/scvp-vp-request", "spq"),
 
     /**
      * APPLICATION_SCVP_VP_RESPONSE.
      */
-    APPLICATION_SCVP_VP_RESPONSE("application/scvp-vp-response"),
+    APPLICATION_SCVP_VP_RESPONSE("application/scvp-vp-response", "spp"),
 
     /**
      * APPLICATION_SDP.
      */
-    APPLICATION_SDP("application/sdp"),
+    APPLICATION_SDP("application/sdp", "sdp"),
 
     /**
      * APPLICATION_SEREAL.
      */
-    APPLICATION_SEREAL("application/sereal"),
+    APPLICATION_SEREAL("application/sereal", "srl"),
 
     /**
      * APPLICATION_SEREALVERSION1.
@@ -908,7 +911,7 @@ public enum MimeType {
     /**
      * APPLICATION_SET_PAYMENT_INITIATION.
      */
-    APPLICATION_SET_PAYMENT_INITIATION("application/set-payment-initiation"),
+    APPLICATION_SET_PAYMENT_INITIATION("application/set-payment-initiation", "setpay"),
 
     /**
      * APPLICATION_SET_REGISTRATION.
@@ -918,7 +921,7 @@ public enum MimeType {
     /**
      * APPLICATION_SET_REGISTRATION_INITIATION.
      */
-    APPLICATION_SET_REGISTRATION_INITIATION("application/set-registration-initiation"),
+    APPLICATION_SET_REGISTRATION_INITIATION("application/set-registration-initiation", "setreg"),
 
     /**
      * APPLICATION_SGML.
@@ -933,7 +936,7 @@ public enum MimeType {
     /**
      * APPLICATION_SHF_PLUS_XML.
      */
-    APPLICATION_SHF_PLUS_XML("application/shf+xml"),
+    APPLICATION_SHF_PLUS_XML("application/shf+xml", "shf"),
 
     /**
      * APPLICATION_SIEVE.
@@ -963,7 +966,7 @@ public enum MimeType {
     /**
      * APPLICATION_SMIL_PLUS_XML.
      */
-    APPLICATION_SMIL_PLUS_XML("application/smil+xml"),
+    APPLICATION_SMIL_PLUS_XML("application/smil+xml", "smi", "smil", "sml"),
 
     /**
      * APPLICATION_SOAP_PLUS_FASTINFOSET.
@@ -978,17 +981,17 @@ public enum MimeType {
     /**
      * APPLICATION_SLDWORKS.
      */
-    APPLICATION_SLDWORKS("application/sldworks"),
+    APPLICATION_SLDWORKS("application/sldworks", "sldprt", "sldasm", "slddrw"),
 
     /**
      * APPLICATION_SPARQL_QUERY.
      */
-    APPLICATION_SPARQL_QUERY("application/sparql-query"),
+    APPLICATION_SPARQL_QUERY("application/sparql-query", "rq"),
 
     /**
      * APPLICATION_SPARQL_RESULTS_PLUS_XML.
      */
-    APPLICATION_SPARQL_RESULTS_PLUS_XML("application/sparql-results+xml"),
+    APPLICATION_SPARQL_RESULTS_PLUS_XML("application/sparql-results+xml", "srx"),
 
     /**
      * APPLICATION_SPIRITS_EVENT_PLUS_XML.
@@ -998,17 +1001,17 @@ public enum MimeType {
     /**
      * APPLICATION_SRGS.
      */
-    APPLICATION_SRGS("application/srgs"),
+    APPLICATION_SRGS("application/srgs", "gram"),
 
     /**
      * APPLICATION_SRGS_PLUS_XML.
      */
-    APPLICATION_SRGS_PLUS_XML("application/srgs+xml"),
+    APPLICATION_SRGS_PLUS_XML("application/srgs+xml", "grxml"),
 
     /**
      * APPLICATION_SSML_PLUS_XML.
      */
-    APPLICATION_SSML_PLUS_XML("application/ssml+xml"),
+    APPLICATION_SSML_PLUS_XML("application/ssml+xml", "ssml"),
 
     /**
      * APPLICATION_TIMESTAMP_QUERY.
@@ -1048,17 +1051,17 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_3GPP_DOT_PIC_BW_LARGE.
      */
-    APPLICATION_VND_DOT_3GPP_DOT_PIC_BW_LARGE("application/vnd.3gpp.pic-bw-large"),
+    APPLICATION_VND_DOT_3GPP_DOT_PIC_BW_LARGE("application/vnd.3gpp.pic-bw-large", "plb"),
 
     /**
      * APPLICATION_VND_DOT_3GPP_DOT_PIC_BW_SMALL.
      */
-    APPLICATION_VND_DOT_3GPP_DOT_PIC_BW_SMALL("application/vnd.3gpp.pic-bw-small"),
+    APPLICATION_VND_DOT_3GPP_DOT_PIC_BW_SMALL("application/vnd.3gpp.pic-bw-small", "psb"),
 
     /**
      * APPLICATION_VND_DOT_3GPP_DOT_PIC_BW_VAR.
      */
-    APPLICATION_VND_DOT_3GPP_DOT_PIC_BW_VAR("application/vnd.3gpp.pic-bw-var"),
+    APPLICATION_VND_DOT_3GPP_DOT_PIC_BW_VAR("application/vnd.3gpp.pic-bw-var", "pvb"),
 
     /**
      * APPLICATION_VND_DOT_3GPP_DOT_SMS.
@@ -1078,57 +1081,57 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_3GPP2_DOT_TCAP.
      */
-    APPLICATION_VND_DOT_3GPP2_DOT_TCAP("application/vnd.3gpp2.tcap"),
+    APPLICATION_VND_DOT_3GPP2_DOT_TCAP("application/vnd.3gpp2.tcap", "tcap"),
 
     /**
      * APPLICATION_VND_DOT_3M_DOT_POST_IT_NOTES.
      */
-    APPLICATION_VND_DOT_3M_DOT_POST_IT_NOTES("application/vnd.3m.post-it-notes"),
+    APPLICATION_VND_DOT_3M_DOT_POST_IT_NOTES("application/vnd.3m.post-it-notes", "pwn"),
 
     /**
      * APPLICATION_VND_DOT_ACCPAC_DOT_SIMPLY_DOT_ASO.
      */
-    APPLICATION_VND_DOT_ACCPAC_DOT_SIMPLY_DOT_ASO("application/vnd.accpac.simply.aso"),
+    APPLICATION_VND_DOT_ACCPAC_DOT_SIMPLY_DOT_ASO("application/vnd.accpac.simply.aso", "aso"),
 
     /**
      * APPLICATION_VND_DOT_ACCPAC_DOT_SIMPLY_DOT_IMP.
      */
-    APPLICATION_VND_DOT_ACCPAC_DOT_SIMPLY_DOT_IMP("application/vnd.accpac.simply.imp"),
+    APPLICATION_VND_DOT_ACCPAC_DOT_SIMPLY_DOT_IMP("application/vnd.accpac.simply.imp", "imp"),
 
     /**
      * APPLICATION_VND_DOT_ACUCOBOL.
      */
-    APPLICATION_VND_DOT_ACUCOBOL("application/vnd.acucobol"),
+    APPLICATION_VND_DOT_ACUCOBOL("application/vnd.acucobol", "acu"),
 
     /**
      * APPLICATION_VND_DOT_ACUCORP.
      */
-    APPLICATION_VND_DOT_ACUCORP("application/vnd.acucorp"),
+    APPLICATION_VND_DOT_ACUCORP("application/vnd.acucorp", "atc", "acutc"),
 
     /**
      * APPLICATION_VND_DOT_ADOBE_DOT_AIR_APPLICATION_INSTALLER_PACKAGE_PLUS_ZIP.
      */
-    APPLICATION_VND_DOT_ADOBE_DOT_AIR_APPLICATION_INSTALLER_PACKAGE_PLUS_ZIP("application/vnd.adobe.air-application-installer-package+zip"),
+    APPLICATION_VND_DOT_ADOBE_DOT_AIR_APPLICATION_INSTALLER_PACKAGE_PLUS_ZIP("application/vnd.adobe.air-application-installer-package+zip", "air"),
 
     /**
      * APPLICATION_VND_DOT_ADOBE_DOT_AFTEREFFECTS_DOT_PROJECT.
      */
-    APPLICATION_VND_DOT_ADOBE_DOT_AFTEREFFECTS_DOT_PROJECT("application/vnd.adobe.aftereffects.project"),
+    APPLICATION_VND_DOT_ADOBE_DOT_AFTEREFFECTS_DOT_PROJECT("application/vnd.adobe.aftereffects.project", "aep"),
 
     /**
      * APPLICATION_VND_DOT_ADOBE_DOT_AFTEREFFECTS_DOT_TEMPLATE.
      */
-    APPLICATION_VND_DOT_ADOBE_DOT_AFTEREFFECTS_DOT_TEMPLATE("application/vnd.adobe.aftereffects.template"),
+    APPLICATION_VND_DOT_ADOBE_DOT_AFTEREFFECTS_DOT_TEMPLATE("application/vnd.adobe.aftereffects.template", "aet"),
 
     /**
      * APPLICATION_VND_DOT_ADOBE_DOT_XDP_PLUS_XML.
      */
-    APPLICATION_VND_DOT_ADOBE_DOT_XDP_PLUS_XML("application/vnd.adobe.xdp+xml"),
+    APPLICATION_VND_DOT_ADOBE_DOT_XDP_PLUS_XML("application/vnd.adobe.xdp+xml", "xdp"),
 
     /**
      * APPLICATION_VND_DOT_ADOBE_DOT_XFDF.
      */
-    APPLICATION_VND_DOT_ADOBE_DOT_XFDF("application/vnd.adobe.xfdf"),
+    APPLICATION_VND_DOT_ADOBE_DOT_XFDF("application/vnd.adobe.xfdf", "xfdf"),
 
     /**
      * APPLICATION_VND_DOT_AETHER_DOT_IMP.
@@ -1138,47 +1141,47 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_AIRZIP_DOT_FILESECURE_DOT_AZF.
      */
-    APPLICATION_VND_DOT_AIRZIP_DOT_FILESECURE_DOT_AZF("application/vnd.airzip.filesecure.azf"),
+    APPLICATION_VND_DOT_AIRZIP_DOT_FILESECURE_DOT_AZF("application/vnd.airzip.filesecure.azf", "azf"),
 
     /**
      * APPLICATION_VND_DOT_AIRZIP_DOT_FILESECURE_DOT_AZS.
      */
-    APPLICATION_VND_DOT_AIRZIP_DOT_FILESECURE_DOT_AZS("application/vnd.airzip.filesecure.azs"),
+    APPLICATION_VND_DOT_AIRZIP_DOT_FILESECURE_DOT_AZS("application/vnd.airzip.filesecure.azs", "azs"),
 
     /**
      * APPLICATION_VND_DOT_AMAZON_DOT_EBOOK.
      */
-    APPLICATION_VND_DOT_AMAZON_DOT_EBOOK("application/vnd.amazon.ebook"),
+    APPLICATION_VND_DOT_AMAZON_DOT_EBOOK("application/vnd.amazon.ebook", "azw"),
 
     /**
      * APPLICATION_VND_DOT_AMERICANDYNAMICS_DOT_ACC.
      */
-    APPLICATION_VND_DOT_AMERICANDYNAMICS_DOT_ACC("application/vnd.americandynamics.acc"),
+    APPLICATION_VND_DOT_AMERICANDYNAMICS_DOT_ACC("application/vnd.americandynamics.acc", "acc"),
 
     /**
      * APPLICATION_VND_DOT_AMIGA_DOT_AMI.
      */
-    APPLICATION_VND_DOT_AMIGA_DOT_AMI("application/vnd.amiga.ami"),
+    APPLICATION_VND_DOT_AMIGA_DOT_AMI("application/vnd.amiga.ami", "ami"),
 
     /**
      * APPLICATION_VND_DOT_ANSER_WEB_CERTIFICATE_ISSUE_INITIATION.
      */
-    APPLICATION_VND_DOT_ANSER_WEB_CERTIFICATE_ISSUE_INITIATION("application/vnd.anser-web-certificate-issue-initiation"),
+    APPLICATION_VND_DOT_ANSER_WEB_CERTIFICATE_ISSUE_INITIATION("application/vnd.anser-web-certificate-issue-initiation", "cii"),
 
     /**
      * APPLICATION_VND_DOT_ANSER_WEB_FUNDS_TRANSFER_INITIATION.
      */
-    APPLICATION_VND_DOT_ANSER_WEB_FUNDS_TRANSFER_INITIATION("application/vnd.anser-web-funds-transfer-initiation"),
+    APPLICATION_VND_DOT_ANSER_WEB_FUNDS_TRANSFER_INITIATION("application/vnd.anser-web-funds-transfer-initiation", "fti"),
 
     /**
      * APPLICATION_VND_DOT_ANTIX_DOT_GAME_COMPONENT.
      */
-    APPLICATION_VND_DOT_ANTIX_DOT_GAME_COMPONENT("application/vnd.antix.game-component"),
+    APPLICATION_VND_DOT_ANTIX_DOT_GAME_COMPONENT("application/vnd.antix.game-component", "atx"),
 
     /**
      * APPLICATION_VND_DOT_APPLE_DOT_INSTALLER_PLUS_XML.
      */
-    APPLICATION_VND_DOT_APPLE_DOT_INSTALLER_PLUS_XML("application/vnd.apple.installer+xml"),
+    APPLICATION_VND_DOT_APPLE_DOT_INSTALLER_PLUS_XML("application/vnd.apple.installer+xml", "mpkg"),
 
     /**
      * APPLICATION_VND_DOT_APPLE_DOT_IWORK.
@@ -1188,17 +1191,17 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_APPLE_DOT_KEYNOTE.
      */
-    APPLICATION_VND_DOT_APPLE_DOT_KEYNOTE("application/vnd.apple.keynote"),
+    APPLICATION_VND_DOT_APPLE_DOT_KEYNOTE("application/vnd.apple.keynote", "key"),
 
     /**
      * APPLICATION_VND_DOT_APPLE_DOT_PAGES.
      */
-    APPLICATION_VND_DOT_APPLE_DOT_PAGES("application/vnd.apple.pages"),
+    APPLICATION_VND_DOT_APPLE_DOT_PAGES("application/vnd.apple.pages", "pages"),
 
     /**
      * APPLICATION_VND_DOT_APPLE_DOT_NUMBERS.
      */
-    APPLICATION_VND_DOT_APPLE_DOT_NUMBERS("application/vnd.apple.numbers"),
+    APPLICATION_VND_DOT_APPLE_DOT_NUMBERS("application/vnd.apple.numbers", "numbers"),
 
     /**
      * APPLICATION_X_TIKA_IWORKS_PROTECTED.
@@ -1208,7 +1211,7 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_ARASTRA_DOT_SWI.
      */
-    APPLICATION_VND_DOT_ARASTRA_DOT_SWI("application/vnd.arastra.swi"),
+    APPLICATION_VND_DOT_ARASTRA_DOT_SWI("application/vnd.arastra.swi", "swi"),
 
     /**
      * APPLICATION_VND_DOT_AUDIOGRAPH.
@@ -1228,7 +1231,7 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_BLUEICE_DOT_MULTIPASS.
      */
-    APPLICATION_VND_DOT_BLUEICE_DOT_MULTIPASS("application/vnd.blueice.multipass"),
+    APPLICATION_VND_DOT_BLUEICE_DOT_MULTIPASS("application/vnd.blueice.multipass", "mpm"),
 
     /**
      * APPLICATION_VND_DOT_BLUETOOTH_DOT_EP_DOT_OOB.
@@ -1238,12 +1241,12 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_BMI.
      */
-    APPLICATION_VND_DOT_BMI("application/vnd.bmi"),
+    APPLICATION_VND_DOT_BMI("application/vnd.bmi", "bmi"),
 
     /**
      * APPLICATION_VND_DOT_BUSINESSOBJECTS.
      */
-    APPLICATION_VND_DOT_BUSINESSOBJECTS("application/vnd.businessobjects"),
+    APPLICATION_VND_DOT_BUSINESSOBJECTS("application/vnd.businessobjects", "rep"),
 
     /**
      * APPLICATION_VND_DOT_CAB_JSCRIPT.
@@ -1268,17 +1271,17 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_CHEMDRAW_PLUS_XML.
      */
-    APPLICATION_VND_DOT_CHEMDRAW_PLUS_XML("application/vnd.chemdraw+xml"),
+    APPLICATION_VND_DOT_CHEMDRAW_PLUS_XML("application/vnd.chemdraw+xml", "cdxml"),
 
     /**
      * APPLICATION_VND_DOT_CHIPNUTS_DOT_KARAOKE_MMD.
      */
-    APPLICATION_VND_DOT_CHIPNUTS_DOT_KARAOKE_MMD("application/vnd.chipnuts.karaoke-mmd"),
+    APPLICATION_VND_DOT_CHIPNUTS_DOT_KARAOKE_MMD("application/vnd.chipnuts.karaoke-mmd", "mmd"),
 
     /**
      * APPLICATION_VND_DOT_CINDERELLA.
      */
-    APPLICATION_VND_DOT_CINDERELLA("application/vnd.cinderella"),
+    APPLICATION_VND_DOT_CINDERELLA("application/vnd.cinderella", "cdy"),
 
     /**
      * APPLICATION_VND_DOT_CIRPACK_DOT_ISDN_EXT.
@@ -1288,12 +1291,12 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_CLAYMORE.
      */
-    APPLICATION_VND_DOT_CLAYMORE("application/vnd.claymore"),
+    APPLICATION_VND_DOT_CLAYMORE("application/vnd.claymore", "cla"),
 
     /**
      * APPLICATION_VND_DOT_CLONK_DOT_C4GROUP.
      */
-    APPLICATION_VND_DOT_CLONK_DOT_C4GROUP("application/vnd.clonk.c4group"),
+    APPLICATION_VND_DOT_CLONK_DOT_C4GROUP("application/vnd.clonk.c4group", "c4g", "c4d", "c4f", "c4p", "c4u"),
 
     /**
      * APPLICATION_VND_DOT_COMMERCE_BATTELLE.
@@ -1303,52 +1306,52 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_COMMONSPACE.
      */
-    APPLICATION_VND_DOT_COMMONSPACE("application/vnd.commonspace"),
+    APPLICATION_VND_DOT_COMMONSPACE("application/vnd.commonspace", "csp"),
 
     /**
      * APPLICATION_VND_DOT_CONTACT_DOT_CMSG.
      */
-    APPLICATION_VND_DOT_CONTACT_DOT_CMSG("application/vnd.contact.cmsg"),
+    APPLICATION_VND_DOT_CONTACT_DOT_CMSG("application/vnd.contact.cmsg", "cdbcmsg"),
 
     /**
      * APPLICATION_VND_DOT_COSMOCALLER.
      */
-    APPLICATION_VND_DOT_COSMOCALLER("application/vnd.cosmocaller"),
+    APPLICATION_VND_DOT_COSMOCALLER("application/vnd.cosmocaller", "cmc"),
 
     /**
      * APPLICATION_VND_DOT_CRICK_DOT_CLICKER.
      */
-    APPLICATION_VND_DOT_CRICK_DOT_CLICKER("application/vnd.crick.clicker"),
+    APPLICATION_VND_DOT_CRICK_DOT_CLICKER("application/vnd.crick.clicker", "clkx"),
 
     /**
      * APPLICATION_VND_DOT_CRICK_DOT_CLICKER_DOT_KEYBOARD.
      */
-    APPLICATION_VND_DOT_CRICK_DOT_CLICKER_DOT_KEYBOARD("application/vnd.crick.clicker.keyboard"),
+    APPLICATION_VND_DOT_CRICK_DOT_CLICKER_DOT_KEYBOARD("application/vnd.crick.clicker.keyboard", "clkk"),
 
     /**
      * APPLICATION_VND_DOT_CRICK_DOT_CLICKER_DOT_PALETTE.
      */
-    APPLICATION_VND_DOT_CRICK_DOT_CLICKER_DOT_PALETTE("application/vnd.crick.clicker.palette"),
+    APPLICATION_VND_DOT_CRICK_DOT_CLICKER_DOT_PALETTE("application/vnd.crick.clicker.palette", "clkp"),
 
     /**
      * APPLICATION_VND_DOT_CRICK_DOT_CLICKER_DOT_TEMPLATE.
      */
-    APPLICATION_VND_DOT_CRICK_DOT_CLICKER_DOT_TEMPLATE("application/vnd.crick.clicker.template"),
+    APPLICATION_VND_DOT_CRICK_DOT_CLICKER_DOT_TEMPLATE("application/vnd.crick.clicker.template", "clkt"),
 
     /**
      * APPLICATION_VND_DOT_CRICK_DOT_CLICKER_DOT_WORDBANK.
      */
-    APPLICATION_VND_DOT_CRICK_DOT_CLICKER_DOT_WORDBANK("application/vnd.crick.clicker.wordbank"),
+    APPLICATION_VND_DOT_CRICK_DOT_CLICKER_DOT_WORDBANK("application/vnd.crick.clicker.wordbank", "clkw"),
 
     /**
      * APPLICATION_VND_DOT_CRITICALTOOLS_DOT_WBS_PLUS_XML.
      */
-    APPLICATION_VND_DOT_CRITICALTOOLS_DOT_WBS_PLUS_XML("application/vnd.criticaltools.wbs+xml"),
+    APPLICATION_VND_DOT_CRITICALTOOLS_DOT_WBS_PLUS_XML("application/vnd.criticaltools.wbs+xml", "wbs"),
 
     /**
      * APPLICATION_VND_DOT_CTC_POSML.
      */
-    APPLICATION_VND_DOT_CTC_POSML("application/vnd.ctc-posml"),
+    APPLICATION_VND_DOT_CTC_POSML("application/vnd.ctc-posml", "pml"),
 
     /**
      * APPLICATION_VND_DOT_CTCT_DOT_WS_PLUS_XML.
@@ -1368,7 +1371,7 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_CUPS_PPD.
      */
-    APPLICATION_VND_DOT_CUPS_PPD("application/vnd.cups-ppd"),
+    APPLICATION_VND_DOT_CUPS_PPD("application/vnd.cups-ppd", "ppd"),
 
     /**
      * APPLICATION_VND_DOT_CUPS_RASTER.
@@ -1383,12 +1386,12 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_CURL_DOT_CAR.
      */
-    APPLICATION_VND_DOT_CURL_DOT_CAR("application/vnd.curl.car"),
+    APPLICATION_VND_DOT_CURL_DOT_CAR("application/vnd.curl.car", "car"),
 
     /**
      * APPLICATION_VND_DOT_CURL_DOT_PCURL.
      */
-    APPLICATION_VND_DOT_CURL_DOT_PCURL("application/vnd.curl.pcurl"),
+    APPLICATION_VND_DOT_CURL_DOT_PCURL("application/vnd.curl.pcurl", "pcurl"),
 
     /**
      * APPLICATION_VND_DOT_CYBANK.
@@ -1398,12 +1401,12 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_DATA_VISION_DOT_RDZ.
      */
-    APPLICATION_VND_DOT_DATA_VISION_DOT_RDZ("application/vnd.data-vision.rdz"),
+    APPLICATION_VND_DOT_DATA_VISION_DOT_RDZ("application/vnd.data-vision.rdz", "rdz"),
 
     /**
      * APPLICATION_VND_DOT_DENOVO_DOT_FCSELAYOUT_LINK.
      */
-    APPLICATION_VND_DOT_DENOVO_DOT_FCSELAYOUT_LINK("application/vnd.denovo.fcselayout-link"),
+    APPLICATION_VND_DOT_DENOVO_DOT_FCSELAYOUT_LINK("application/vnd.denovo.fcselayout-link", "fe_launch"),
 
     /**
      * APPLICATION_VND_DOT_DIR_BI_DOT_PLATE_DL_NOSUFFIX.
@@ -1413,12 +1416,12 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_DNA.
      */
-    APPLICATION_VND_DOT_DNA("application/vnd.dna"),
+    APPLICATION_VND_DOT_DNA("application/vnd.dna", "dna"),
 
     /**
      * APPLICATION_VND_DOT_DOLBY_DOT_MLP.
      */
-    APPLICATION_VND_DOT_DOLBY_DOT_MLP("application/vnd.dolby.mlp"),
+    APPLICATION_VND_DOT_DOLBY_DOT_MLP("application/vnd.dolby.mlp", "mlp"),
 
     /**
      * APPLICATION_VND_DOT_DOLBY_DOT_MOBILE_DOT_1.
@@ -1433,12 +1436,12 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_DPGRAPH.
      */
-    APPLICATION_VND_DOT_DPGRAPH("application/vnd.dpgraph"),
+    APPLICATION_VND_DOT_DPGRAPH("application/vnd.dpgraph", "dpg"),
 
     /**
      * APPLICATION_VND_DOT_DREAMFACTORY.
      */
-    APPLICATION_VND_DOT_DREAMFACTORY("application/vnd.dreamfactory"),
+    APPLICATION_VND_DOT_DREAMFACTORY("application/vnd.dreamfactory", "dfac"),
 
     /**
      * APPLICATION_VND_DOT_DVB_DOT_ESGCONTAINER.
@@ -1513,7 +1516,7 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_DYNAGEO.
      */
-    APPLICATION_VND_DOT_DYNAGEO("application/vnd.dynageo"),
+    APPLICATION_VND_DOT_DYNAGEO("application/vnd.dynageo", "geo"),
 
     /**
      * APPLICATION_VND_DOT_ECDIS_UPDATE.
@@ -1523,7 +1526,7 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_ECOWIN_DOT_CHART.
      */
-    APPLICATION_VND_DOT_ECOWIN_DOT_CHART("application/vnd.ecowin.chart"),
+    APPLICATION_VND_DOT_ECOWIN_DOT_CHART("application/vnd.ecowin.chart", "mag"),
 
     /**
      * APPLICATION_VND_DOT_ECOWIN_DOT_FILEREQUEST.
@@ -1558,32 +1561,32 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_ENLIVEN.
      */
-    APPLICATION_VND_DOT_ENLIVEN("application/vnd.enliven"),
+    APPLICATION_VND_DOT_ENLIVEN("application/vnd.enliven", "nml"),
 
     /**
      * APPLICATION_VND_DOT_EPSON_DOT_ESF.
      */
-    APPLICATION_VND_DOT_EPSON_DOT_ESF("application/vnd.epson.esf"),
+    APPLICATION_VND_DOT_EPSON_DOT_ESF("application/vnd.epson.esf", "esf"),
 
     /**
      * APPLICATION_VND_DOT_EPSON_DOT_MSF.
      */
-    APPLICATION_VND_DOT_EPSON_DOT_MSF("application/vnd.epson.msf"),
+    APPLICATION_VND_DOT_EPSON_DOT_MSF("application/vnd.epson.msf", "msf"),
 
     /**
      * APPLICATION_VND_DOT_EPSON_DOT_QUICKANIME.
      */
-    APPLICATION_VND_DOT_EPSON_DOT_QUICKANIME("application/vnd.epson.quickanime"),
+    APPLICATION_VND_DOT_EPSON_DOT_QUICKANIME("application/vnd.epson.quickanime", "qam"),
 
     /**
      * APPLICATION_VND_DOT_EPSON_DOT_SALT.
      */
-    APPLICATION_VND_DOT_EPSON_DOT_SALT("application/vnd.epson.salt"),
+    APPLICATION_VND_DOT_EPSON_DOT_SALT("application/vnd.epson.salt", "slt"),
 
     /**
      * APPLICATION_VND_DOT_EPSON_DOT_SSF.
      */
-    APPLICATION_VND_DOT_EPSON_DOT_SSF("application/vnd.epson.ssf"),
+    APPLICATION_VND_DOT_EPSON_DOT_SSF("application/vnd.epson.ssf", "ssf"),
 
     /**
      * APPLICATION_VND_DOT_ERICSSON_DOT_QUICKCALL.
@@ -1593,17 +1596,17 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_ESZIGNO3_PLUS_XML.
      */
-    APPLICATION_VND_DOT_ESZIGNO3_PLUS_XML("application/vnd.eszigno3+xml"),
+    APPLICATION_VND_DOT_ESZIGNO3_PLUS_XML("application/vnd.eszigno3+xml", "es3", "et3"),
 
     /**
      * APPLICATION_VND_DOT_ETSI_DOT_ASIC_E_PLUS_ZIP.
      */
-    APPLICATION_VND_DOT_ETSI_DOT_ASIC_E_PLUS_ZIP("application/vnd.etsi.asic-e+zip"),
+    APPLICATION_VND_DOT_ETSI_DOT_ASIC_E_PLUS_ZIP("application/vnd.etsi.asic-e+zip", "asice"),
 
     /**
      * APPLICATION_VND_DOT_ETSI_DOT_ASIC_S_PLUS_ZIP.
      */
-    APPLICATION_VND_DOT_ETSI_DOT_ASIC_S_PLUS_ZIP("application/vnd.etsi.asic-s+zip"),
+    APPLICATION_VND_DOT_ETSI_DOT_ASIC_S_PLUS_ZIP("application/vnd.etsi.asic-s+zip", "asics"),
 
     /**
      * APPLICATION_VND_DOT_ETSI_DOT_AOC_PLUS_XML.
@@ -1673,12 +1676,12 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_EZPIX_ALBUM.
      */
-    APPLICATION_VND_DOT_EZPIX_ALBUM("application/vnd.ezpix-album"),
+    APPLICATION_VND_DOT_EZPIX_ALBUM("application/vnd.ezpix-album", "ez2"),
 
     /**
      * APPLICATION_VND_DOT_EZPIX_PACKAGE.
      */
-    APPLICATION_VND_DOT_EZPIX_PACKAGE("application/vnd.ezpix-package"),
+    APPLICATION_VND_DOT_EZPIX_PACKAGE("application/vnd.ezpix-package", "ez3"),
 
     /**
      * APPLICATION_VND_DOT_F_SECURE_DOT_MOBILE.
@@ -1688,17 +1691,17 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_FDF.
      */
-    APPLICATION_VND_DOT_FDF("application/vnd.fdf"),
+    APPLICATION_VND_DOT_FDF("application/vnd.fdf", "fdf"),
 
     /**
      * APPLICATION_VND_DOT_FDSN_DOT_MSEED.
      */
-    APPLICATION_VND_DOT_FDSN_DOT_MSEED("application/vnd.fdsn.mseed"),
+    APPLICATION_VND_DOT_FDSN_DOT_MSEED("application/vnd.fdsn.mseed", "mseed"),
 
     /**
      * APPLICATION_VND_DOT_FDSN_DOT_SEED.
      */
-    APPLICATION_VND_DOT_FDSN_DOT_SEED("application/vnd.fdsn.seed"),
+    APPLICATION_VND_DOT_FDSN_DOT_SEED("application/vnd.fdsn.seed", "seed", "dataless"),
 
     /**
      * APPLICATION_VND_DOT_FFSNS.
@@ -1713,12 +1716,12 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_FLOGRAPHIT.
      */
-    APPLICATION_VND_DOT_FLOGRAPHIT("application/vnd.flographit"),
+    APPLICATION_VND_DOT_FLOGRAPHIT("application/vnd.flographit", "gph"),
 
     /**
      * APPLICATION_VND_DOT_FLUXTIME_DOT_CLIP.
      */
-    APPLICATION_VND_DOT_FLUXTIME_DOT_CLIP("application/vnd.fluxtime.clip"),
+    APPLICATION_VND_DOT_FLUXTIME_DOT_CLIP("application/vnd.fluxtime.clip", "ftc"),
 
     /**
      * APPLICATION_VND_DOT_FONT_FONTFORGE_SFD.
@@ -1728,47 +1731,47 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_FRAMEMAKER.
      */
-    APPLICATION_VND_DOT_FRAMEMAKER("application/vnd.framemaker"),
+    APPLICATION_VND_DOT_FRAMEMAKER("application/vnd.framemaker", "fm", "frame", "maker", "book"),
 
     /**
      * APPLICATION_VND_DOT_FROGANS_DOT_FNC.
      */
-    APPLICATION_VND_DOT_FROGANS_DOT_FNC("application/vnd.frogans.fnc"),
+    APPLICATION_VND_DOT_FROGANS_DOT_FNC("application/vnd.frogans.fnc", "fnc"),
 
     /**
      * APPLICATION_VND_DOT_FROGANS_DOT_LTF.
      */
-    APPLICATION_VND_DOT_FROGANS_DOT_LTF("application/vnd.frogans.ltf"),
+    APPLICATION_VND_DOT_FROGANS_DOT_LTF("application/vnd.frogans.ltf", "ltf"),
 
     /**
      * APPLICATION_VND_DOT_FSC_DOT_WEBLAUNCH.
      */
-    APPLICATION_VND_DOT_FSC_DOT_WEBLAUNCH("application/vnd.fsc.weblaunch"),
+    APPLICATION_VND_DOT_FSC_DOT_WEBLAUNCH("application/vnd.fsc.weblaunch", "fsc"),
 
     /**
      * APPLICATION_VND_DOT_FUJITSU_DOT_OASYS.
      */
-    APPLICATION_VND_DOT_FUJITSU_DOT_OASYS("application/vnd.fujitsu.oasys"),
+    APPLICATION_VND_DOT_FUJITSU_DOT_OASYS("application/vnd.fujitsu.oasys", "oas"),
 
     /**
      * APPLICATION_VND_DOT_FUJITSU_DOT_OASYS2.
      */
-    APPLICATION_VND_DOT_FUJITSU_DOT_OASYS2("application/vnd.fujitsu.oasys2"),
+    APPLICATION_VND_DOT_FUJITSU_DOT_OASYS2("application/vnd.fujitsu.oasys2", "oa2"),
 
     /**
      * APPLICATION_VND_DOT_FUJITSU_DOT_OASYS3.
      */
-    APPLICATION_VND_DOT_FUJITSU_DOT_OASYS3("application/vnd.fujitsu.oasys3"),
+    APPLICATION_VND_DOT_FUJITSU_DOT_OASYS3("application/vnd.fujitsu.oasys3", "oa3"),
 
     /**
      * APPLICATION_VND_DOT_FUJITSU_DOT_OASYSGP.
      */
-    APPLICATION_VND_DOT_FUJITSU_DOT_OASYSGP("application/vnd.fujitsu.oasysgp"),
+    APPLICATION_VND_DOT_FUJITSU_DOT_OASYSGP("application/vnd.fujitsu.oasysgp", "fg5"),
 
     /**
      * APPLICATION_VND_DOT_FUJITSU_DOT_OASYSPRS.
      */
-    APPLICATION_VND_DOT_FUJITSU_DOT_OASYSPRS("application/vnd.fujitsu.oasysprs"),
+    APPLICATION_VND_DOT_FUJITSU_DOT_OASYSPRS("application/vnd.fujitsu.oasysprs", "bh2"),
 
     /**
      * APPLICATION_VND_DOT_FUJIXEROX_DOT_ART_EX.
@@ -1788,17 +1791,17 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_FUJIXEROX_DOT_DDD.
      */
-    APPLICATION_VND_DOT_FUJIXEROX_DOT_DDD("application/vnd.fujixerox.ddd"),
+    APPLICATION_VND_DOT_FUJIXEROX_DOT_DDD("application/vnd.fujixerox.ddd", "ddd"),
 
     /**
      * APPLICATION_VND_DOT_FUJIXEROX_DOT_DOCUWORKS.
      */
-    APPLICATION_VND_DOT_FUJIXEROX_DOT_DOCUWORKS("application/vnd.fujixerox.docuworks"),
+    APPLICATION_VND_DOT_FUJIXEROX_DOT_DOCUWORKS("application/vnd.fujixerox.docuworks", "xdw"),
 
     /**
      * APPLICATION_VND_DOT_FUJIXEROX_DOT_DOCUWORKS_DOT_BINDER.
      */
-    APPLICATION_VND_DOT_FUJIXEROX_DOT_DOCUWORKS_DOT_BINDER("application/vnd.fujixerox.docuworks.binder"),
+    APPLICATION_VND_DOT_FUJIXEROX_DOT_DOCUWORKS_DOT_BINDER("application/vnd.fujixerox.docuworks.binder", "xbd"),
 
     /**
      * APPLICATION_VND_DOT_FUT_MISNET.
@@ -1808,47 +1811,47 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_FUZZYSHEET.
      */
-    APPLICATION_VND_DOT_FUZZYSHEET("application/vnd.fuzzysheet"),
+    APPLICATION_VND_DOT_FUZZYSHEET("application/vnd.fuzzysheet", "fzs"),
 
     /**
      * APPLICATION_VND_DOT_GENOMATIX_DOT_TUXEDO.
      */
-    APPLICATION_VND_DOT_GENOMATIX_DOT_TUXEDO("application/vnd.genomatix.tuxedo"),
+    APPLICATION_VND_DOT_GENOMATIX_DOT_TUXEDO("application/vnd.genomatix.tuxedo", "txd"),
 
     /**
      * APPLICATION_VND_DOT_GEOGEBRA_DOT_FILE.
      */
-    APPLICATION_VND_DOT_GEOGEBRA_DOT_FILE("application/vnd.geogebra.file"),
+    APPLICATION_VND_DOT_GEOGEBRA_DOT_FILE("application/vnd.geogebra.file", "ggb"),
 
     /**
      * APPLICATION_VND_DOT_GEOGEBRA_DOT_TOOL.
      */
-    APPLICATION_VND_DOT_GEOGEBRA_DOT_TOOL("application/vnd.geogebra.tool"),
+    APPLICATION_VND_DOT_GEOGEBRA_DOT_TOOL("application/vnd.geogebra.tool", "ggt"),
 
     /**
      * APPLICATION_VND_DOT_GEOMETRY_EXPLORER.
      */
-    APPLICATION_VND_DOT_GEOMETRY_EXPLORER("application/vnd.geometry-explorer"),
+    APPLICATION_VND_DOT_GEOMETRY_EXPLORER("application/vnd.geometry-explorer", "gex", "gre"),
 
     /**
      * APPLICATION_VND_DOT_GMX.
      */
-    APPLICATION_VND_DOT_GMX("application/vnd.gmx"),
+    APPLICATION_VND_DOT_GMX("application/vnd.gmx", "gmx"),
 
     /**
      * APPLICATION_VND_DOT_GOOGLE_EARTH_DOT_KML_PLUS_XML.
      */
-    APPLICATION_VND_DOT_GOOGLE_EARTH_DOT_KML_PLUS_XML("application/vnd.google-earth.kml+xml"),
+    APPLICATION_VND_DOT_GOOGLE_EARTH_DOT_KML_PLUS_XML("application/vnd.google-earth.kml+xml", "kml"),
 
     /**
      * APPLICATION_VND_DOT_GOOGLE_EARTH_DOT_KMZ.
      */
-    APPLICATION_VND_DOT_GOOGLE_EARTH_DOT_KMZ("application/vnd.google-earth.kmz"),
+    APPLICATION_VND_DOT_GOOGLE_EARTH_DOT_KMZ("application/vnd.google-earth.kmz", "kmz"),
 
     /**
      * APPLICATION_VND_DOT_GRAFEQ.
      */
-    APPLICATION_VND_DOT_GRAFEQ("application/vnd.grafeq"),
+    APPLICATION_VND_DOT_GRAFEQ("application/vnd.grafeq", "gqf", "gqs"),
 
     /**
      * APPLICATION_VND_DOT_GRIDMP.
@@ -1858,47 +1861,47 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_GROOVE_ACCOUNT.
      */
-    APPLICATION_VND_DOT_GROOVE_ACCOUNT("application/vnd.groove-account"),
+    APPLICATION_VND_DOT_GROOVE_ACCOUNT("application/vnd.groove-account", "gac"),
 
     /**
      * APPLICATION_VND_DOT_GROOVE_HELP.
      */
-    APPLICATION_VND_DOT_GROOVE_HELP("application/vnd.groove-help"),
+    APPLICATION_VND_DOT_GROOVE_HELP("application/vnd.groove-help", "ghf"),
 
     /**
      * APPLICATION_VND_DOT_GROOVE_IDENTITY_MESSAGE.
      */
-    APPLICATION_VND_DOT_GROOVE_IDENTITY_MESSAGE("application/vnd.groove-identity-message"),
+    APPLICATION_VND_DOT_GROOVE_IDENTITY_MESSAGE("application/vnd.groove-identity-message", "gim"),
 
     /**
      * APPLICATION_VND_DOT_GROOVE_INJECTOR.
      */
-    APPLICATION_VND_DOT_GROOVE_INJECTOR("application/vnd.groove-injector"),
+    APPLICATION_VND_DOT_GROOVE_INJECTOR("application/vnd.groove-injector", "grv"),
 
     /**
      * APPLICATION_VND_DOT_GROOVE_TOOL_MESSAGE.
      */
-    APPLICATION_VND_DOT_GROOVE_TOOL_MESSAGE("application/vnd.groove-tool-message"),
+    APPLICATION_VND_DOT_GROOVE_TOOL_MESSAGE("application/vnd.groove-tool-message", "gtm"),
 
     /**
      * APPLICATION_VND_DOT_GROOVE_TOOL_TEMPLATE.
      */
-    APPLICATION_VND_DOT_GROOVE_TOOL_TEMPLATE("application/vnd.groove-tool-template"),
+    APPLICATION_VND_DOT_GROOVE_TOOL_TEMPLATE("application/vnd.groove-tool-template", "tpl"),
 
     /**
      * APPLICATION_VND_DOT_GROOVE_VCARD.
      */
-    APPLICATION_VND_DOT_GROOVE_VCARD("application/vnd.groove-vcard"),
+    APPLICATION_VND_DOT_GROOVE_VCARD("application/vnd.groove-vcard", "vcg"),
 
     /**
      * APPLICATION_VND_DOT_HANDHELD_ENTERTAINMENT_PLUS_XML.
      */
-    APPLICATION_VND_DOT_HANDHELD_ENTERTAINMENT_PLUS_XML("application/vnd.handheld-entertainment+xml"),
+    APPLICATION_VND_DOT_HANDHELD_ENTERTAINMENT_PLUS_XML("application/vnd.handheld-entertainment+xml", "zmm"),
 
     /**
      * APPLICATION_VND_DOT_HBCI.
      */
-    APPLICATION_VND_DOT_HBCI("application/vnd.hbci"),
+    APPLICATION_VND_DOT_HBCI("application/vnd.hbci", "hbci"),
 
     /**
      * APPLICATION_VND_DOT_HCL_BIREPORTS.
@@ -1908,37 +1911,37 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_HHE_DOT_LESSON_PLAYER.
      */
-    APPLICATION_VND_DOT_HHE_DOT_LESSON_PLAYER("application/vnd.hhe.lesson-player"),
+    APPLICATION_VND_DOT_HHE_DOT_LESSON_PLAYER("application/vnd.hhe.lesson-player", "les"),
 
     /**
      * APPLICATION_VND_DOT_HP_HPGL.
      */
-    APPLICATION_VND_DOT_HP_HPGL("application/vnd.hp-hpgl"),
+    APPLICATION_VND_DOT_HP_HPGL("application/vnd.hp-hpgl", "hpgl"),
 
     /**
      * APPLICATION_VND_DOT_HP_HPID.
      */
-    APPLICATION_VND_DOT_HP_HPID("application/vnd.hp-hpid"),
+    APPLICATION_VND_DOT_HP_HPID("application/vnd.hp-hpid", "hpid"),
 
     /**
      * APPLICATION_VND_DOT_HP_HPS.
      */
-    APPLICATION_VND_DOT_HP_HPS("application/vnd.hp-hps"),
+    APPLICATION_VND_DOT_HP_HPS("application/vnd.hp-hps", "hps"),
 
     /**
      * APPLICATION_VND_DOT_HP_JLYT.
      */
-    APPLICATION_VND_DOT_HP_JLYT("application/vnd.hp-jlyt"),
+    APPLICATION_VND_DOT_HP_JLYT("application/vnd.hp-jlyt", "jlt"),
 
     /**
      * APPLICATION_VND_DOT_HP_PCL.
      */
-    APPLICATION_VND_DOT_HP_PCL("application/vnd.hp-pcl"),
+    APPLICATION_VND_DOT_HP_PCL("application/vnd.hp-pcl", "pcl"),
 
     /**
      * APPLICATION_VND_DOT_HP_PCLXL.
      */
-    APPLICATION_VND_DOT_HP_PCLXL("application/vnd.hp-pclxl"),
+    APPLICATION_VND_DOT_HP_PCLXL("application/vnd.hp-pclxl", "pclxl"),
 
     /**
      * APPLICATION_VND_DOT_HTTPHONE.
@@ -1948,12 +1951,12 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_HYDROSTATIX_DOT_SOF_DATA.
      */
-    APPLICATION_VND_DOT_HYDROSTATIX_DOT_SOF_DATA("application/vnd.hydrostatix.sof-data"),
+    APPLICATION_VND_DOT_HYDROSTATIX_DOT_SOF_DATA("application/vnd.hydrostatix.sof-data", "sfd-hdstx"),
 
     /**
      * APPLICATION_VND_DOT_HZN_3D_CROSSWORD.
      */
-    APPLICATION_VND_DOT_HZN_3D_CROSSWORD("application/vnd.hzn-3d-crossword"),
+    APPLICATION_VND_DOT_HZN_3D_CROSSWORD("application/vnd.hzn-3d-crossword", "x3d"),
 
     /**
      * APPLICATION_VND_DOT_IBM_DOT_AFPLINEDATA.
@@ -1968,42 +1971,42 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_IBM_DOT_MINIPAY.
      */
-    APPLICATION_VND_DOT_IBM_DOT_MINIPAY("application/vnd.ibm.minipay"),
+    APPLICATION_VND_DOT_IBM_DOT_MINIPAY("application/vnd.ibm.minipay", "mpy"),
 
     /**
      * APPLICATION_VND_DOT_IBM_DOT_MODCAP.
      */
-    APPLICATION_VND_DOT_IBM_DOT_MODCAP("application/vnd.ibm.modcap"),
+    APPLICATION_VND_DOT_IBM_DOT_MODCAP("application/vnd.ibm.modcap", "afp", "listafp", "list3820"),
 
     /**
      * APPLICATION_VND_DOT_IBM_DOT_RIGHTS_MANAGEMENT.
      */
-    APPLICATION_VND_DOT_IBM_DOT_RIGHTS_MANAGEMENT("application/vnd.ibm.rights-management"),
+    APPLICATION_VND_DOT_IBM_DOT_RIGHTS_MANAGEMENT("application/vnd.ibm.rights-management", "irm"),
 
     /**
      * APPLICATION_VND_DOT_IBM_DOT_SECURE_CONTAINER.
      */
-    APPLICATION_VND_DOT_IBM_DOT_SECURE_CONTAINER("application/vnd.ibm.secure-container"),
+    APPLICATION_VND_DOT_IBM_DOT_SECURE_CONTAINER("application/vnd.ibm.secure-container", "sc"),
 
     /**
      * APPLICATION_VND_DOT_ICCPROFILE.
      */
-    APPLICATION_VND_DOT_ICCPROFILE("application/vnd.iccprofile"),
+    APPLICATION_VND_DOT_ICCPROFILE("application/vnd.iccprofile", "icc", "icm"),
 
     /**
      * APPLICATION_VND_DOT_IGLOADER.
      */
-    APPLICATION_VND_DOT_IGLOADER("application/vnd.igloader"),
+    APPLICATION_VND_DOT_IGLOADER("application/vnd.igloader", "igl"),
 
     /**
      * APPLICATION_VND_DOT_IMMERVISION_IVP.
      */
-    APPLICATION_VND_DOT_IMMERVISION_IVP("application/vnd.immervision-ivp"),
+    APPLICATION_VND_DOT_IMMERVISION_IVP("application/vnd.immervision-ivp", "ivp"),
 
     /**
      * APPLICATION_VND_DOT_IMMERVISION_IVU.
      */
-    APPLICATION_VND_DOT_IMMERVISION_IVU("application/vnd.immervision-ivu"),
+    APPLICATION_VND_DOT_IMMERVISION_IVU("application/vnd.immervision-ivu", "ivu"),
 
     /**
      * APPLICATION_VND_DOT_INFORMEDCONTROL_DOT_RMS_PLUS_XML.
@@ -2018,7 +2021,7 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_INTERCON_DOT_FORMNET.
      */
-    APPLICATION_VND_DOT_INTERCON_DOT_FORMNET("application/vnd.intercon.formnet"),
+    APPLICATION_VND_DOT_INTERCON_DOT_FORMNET("application/vnd.intercon.formnet", "xpw", "xpx"),
 
     /**
      * APPLICATION_VND_DOT_INTERTRUST_DOT_DIGIBOX.
@@ -2033,12 +2036,12 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_INTU_DOT_QBO.
      */
-    APPLICATION_VND_DOT_INTU_DOT_QBO("application/vnd.intu.qbo"),
+    APPLICATION_VND_DOT_INTU_DOT_QBO("application/vnd.intu.qbo", "qbo"),
 
     /**
      * APPLICATION_VND_DOT_INTU_DOT_QFX.
      */
-    APPLICATION_VND_DOT_INTU_DOT_QFX("application/vnd.intu.qfx"),
+    APPLICATION_VND_DOT_INTU_DOT_QFX("application/vnd.intu.qfx", "qfx"),
 
     /**
      * APPLICATION_VND_DOT_IPTC_DOT_G2_DOT_CONCEPTITEM_PLUS_XML.
@@ -2063,22 +2066,22 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_IPUNPLUGGED_DOT_RCPROFILE.
      */
-    APPLICATION_VND_DOT_IPUNPLUGGED_DOT_RCPROFILE("application/vnd.ipunplugged.rcprofile"),
+    APPLICATION_VND_DOT_IPUNPLUGGED_DOT_RCPROFILE("application/vnd.ipunplugged.rcprofile", "rcprofile"),
 
     /**
      * APPLICATION_VND_DOT_IREPOSITORY_DOT_PACKAGE_PLUS_XML.
      */
-    APPLICATION_VND_DOT_IREPOSITORY_DOT_PACKAGE_PLUS_XML("application/vnd.irepository.package+xml"),
+    APPLICATION_VND_DOT_IREPOSITORY_DOT_PACKAGE_PLUS_XML("application/vnd.irepository.package+xml", "irp"),
 
     /**
      * APPLICATION_VND_DOT_IS_XPR.
      */
-    APPLICATION_VND_DOT_IS_XPR("application/vnd.is-xpr"),
+    APPLICATION_VND_DOT_IS_XPR("application/vnd.is-xpr", "xpr"),
 
     /**
      * APPLICATION_VND_DOT_JAM.
      */
-    APPLICATION_VND_DOT_JAM("application/vnd.jam"),
+    APPLICATION_VND_DOT_JAM("application/vnd.jam", "jam"),
 
     /**
      * APPLICATION_VND_DOT_JAPANNET_DIRECTORY_SERVICE.
@@ -2123,87 +2126,87 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_JCP_DOT_JAVAME_DOT_MIDLET_RMS.
      */
-    APPLICATION_VND_DOT_JCP_DOT_JAVAME_DOT_MIDLET_RMS("application/vnd.jcp.javame.midlet-rms"),
+    APPLICATION_VND_DOT_JCP_DOT_JAVAME_DOT_MIDLET_RMS("application/vnd.jcp.javame.midlet-rms", "rms"),
 
     /**
      * APPLICATION_VND_DOT_JISP.
      */
-    APPLICATION_VND_DOT_JISP("application/vnd.jisp"),
+    APPLICATION_VND_DOT_JISP("application/vnd.jisp", "jisp"),
 
     /**
      * APPLICATION_VND_DOT_JOOST_DOT_JODA_ARCHIVE.
      */
-    APPLICATION_VND_DOT_JOOST_DOT_JODA_ARCHIVE("application/vnd.joost.joda-archive"),
+    APPLICATION_VND_DOT_JOOST_DOT_JODA_ARCHIVE("application/vnd.joost.joda-archive", "joda"),
 
     /**
      * APPLICATION_VND_DOT_KAHOOTZ.
      */
-    APPLICATION_VND_DOT_KAHOOTZ("application/vnd.kahootz"),
+    APPLICATION_VND_DOT_KAHOOTZ("application/vnd.kahootz", "ktz", "ktr"),
 
     /**
      * APPLICATION_VND_DOT_KDE_DOT_KARBON.
      */
-    APPLICATION_VND_DOT_KDE_DOT_KARBON("application/vnd.kde.karbon"),
+    APPLICATION_VND_DOT_KDE_DOT_KARBON("application/vnd.kde.karbon", "karbon"),
 
     /**
      * APPLICATION_VND_DOT_KDE_DOT_KCHART.
      */
-    APPLICATION_VND_DOT_KDE_DOT_KCHART("application/vnd.kde.kchart"),
+    APPLICATION_VND_DOT_KDE_DOT_KCHART("application/vnd.kde.kchart", "chrt"),
 
     /**
      * APPLICATION_VND_DOT_KDE_DOT_KFORMULA.
      */
-    APPLICATION_VND_DOT_KDE_DOT_KFORMULA("application/vnd.kde.kformula"),
+    APPLICATION_VND_DOT_KDE_DOT_KFORMULA("application/vnd.kde.kformula", "kfo"),
 
     /**
      * APPLICATION_VND_DOT_KDE_DOT_KIVIO.
      */
-    APPLICATION_VND_DOT_KDE_DOT_KIVIO("application/vnd.kde.kivio"),
+    APPLICATION_VND_DOT_KDE_DOT_KIVIO("application/vnd.kde.kivio", "flw"),
 
     /**
      * APPLICATION_VND_DOT_KDE_DOT_KONTOUR.
      */
-    APPLICATION_VND_DOT_KDE_DOT_KONTOUR("application/vnd.kde.kontour"),
+    APPLICATION_VND_DOT_KDE_DOT_KONTOUR("application/vnd.kde.kontour", "kon"),
 
     /**
      * APPLICATION_VND_DOT_KDE_DOT_KPRESENTER.
      */
-    APPLICATION_VND_DOT_KDE_DOT_KPRESENTER("application/vnd.kde.kpresenter"),
+    APPLICATION_VND_DOT_KDE_DOT_KPRESENTER("application/vnd.kde.kpresenter", "kpr", "kpt"),
 
     /**
      * APPLICATION_VND_DOT_KDE_DOT_KSPREAD.
      */
-    APPLICATION_VND_DOT_KDE_DOT_KSPREAD("application/vnd.kde.kspread"),
+    APPLICATION_VND_DOT_KDE_DOT_KSPREAD("application/vnd.kde.kspread", "ksp"),
 
     /**
      * APPLICATION_VND_DOT_KDE_DOT_KWORD.
      */
-    APPLICATION_VND_DOT_KDE_DOT_KWORD("application/vnd.kde.kword"),
+    APPLICATION_VND_DOT_KDE_DOT_KWORD("application/vnd.kde.kword", "kwd", "kwt"),
 
     /**
      * APPLICATION_VND_DOT_KENAMEAAPP.
      */
-    APPLICATION_VND_DOT_KENAMEAAPP("application/vnd.kenameaapp"),
+    APPLICATION_VND_DOT_KENAMEAAPP("application/vnd.kenameaapp", "htke"),
 
     /**
      * APPLICATION_VND_DOT_KIDSPIRATION.
      */
-    APPLICATION_VND_DOT_KIDSPIRATION("application/vnd.kidspiration"),
+    APPLICATION_VND_DOT_KIDSPIRATION("application/vnd.kidspiration", "kia"),
 
     /**
      * APPLICATION_VND_DOT_KINAR.
      */
-    APPLICATION_VND_DOT_KINAR("application/vnd.kinar"),
+    APPLICATION_VND_DOT_KINAR("application/vnd.kinar", "kne", "knp"),
 
     /**
      * APPLICATION_VND_DOT_KOAN.
      */
-    APPLICATION_VND_DOT_KOAN("application/vnd.koan"),
+    APPLICATION_VND_DOT_KOAN("application/vnd.koan", "skp", "skd", "skt", "skm"),
 
     /**
      * APPLICATION_VND_DOT_KODAK_DESCRIPTOR.
      */
-    APPLICATION_VND_DOT_KODAK_DESCRIPTOR("application/vnd.kodak-descriptor"),
+    APPLICATION_VND_DOT_KODAK_DESCRIPTOR("application/vnd.kodak-descriptor", "sse"),
 
     /**
      * APPLICATION_VND_DOT_LIBERTY_REQUEST_PLUS_XML.
@@ -2213,37 +2216,37 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_LLAMAGRAPHICS_DOT_LIFE_BALANCE_DOT_DESKTOP.
      */
-    APPLICATION_VND_DOT_LLAMAGRAPHICS_DOT_LIFE_BALANCE_DOT_DESKTOP("application/vnd.llamagraphics.life-balance.desktop"),
+    APPLICATION_VND_DOT_LLAMAGRAPHICS_DOT_LIFE_BALANCE_DOT_DESKTOP("application/vnd.llamagraphics.life-balance.desktop", "lbd"),
 
     /**
      * APPLICATION_VND_DOT_LLAMAGRAPHICS_DOT_LIFE_BALANCE_DOT_EXCHANGE_PLUS_XML.
      */
-    APPLICATION_VND_DOT_LLAMAGRAPHICS_DOT_LIFE_BALANCE_DOT_EXCHANGE_PLUS_XML("application/vnd.llamagraphics.life-balance.exchange+xml"),
+    APPLICATION_VND_DOT_LLAMAGRAPHICS_DOT_LIFE_BALANCE_DOT_EXCHANGE_PLUS_XML("application/vnd.llamagraphics.life-balance.exchange+xml", "lbe"),
 
     /**
      * APPLICATION_VND_DOT_LOTUS_1_2_3.
      */
-    APPLICATION_VND_DOT_LOTUS_1_2_3("application/vnd.lotus-1-2-3"),
+    APPLICATION_VND_DOT_LOTUS_1_2_3("application/vnd.lotus-1-2-3", "123"),
 
     /**
      * APPLICATION_VND_DOT_LOTUS_APPROACH.
      */
-    APPLICATION_VND_DOT_LOTUS_APPROACH("application/vnd.lotus-approach"),
+    APPLICATION_VND_DOT_LOTUS_APPROACH("application/vnd.lotus-approach", "apr"),
 
     /**
      * APPLICATION_VND_DOT_LOTUS_FREELANCE.
      */
-    APPLICATION_VND_DOT_LOTUS_FREELANCE("application/vnd.lotus-freelance"),
+    APPLICATION_VND_DOT_LOTUS_FREELANCE("application/vnd.lotus-freelance", "pre"),
 
     /**
      * APPLICATION_VND_DOT_LOTUS_NOTES.
      */
-    APPLICATION_VND_DOT_LOTUS_NOTES("application/vnd.lotus-notes"),
+    APPLICATION_VND_DOT_LOTUS_NOTES("application/vnd.lotus-notes", "nsf"),
 
     /**
      * APPLICATION_VND_DOT_LOTUS_ORGANIZER.
      */
-    APPLICATION_VND_DOT_LOTUS_ORGANIZER("application/vnd.lotus-organizer"),
+    APPLICATION_VND_DOT_LOTUS_ORGANIZER("application/vnd.lotus-organizer", "org"),
 
     /**
      * APPLICATION_VND_DOT_LOTUS_SCREENCAM.
@@ -2253,12 +2256,12 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_LOTUS_WORDPRO.
      */
-    APPLICATION_VND_DOT_LOTUS_WORDPRO("application/vnd.lotus-wordpro"),
+    APPLICATION_VND_DOT_LOTUS_WORDPRO("application/vnd.lotus-wordpro", "lwp"),
 
     /**
      * APPLICATION_VND_DOT_MACPORTS_DOT_PORTPKG.
      */
-    APPLICATION_VND_DOT_MACPORTS_DOT_PORTPKG("application/vnd.macports.portpkg"),
+    APPLICATION_VND_DOT_MACPORTS_DOT_PORTPKG("application/vnd.macports.portpkg", "portpkg"),
 
     /**
      * APPLICATION_VND_DOT_MARLIN_DOT_DRM_DOT_ACTIONTOKEN_PLUS_XML.
@@ -2283,17 +2286,17 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_MCD.
      */
-    APPLICATION_VND_DOT_MCD("application/vnd.mcd"),
+    APPLICATION_VND_DOT_MCD("application/vnd.mcd", "mcd"),
 
     /**
      * APPLICATION_VND_DOT_MEDCALCDATA.
      */
-    APPLICATION_VND_DOT_MEDCALCDATA("application/vnd.medcalcdata"),
+    APPLICATION_VND_DOT_MEDCALCDATA("application/vnd.medcalcdata", "mc1"),
 
     /**
      * APPLICATION_VND_DOT_MEDIASTATION_DOT_CDKEY.
      */
-    APPLICATION_VND_DOT_MEDIASTATION_DOT_CDKEY("application/vnd.mediastation.cdkey"),
+    APPLICATION_VND_DOT_MEDIASTATION_DOT_CDKEY("application/vnd.mediastation.cdkey", "cdkey"),
 
     /**
      * APPLICATION_VND_DOT_MERIDIAN_SLINGSHOT.
@@ -2303,32 +2306,32 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_MFER.
      */
-    APPLICATION_VND_DOT_MFER("application/vnd.mfer"),
+    APPLICATION_VND_DOT_MFER("application/vnd.mfer", "mwf"),
 
     /**
      * APPLICATION_VND_DOT_MFMP.
      */
-    APPLICATION_VND_DOT_MFMP("application/vnd.mfmp"),
+    APPLICATION_VND_DOT_MFMP("application/vnd.mfmp", "mfm"),
 
     /**
      * APPLICATION_VND_DOT_MICROGRAFX_DOT_FLO.
      */
-    APPLICATION_VND_DOT_MICROGRAFX_DOT_FLO("application/vnd.micrografx.flo"),
+    APPLICATION_VND_DOT_MICROGRAFX_DOT_FLO("application/vnd.micrografx.flo", "flo"),
 
     /**
      * APPLICATION_VND_DOT_MICROGRAFX_DOT_IGX.
      */
-    APPLICATION_VND_DOT_MICROGRAFX_DOT_IGX("application/vnd.micrografx.igx"),
+    APPLICATION_VND_DOT_MICROGRAFX_DOT_IGX("application/vnd.micrografx.igx", "igx"),
 
     /**
      * APPLICATION_VND_DOT_MIF.
      */
-    APPLICATION_VND_DOT_MIF("application/vnd.mif"),
+    APPLICATION_VND_DOT_MIF("application/vnd.mif", "mif"),
 
     /**
      * APPLICATION_VND_DOT_MINDJET_DOT_MINDMANAGER.
      */
-    APPLICATION_VND_DOT_MINDJET_DOT_MINDMANAGER("application/vnd.mindjet.mindmanager"),
+    APPLICATION_VND_DOT_MINDJET_DOT_MINDMANAGER("application/vnd.mindjet.mindmanager", "mmp", "mmap", "mmpt", "mmat", "mmmp", "mmas"),
 
     /**
      * APPLICATION_VND_DOT_MINISOFT_HP3000_SAVE.
@@ -2343,47 +2346,47 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_MOBIUS_DOT_DAF.
      */
-    APPLICATION_VND_DOT_MOBIUS_DOT_DAF("application/vnd.mobius.daf"),
+    APPLICATION_VND_DOT_MOBIUS_DOT_DAF("application/vnd.mobius.daf", "daf"),
 
     /**
      * APPLICATION_VND_DOT_MOBIUS_DOT_DIS.
      */
-    APPLICATION_VND_DOT_MOBIUS_DOT_DIS("application/vnd.mobius.dis"),
+    APPLICATION_VND_DOT_MOBIUS_DOT_DIS("application/vnd.mobius.dis", "dis"),
 
     /**
      * APPLICATION_VND_DOT_MOBIUS_DOT_MBK.
      */
-    APPLICATION_VND_DOT_MOBIUS_DOT_MBK("application/vnd.mobius.mbk"),
+    APPLICATION_VND_DOT_MOBIUS_DOT_MBK("application/vnd.mobius.mbk", "mbk"),
 
     /**
      * APPLICATION_VND_DOT_MOBIUS_DOT_MQY.
      */
-    APPLICATION_VND_DOT_MOBIUS_DOT_MQY("application/vnd.mobius.mqy"),
+    APPLICATION_VND_DOT_MOBIUS_DOT_MQY("application/vnd.mobius.mqy", "mqy"),
 
     /**
      * APPLICATION_VND_DOT_MOBIUS_DOT_MSL.
      */
-    APPLICATION_VND_DOT_MOBIUS_DOT_MSL("application/vnd.mobius.msl"),
+    APPLICATION_VND_DOT_MOBIUS_DOT_MSL("application/vnd.mobius.msl", "msl"),
 
     /**
      * APPLICATION_VND_DOT_MOBIUS_DOT_PLC.
      */
-    APPLICATION_VND_DOT_MOBIUS_DOT_PLC("application/vnd.mobius.plc"),
+    APPLICATION_VND_DOT_MOBIUS_DOT_PLC("application/vnd.mobius.plc", "plc"),
 
     /**
      * APPLICATION_VND_DOT_MOBIUS_DOT_TXF.
      */
-    APPLICATION_VND_DOT_MOBIUS_DOT_TXF("application/vnd.mobius.txf"),
+    APPLICATION_VND_DOT_MOBIUS_DOT_TXF("application/vnd.mobius.txf", "txf"),
 
     /**
      * APPLICATION_VND_DOT_MOPHUN_DOT_APPLICATION.
      */
-    APPLICATION_VND_DOT_MOPHUN_DOT_APPLICATION("application/vnd.mophun.application"),
+    APPLICATION_VND_DOT_MOPHUN_DOT_APPLICATION("application/vnd.mophun.application", "mpn"),
 
     /**
      * APPLICATION_VND_DOT_MOPHUN_DOT_CERTIFICATE.
      */
-    APPLICATION_VND_DOT_MOPHUN_DOT_CERTIFICATE("application/vnd.mophun.certificate"),
+    APPLICATION_VND_DOT_MOPHUN_DOT_CERTIFICATE("application/vnd.mophun.certificate", "mpc"),
 
     /**
      * APPLICATION_VND_DOT_MOTOROLA_DOT_FLEXSUITE.
@@ -2428,12 +2431,12 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_MOZILLA_DOT_XUL_PLUS_XML.
      */
-    APPLICATION_VND_DOT_MOZILLA_DOT_XUL_PLUS_XML("application/vnd.mozilla.xul+xml"),
+    APPLICATION_VND_DOT_MOZILLA_DOT_XUL_PLUS_XML("application/vnd.mozilla.xul+xml", "xul"),
 
     /**
      * APPLICATION_VND_DOT_MS_ARTGALRY.
      */
-    APPLICATION_VND_DOT_MS_ARTGALRY("application/vnd.ms-artgalry"),
+    APPLICATION_VND_DOT_MS_ARTGALRY("application/vnd.ms-artgalry", "cil"),
 
     /**
      * APPLICATION_VND_DOT_MS_ASF.
@@ -2443,27 +2446,27 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_MS_CAB_COMPRESSED.
      */
-    APPLICATION_VND_DOT_MS_CAB_COMPRESSED("application/vnd.ms-cab-compressed"),
+    APPLICATION_VND_DOT_MS_CAB_COMPRESSED("application/vnd.ms-cab-compressed", "cab"),
 
     /**
      * APPLICATION_VND_DOT_MS_EXCEL.
      */
-    APPLICATION_VND_DOT_MS_EXCEL("application/vnd.ms-excel"),
+    APPLICATION_VND_DOT_MS_EXCEL("application/vnd.ms-excel", "xls", "xlm", "xla", "xlc", "xlt", "xlw", "xll", "xld"),
 
     /**
      * APPLICATION_VND_DOT_MS_EXCEL_DOT_ADDIN_DOT_MACROENABLED_DOT_12.
      */
-    APPLICATION_VND_DOT_MS_EXCEL_DOT_ADDIN_DOT_MACROENABLED_DOT_12("application/vnd.ms-excel.addin.macroenabled.12"),
+    APPLICATION_VND_DOT_MS_EXCEL_DOT_ADDIN_DOT_MACROENABLED_DOT_12("application/vnd.ms-excel.addin.macroenabled.12", "xlam"),
 
     /**
      * APPLICATION_VND_DOT_MS_EXCEL_DOT_SHEET_DOT_MACROENABLED_DOT_12.
      */
-    APPLICATION_VND_DOT_MS_EXCEL_DOT_SHEET_DOT_MACROENABLED_DOT_12("application/vnd.ms-excel.sheet.macroenabled.12"),
+    APPLICATION_VND_DOT_MS_EXCEL_DOT_SHEET_DOT_MACROENABLED_DOT_12("application/vnd.ms-excel.sheet.macroenabled.12", "xlsm"),
 
     /**
      * APPLICATION_VND_DOT_MS_EXCEL_DOT_SHEET_DOT_BINARY_DOT_MACROENABLED_DOT_12.
      */
-    APPLICATION_VND_DOT_MS_EXCEL_DOT_SHEET_DOT_BINARY_DOT_MACROENABLED_DOT_12("application/vnd.ms-excel.sheet.binary.macroenabled.12"),
+    APPLICATION_VND_DOT_MS_EXCEL_DOT_SHEET_DOT_BINARY_DOT_MACROENABLED_DOT_12("application/vnd.ms-excel.sheet.binary.macroenabled.12", "xlsb"),
 
     /**
      * APPLICATION_VND_DOT_MS_EXCEL_DOT_SHEET_DOT_4.
@@ -2493,42 +2496,42 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_MS_FONTOBJECT.
      */
-    APPLICATION_VND_DOT_MS_FONTOBJECT("application/vnd.ms-fontobject"),
+    APPLICATION_VND_DOT_MS_FONTOBJECT("application/vnd.ms-fontobject", "eot"),
 
     /**
      * APPLICATION_VND_DOT_MS_HTMLHELP.
      */
-    APPLICATION_VND_DOT_MS_HTMLHELP("application/vnd.ms-htmlhelp"),
+    APPLICATION_VND_DOT_MS_HTMLHELP("application/vnd.ms-htmlhelp", "chm"),
 
     /**
      * APPLICATION_VND_DOT_MS_IMS.
      */
-    APPLICATION_VND_DOT_MS_IMS("application/vnd.ms-ims"),
+    APPLICATION_VND_DOT_MS_IMS("application/vnd.ms-ims", "ims"),
 
     /**
      * APPLICATION_VND_DOT_MS_LRM.
      */
-    APPLICATION_VND_DOT_MS_LRM("application/vnd.ms-lrm"),
+    APPLICATION_VND_DOT_MS_LRM("application/vnd.ms-lrm", "lrm"),
 
     /**
      * APPLICATION_VND_DOT_MS_OUTLOOK.
      */
-    APPLICATION_VND_DOT_MS_OUTLOOK("application/vnd.ms-outlook"),
+    APPLICATION_VND_DOT_MS_OUTLOOK("application/vnd.ms-outlook", "msg"),
 
     /**
      * APPLICATION_VND_DOT_MS_OUTLOOK_PST.
      */
-    APPLICATION_VND_DOT_MS_OUTLOOK_PST("application/vnd.ms-outlook-pst"),
+    APPLICATION_VND_DOT_MS_OUTLOOK_PST("application/vnd.ms-outlook-pst", "pst", "ost"),
 
     /**
      * APPLICATION_VND_DOT_MS_PKI_DOT_SECCAT.
      */
-    APPLICATION_VND_DOT_MS_PKI_DOT_SECCAT("application/vnd.ms-pki.seccat"),
+    APPLICATION_VND_DOT_MS_PKI_DOT_SECCAT("application/vnd.ms-pki.seccat", "cat"),
 
     /**
      * APPLICATION_VND_DOT_MS_PKI_DOT_STL.
      */
-    APPLICATION_VND_DOT_MS_PKI_DOT_STL("application/vnd.ms-pki.stl"),
+    APPLICATION_VND_DOT_MS_PKI_DOT_STL("application/vnd.ms-pki.stl", "stl"),
 
     /**
      * APPLICATION_VND_DOT_MS_PLAYREADY_DOT_INITIATOR_PLUS_XML.
@@ -2538,42 +2541,42 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_MS_POWERPOINT.
      */
-    APPLICATION_VND_DOT_MS_POWERPOINT("application/vnd.ms-powerpoint"),
+    APPLICATION_VND_DOT_MS_POWERPOINT("application/vnd.ms-powerpoint", "ppt", "ppz", "pps", "pot", "ppa"),
 
     /**
      * APPLICATION_VND_DOT_MS_POWERPOINT_DOT_ADDIN_DOT_MACROENABLED_DOT_12.
      */
-    APPLICATION_VND_DOT_MS_POWERPOINT_DOT_ADDIN_DOT_MACROENABLED_DOT_12("application/vnd.ms-powerpoint.addin.macroenabled.12"),
+    APPLICATION_VND_DOT_MS_POWERPOINT_DOT_ADDIN_DOT_MACROENABLED_DOT_12("application/vnd.ms-powerpoint.addin.macroenabled.12", "ppam"),
 
     /**
      * APPLICATION_VND_DOT_MS_POWERPOINT_DOT_PRESENTATION_DOT_MACROENABLED_DOT_12.
      */
-    APPLICATION_VND_DOT_MS_POWERPOINT_DOT_PRESENTATION_DOT_MACROENABLED_DOT_12("application/vnd.ms-powerpoint.presentation.macroenabled.12"),
+    APPLICATION_VND_DOT_MS_POWERPOINT_DOT_PRESENTATION_DOT_MACROENABLED_DOT_12("application/vnd.ms-powerpoint.presentation.macroenabled.12", "pptm"),
 
     /**
      * APPLICATION_VND_DOT_MS_POWERPOINT_DOT_SLIDE_DOT_MACROENABLED_DOT_12.
      */
-    APPLICATION_VND_DOT_MS_POWERPOINT_DOT_SLIDE_DOT_MACROENABLED_DOT_12("application/vnd.ms-powerpoint.slide.macroenabled.12"),
+    APPLICATION_VND_DOT_MS_POWERPOINT_DOT_SLIDE_DOT_MACROENABLED_DOT_12("application/vnd.ms-powerpoint.slide.macroenabled.12", "sldm"),
 
     /**
      * APPLICATION_VND_DOT_MS_POWERPOINT_DOT_SLIDESHOW_DOT_MACROENABLED_DOT_12.
      */
-    APPLICATION_VND_DOT_MS_POWERPOINT_DOT_SLIDESHOW_DOT_MACROENABLED_DOT_12("application/vnd.ms-powerpoint.slideshow.macroenabled.12"),
+    APPLICATION_VND_DOT_MS_POWERPOINT_DOT_SLIDESHOW_DOT_MACROENABLED_DOT_12("application/vnd.ms-powerpoint.slideshow.macroenabled.12", "ppsm"),
 
     /**
      * APPLICATION_VND_DOT_MS_POWERPOINT_DOT_TEMPLATE_DOT_MACROENABLED_DOT_12.
      */
-    APPLICATION_VND_DOT_MS_POWERPOINT_DOT_TEMPLATE_DOT_MACROENABLED_DOT_12("application/vnd.ms-powerpoint.template.macroenabled.12"),
+    APPLICATION_VND_DOT_MS_POWERPOINT_DOT_TEMPLATE_DOT_MACROENABLED_DOT_12("application/vnd.ms-powerpoint.template.macroenabled.12", "potm"),
 
     /**
      * APPLICATION_VND_DOT_MS_PROJECT.
      */
-    APPLICATION_VND_DOT_MS_PROJECT("application/vnd.ms-project"),
+    APPLICATION_VND_DOT_MS_PROJECT("application/vnd.ms-project", "mpp", "mpt"),
 
     /**
      * APPLICATION_X_PROJECT.
      */
-    APPLICATION_X_PROJECT("application/x-project"),
+    APPLICATION_X_PROJECT("application/x-project", "mpx"),
 
     /**
      * APPLICATION_VND_DOT_MS_TNEF.
@@ -2603,32 +2606,32 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_MS_WORD_DOT_DOCUMENT_DOT_MACROENABLED_DOT_12.
      */
-    APPLICATION_VND_DOT_MS_WORD_DOT_DOCUMENT_DOT_MACROENABLED_DOT_12("application/vnd.ms-word.document.macroenabled.12"),
+    APPLICATION_VND_DOT_MS_WORD_DOT_DOCUMENT_DOT_MACROENABLED_DOT_12("application/vnd.ms-word.document.macroenabled.12", "docm"),
 
     /**
      * APPLICATION_VND_DOT_MS_WORD_DOT_TEMPLATE_DOT_MACROENABLED_DOT_12.
      */
-    APPLICATION_VND_DOT_MS_WORD_DOT_TEMPLATE_DOT_MACROENABLED_DOT_12("application/vnd.ms-word.template.macroenabled.12"),
+    APPLICATION_VND_DOT_MS_WORD_DOT_TEMPLATE_DOT_MACROENABLED_DOT_12("application/vnd.ms-word.template.macroenabled.12", "dotm"),
 
     /**
      * APPLICATION_VND_DOT_MS_WORKS.
      */
-    APPLICATION_VND_DOT_MS_WORKS("application/vnd.ms-works"),
+    APPLICATION_VND_DOT_MS_WORKS("application/vnd.ms-works", "wps", "wks", "wcm", "wdb"),
 
     /**
      * APPLICATION_VND_DOT_MS_WPL.
      */
-    APPLICATION_VND_DOT_MS_WPL("application/vnd.ms-wpl"),
+    APPLICATION_VND_DOT_MS_WPL("application/vnd.ms-wpl", "wpl"),
 
     /**
      * APPLICATION_VND_DOT_MS_XPSDOCUMENT.
      */
-    APPLICATION_VND_DOT_MS_XPSDOCUMENT("application/vnd.ms-xpsdocument"),
+    APPLICATION_VND_DOT_MS_XPSDOCUMENT("application/vnd.ms-xpsdocument", "xps", "oxps"),
 
     /**
      * APPLICATION_VND_DOT_MSEQ.
      */
-    APPLICATION_VND_DOT_MSEQ("application/vnd.mseq"),
+    APPLICATION_VND_DOT_MSEQ("application/vnd.mseq", "mseq"),
 
     /**
      * APPLICATION_VND_DOT_MSIGN.
@@ -2653,12 +2656,12 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_MUSICIAN.
      */
-    APPLICATION_VND_DOT_MUSICIAN("application/vnd.musician"),
+    APPLICATION_VND_DOT_MUSICIAN("application/vnd.musician", "mus"),
 
     /**
      * APPLICATION_VND_DOT_MUVEE_DOT_STYLE.
      */
-    APPLICATION_VND_DOT_MUVEE_DOT_STYLE("application/vnd.muvee.style"),
+    APPLICATION_VND_DOT_MUVEE_DOT_STYLE("application/vnd.muvee.style", "msty"),
 
     /**
      * APPLICATION_VND_DOT_NCD_DOT_CONTROL.
@@ -2683,22 +2686,22 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_NEUROLANGUAGE_DOT_NLU.
      */
-    APPLICATION_VND_DOT_NEUROLANGUAGE_DOT_NLU("application/vnd.neurolanguage.nlu"),
+    APPLICATION_VND_DOT_NEUROLANGUAGE_DOT_NLU("application/vnd.neurolanguage.nlu", "nlu"),
 
     /**
      * APPLICATION_VND_DOT_NOBLENET_DIRECTORY.
      */
-    APPLICATION_VND_DOT_NOBLENET_DIRECTORY("application/vnd.noblenet-directory"),
+    APPLICATION_VND_DOT_NOBLENET_DIRECTORY("application/vnd.noblenet-directory", "nnd"),
 
     /**
      * APPLICATION_VND_DOT_NOBLENET_SEALER.
      */
-    APPLICATION_VND_DOT_NOBLENET_SEALER("application/vnd.noblenet-sealer"),
+    APPLICATION_VND_DOT_NOBLENET_SEALER("application/vnd.noblenet-sealer", "nns"),
 
     /**
      * APPLICATION_VND_DOT_NOBLENET_WEB.
      */
-    APPLICATION_VND_DOT_NOBLENET_WEB("application/vnd.noblenet-web"),
+    APPLICATION_VND_DOT_NOBLENET_WEB("application/vnd.noblenet-web", "nnw"),
 
     /**
      * APPLICATION_VND_DOT_NOKIA_DOT_CATALOGS.
@@ -2748,12 +2751,12 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_NOKIA_DOT_N_GAGE_DOT_DATA.
      */
-    APPLICATION_VND_DOT_NOKIA_DOT_N_GAGE_DOT_DATA("application/vnd.nokia.n-gage.data"),
+    APPLICATION_VND_DOT_NOKIA_DOT_N_GAGE_DOT_DATA("application/vnd.nokia.n-gage.data", "ngdat"),
 
     /**
      * APPLICATION_VND_DOT_NOKIA_DOT_N_GAGE_DOT_SYMBIAN_DOT_INSTALL.
      */
-    APPLICATION_VND_DOT_NOKIA_DOT_N_GAGE_DOT_SYMBIAN_DOT_INSTALL("application/vnd.nokia.n-gage.symbian.install"),
+    APPLICATION_VND_DOT_NOKIA_DOT_N_GAGE_DOT_SYMBIAN_DOT_INSTALL("application/vnd.nokia.n-gage.symbian.install", "n-gage"),
 
     /**
      * APPLICATION_VND_DOT_NOKIA_DOT_NCD.
@@ -2773,112 +2776,112 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_NOKIA_DOT_RADIO_PRESET.
      */
-    APPLICATION_VND_DOT_NOKIA_DOT_RADIO_PRESET("application/vnd.nokia.radio-preset"),
+    APPLICATION_VND_DOT_NOKIA_DOT_RADIO_PRESET("application/vnd.nokia.radio-preset", "rpst"),
 
     /**
      * APPLICATION_VND_DOT_NOKIA_DOT_RADIO_PRESETS.
      */
-    APPLICATION_VND_DOT_NOKIA_DOT_RADIO_PRESETS("application/vnd.nokia.radio-presets"),
+    APPLICATION_VND_DOT_NOKIA_DOT_RADIO_PRESETS("application/vnd.nokia.radio-presets", "rpss"),
 
     /**
      * APPLICATION_VND_DOT_NOVADIGM_DOT_EDM.
      */
-    APPLICATION_VND_DOT_NOVADIGM_DOT_EDM("application/vnd.novadigm.edm"),
+    APPLICATION_VND_DOT_NOVADIGM_DOT_EDM("application/vnd.novadigm.edm", "edm"),
 
     /**
      * APPLICATION_VND_DOT_NOVADIGM_DOT_EDX.
      */
-    APPLICATION_VND_DOT_NOVADIGM_DOT_EDX("application/vnd.novadigm.edx"),
+    APPLICATION_VND_DOT_NOVADIGM_DOT_EDX("application/vnd.novadigm.edx", "edx"),
 
     /**
      * APPLICATION_VND_DOT_NOVADIGM_DOT_EXT.
      */
-    APPLICATION_VND_DOT_NOVADIGM_DOT_EXT("application/vnd.novadigm.ext"),
+    APPLICATION_VND_DOT_NOVADIGM_DOT_EXT("application/vnd.novadigm.ext", "ext"),
 
     /**
      * APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_CHART.
      */
-    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_CHART("application/vnd.oasis.opendocument.chart"),
+    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_CHART("application/vnd.oasis.opendocument.chart", "odc"),
 
     /**
      * APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_CHART_TEMPLATE.
      */
-    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_CHART_TEMPLATE("application/vnd.oasis.opendocument.chart-template"),
+    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_CHART_TEMPLATE("application/vnd.oasis.opendocument.chart-template", "otc"),
 
     /**
      * APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_DATABASE.
      */
-    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_DATABASE("application/vnd.oasis.opendocument.database"),
+    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_DATABASE("application/vnd.oasis.opendocument.database", "odb"),
 
     /**
      * APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_FORMULA.
      */
-    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_FORMULA("application/vnd.oasis.opendocument.formula"),
+    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_FORMULA("application/vnd.oasis.opendocument.formula", "odf"),
 
     /**
      * APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_FORMULA_TEMPLATE.
      */
-    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_FORMULA_TEMPLATE("application/vnd.oasis.opendocument.formula-template"),
+    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_FORMULA_TEMPLATE("application/vnd.oasis.opendocument.formula-template", "odft"),
 
     /**
      * APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_GRAPHICS.
      */
-    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_GRAPHICS("application/vnd.oasis.opendocument.graphics"),
+    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_GRAPHICS("application/vnd.oasis.opendocument.graphics", "odg"),
 
     /**
      * APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_GRAPHICS_TEMPLATE.
      */
-    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_GRAPHICS_TEMPLATE("application/vnd.oasis.opendocument.graphics-template"),
+    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_GRAPHICS_TEMPLATE("application/vnd.oasis.opendocument.graphics-template", "otg"),
 
     /**
      * APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_IMAGE.
      */
-    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_IMAGE("application/vnd.oasis.opendocument.image"),
+    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_IMAGE("application/vnd.oasis.opendocument.image", "odi"),
 
     /**
      * APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_IMAGE_TEMPLATE.
      */
-    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_IMAGE_TEMPLATE("application/vnd.oasis.opendocument.image-template"),
+    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_IMAGE_TEMPLATE("application/vnd.oasis.opendocument.image-template", "oti"),
 
     /**
      * APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_PRESENTATION.
      */
-    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_PRESENTATION("application/vnd.oasis.opendocument.presentation"),
+    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_PRESENTATION("application/vnd.oasis.opendocument.presentation", "odp"),
 
     /**
      * APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_PRESENTATION_TEMPLATE.
      */
-    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_PRESENTATION_TEMPLATE("application/vnd.oasis.opendocument.presentation-template"),
+    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_PRESENTATION_TEMPLATE("application/vnd.oasis.opendocument.presentation-template", "otp"),
 
     /**
      * APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_SPREADSHEET.
      */
-    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_SPREADSHEET("application/vnd.oasis.opendocument.spreadsheet"),
+    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_SPREADSHEET("application/vnd.oasis.opendocument.spreadsheet", "ods"),
 
     /**
      * APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_SPREADSHEET_TEMPLATE.
      */
-    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_SPREADSHEET_TEMPLATE("application/vnd.oasis.opendocument.spreadsheet-template"),
+    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_SPREADSHEET_TEMPLATE("application/vnd.oasis.opendocument.spreadsheet-template", "ots"),
 
     /**
      * APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_TEXT.
      */
-    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_TEXT("application/vnd.oasis.opendocument.text"),
+    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_TEXT("application/vnd.oasis.opendocument.text", "odt"),
 
     /**
      * APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_TEXT_MASTER.
      */
-    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_TEXT_MASTER("application/vnd.oasis.opendocument.text-master"),
+    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_TEXT_MASTER("application/vnd.oasis.opendocument.text-master", "otm"),
 
     /**
      * APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_TEXT_TEMPLATE.
      */
-    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_TEXT_TEMPLATE("application/vnd.oasis.opendocument.text-template"),
+    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_TEXT_TEMPLATE("application/vnd.oasis.opendocument.text-template", "ott"),
 
     /**
      * APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_TEXT_WEB.
      */
-    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_TEXT_WEB("application/vnd.oasis.opendocument.text-web"),
+    APPLICATION_VND_DOT_OASIS_DOT_OPENDOCUMENT_DOT_TEXT_WEB("application/vnd.oasis.opendocument.text-web", "oth"),
 
     /**
      * APPLICATION_VND_DOT_OBN.
@@ -2888,7 +2891,7 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_OLPC_SUGAR.
      */
-    APPLICATION_VND_DOT_OLPC_SUGAR("application/vnd.olpc-sugar"),
+    APPLICATION_VND_DOT_OLPC_SUGAR("application/vnd.olpc-sugar", "xo"),
 
     /**
      * APPLICATION_VND_DOT_OMA_SCWS_CONFIG.
@@ -2983,7 +2986,7 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_OMA_DOT_DD2_PLUS_XML.
      */
-    APPLICATION_VND_DOT_OMA_DOT_DD2_PLUS_XML("application/vnd.oma.dd2+xml"),
+    APPLICATION_VND_DOT_OMA_DOT_DD2_PLUS_XML("application/vnd.oma.dd2+xml", "dd2"),
 
     /**
      * APPLICATION_VND_DOT_OMA_DOT_DRM_DOT_RISD_PLUS_XML.
@@ -3048,52 +3051,52 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_OPENOFFICEORG_DOT_EXTENSION.
      */
-    APPLICATION_VND_DOT_OPENOFFICEORG_DOT_EXTENSION("application/vnd.openofficeorg.extension"),
+    APPLICATION_VND_DOT_OPENOFFICEORG_DOT_EXTENSION("application/vnd.openofficeorg.extension", "oxt"),
 
     /**
      * APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_PRESENTATIONML_DOT_PRESENTATION.
      */
-    APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_PRESENTATIONML_DOT_PRESENTATION("application/vnd.openxmlformats-officedocument.presentationml.presentation"),
+    APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_PRESENTATIONML_DOT_PRESENTATION("application/vnd.openxmlformats-officedocument.presentationml.presentation", "pptx", "thmx"),
 
     /**
      * APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_PRESENTATIONML_DOT_SLIDE.
      */
-    APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_PRESENTATIONML_DOT_SLIDE("application/vnd.openxmlformats-officedocument.presentationml.slide"),
+    APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_PRESENTATIONML_DOT_SLIDE("application/vnd.openxmlformats-officedocument.presentationml.slide", "sldx"),
 
     /**
      * APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_PRESENTATIONML_DOT_TEMPLATE.
      */
-    APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_PRESENTATIONML_DOT_TEMPLATE("application/vnd.openxmlformats-officedocument.presentationml.template"),
+    APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_PRESENTATIONML_DOT_TEMPLATE("application/vnd.openxmlformats-officedocument.presentationml.template", "potx"),
 
     /**
      * APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_PRESENTATIONML_DOT_SLIDESHOW.
      */
-    APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_PRESENTATIONML_DOT_SLIDESHOW("application/vnd.openxmlformats-officedocument.presentationml.slideshow"),
+    APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_PRESENTATIONML_DOT_SLIDESHOW("application/vnd.openxmlformats-officedocument.presentationml.slideshow", "ppsx"),
 
     /**
      * APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_SPREADSHEETML_DOT_SHEET.
      */
-    APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_SPREADSHEETML_DOT_SHEET("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"),
+    APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_SPREADSHEETML_DOT_SHEET("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "xlsx"),
 
     /**
      * APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_SPREADSHEETML_DOT_TEMPLATE.
      */
-    APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_SPREADSHEETML_DOT_TEMPLATE("application/vnd.openxmlformats-officedocument.spreadsheetml.template"),
+    APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_SPREADSHEETML_DOT_TEMPLATE("application/vnd.openxmlformats-officedocument.spreadsheetml.template", "xltx"),
 
     /**
      * APPLICATION_VND_DOT_MS_EXCEL_DOT_TEMPLATE_DOT_MACROENABLED_DOT_12.
      */
-    APPLICATION_VND_DOT_MS_EXCEL_DOT_TEMPLATE_DOT_MACROENABLED_DOT_12("application/vnd.ms-excel.template.macroenabled.12"),
+    APPLICATION_VND_DOT_MS_EXCEL_DOT_TEMPLATE_DOT_MACROENABLED_DOT_12("application/vnd.ms-excel.template.macroenabled.12", "xltm"),
 
     /**
      * APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_WORDPROCESSINGML_DOT_DOCUMENT.
      */
-    APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_WORDPROCESSINGML_DOT_DOCUMENT("application/vnd.openxmlformats-officedocument.wordprocessingml.document"),
+    APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_WORDPROCESSINGML_DOT_DOCUMENT("application/vnd.openxmlformats-officedocument.wordprocessingml.document", "docx"),
 
     /**
      * APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_WORDPROCESSINGML_DOT_TEMPLATE.
      */
-    APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_WORDPROCESSINGML_DOT_TEMPLATE("application/vnd.openxmlformats-officedocument.wordprocessingml.template"),
+    APPLICATION_VND_DOT_OPENXMLFORMATS_OFFICEDOCUMENT_DOT_WORDPROCESSINGML_DOT_TEMPLATE("application/vnd.openxmlformats-officedocument.wordprocessingml.template", "dotx"),
 
     /**
      * APPLICATION_VND_DOT_OSA_DOT_NETDEPLOY.
@@ -3108,7 +3111,7 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_OSGI_DOT_DP.
      */
-    APPLICATION_VND_DOT_OSGI_DOT_DP("application/vnd.osgi.dp"),
+    APPLICATION_VND_DOT_OSGI_DOT_DP("application/vnd.osgi.dp", "dp"),
 
     /**
      * APPLICATION_VND_DOT_OTPS_DOT_CT_KIP_PLUS_XML.
@@ -3118,7 +3121,7 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_PALM.
      */
-    APPLICATION_VND_DOT_PALM("application/vnd.palm"),
+    APPLICATION_VND_DOT_PALM("application/vnd.palm", "pqa", "oprc"),
 
     /**
      * APPLICATION_VND_DOT_PAOS_DOT_XML.
@@ -3128,12 +3131,12 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_PG_DOT_FORMAT.
      */
-    APPLICATION_VND_DOT_PG_DOT_FORMAT("application/vnd.pg.format"),
+    APPLICATION_VND_DOT_PG_DOT_FORMAT("application/vnd.pg.format", "str"),
 
     /**
      * APPLICATION_VND_DOT_PG_DOT_OSASLI.
      */
-    APPLICATION_VND_DOT_PG_DOT_OSASLI("application/vnd.pg.osasli"),
+    APPLICATION_VND_DOT_PG_DOT_OSASLI("application/vnd.pg.osasli", "ei6"),
 
     /**
      * APPLICATION_VND_DOT_PIACCESS_DOT_APPLICATION_LICENCE.
@@ -3143,7 +3146,7 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_PICSEL.
      */
-    APPLICATION_VND_DOT_PICSEL("application/vnd.picsel"),
+    APPLICATION_VND_DOT_PICSEL("application/vnd.picsel", "efif"),
 
     /**
      * APPLICATION_VND_DOT_POC_DOT_GROUP_ADVERTISEMENT_PLUS_XML.
@@ -3153,12 +3156,12 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_POCKETLEARN.
      */
-    APPLICATION_VND_DOT_POCKETLEARN("application/vnd.pocketlearn"),
+    APPLICATION_VND_DOT_POCKETLEARN("application/vnd.pocketlearn", "plf"),
 
     /**
      * APPLICATION_VND_DOT_POWERBUILDER6.
      */
-    APPLICATION_VND_DOT_POWERBUILDER6("application/vnd.powerbuilder6"),
+    APPLICATION_VND_DOT_POWERBUILDER6("application/vnd.powerbuilder6", "pbd"),
 
     /**
      * APPLICATION_VND_DOT_POWERBUILDER6_S.
@@ -3193,22 +3196,22 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_PREVIEWSYSTEMS_DOT_BOX.
      */
-    APPLICATION_VND_DOT_PREVIEWSYSTEMS_DOT_BOX("application/vnd.previewsystems.box"),
+    APPLICATION_VND_DOT_PREVIEWSYSTEMS_DOT_BOX("application/vnd.previewsystems.box", "box"),
 
     /**
      * APPLICATION_VND_DOT_PROTEUS_DOT_MAGAZINE.
      */
-    APPLICATION_VND_DOT_PROTEUS_DOT_MAGAZINE("application/vnd.proteus.magazine"),
+    APPLICATION_VND_DOT_PROTEUS_DOT_MAGAZINE("application/vnd.proteus.magazine", "mgz"),
 
     /**
      * APPLICATION_VND_DOT_PUBLISHARE_DELTA_TREE.
      */
-    APPLICATION_VND_DOT_PUBLISHARE_DELTA_TREE("application/vnd.publishare-delta-tree"),
+    APPLICATION_VND_DOT_PUBLISHARE_DELTA_TREE("application/vnd.publishare-delta-tree", "qps"),
 
     /**
      * APPLICATION_VND_DOT_PVI_DOT_PTID1.
      */
-    APPLICATION_VND_DOT_PVI_DOT_PTID1("application/vnd.pvi.ptid1"),
+    APPLICATION_VND_DOT_PVI_DOT_PTID1("application/vnd.pvi.ptid1", "ptid"),
 
     /**
      * APPLICATION_VND_DOT_PWG_MULTIPLEXED.
@@ -3228,7 +3231,7 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_QUARK_DOT_QUARKXPRESS.
      */
-    APPLICATION_VND_DOT_QUARK_DOT_QUARKXPRESS("application/vnd.quark.quarkxpress"),
+    APPLICATION_VND_DOT_QUARK_DOT_QUARKXPRESS("application/vnd.quark.quarkxpress", "qxd", "qxt", "qwd", "qwt", "qxl", "qxb"),
 
     /**
      * APPLICATION_VND_DOT_RAPID.
@@ -3238,12 +3241,12 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_RECORDARE_DOT_MUSICXML.
      */
-    APPLICATION_VND_DOT_RECORDARE_DOT_MUSICXML("application/vnd.recordare.musicxml"),
+    APPLICATION_VND_DOT_RECORDARE_DOT_MUSICXML("application/vnd.recordare.musicxml", "mxl"),
 
     /**
      * APPLICATION_VND_DOT_RECORDARE_DOT_MUSICXML_PLUS_XML.
      */
-    APPLICATION_VND_DOT_RECORDARE_DOT_MUSICXML_PLUS_XML("application/vnd.recordare.musicxml+xml"),
+    APPLICATION_VND_DOT_RECORDARE_DOT_MUSICXML_PLUS_XML("application/vnd.recordare.musicxml+xml", "musicxml"),
 
     /**
      * APPLICATION_VND_DOT_RENLEARN_DOT_RLPRINT.
@@ -3253,17 +3256,17 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_RIM_DOT_COD.
      */
-    APPLICATION_VND_DOT_RIM_DOT_COD("application/vnd.rim.cod"),
+    APPLICATION_VND_DOT_RIM_DOT_COD("application/vnd.rim.cod", "cod"),
 
     /**
      * APPLICATION_VND_DOT_RN_REALMEDIA.
      */
-    APPLICATION_VND_DOT_RN_REALMEDIA("application/vnd.rn-realmedia"),
+    APPLICATION_VND_DOT_RN_REALMEDIA("application/vnd.rn-realmedia", "rm"),
 
     /**
      * APPLICATION_VND_DOT_ROUTE66_DOT_LINK66_PLUS_XML.
      */
-    APPLICATION_VND_DOT_ROUTE66_DOT_LINK66_PLUS_XML("application/vnd.route66.link66+xml"),
+    APPLICATION_VND_DOT_ROUTE66_DOT_LINK66_PLUS_XML("application/vnd.route66.link66+xml", "link66"),
 
     /**
      * APPLICATION_VND_DOT_RUCKUS_DOT_DOWNLOAD.
@@ -3348,57 +3351,57 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_SEEMAIL.
      */
-    APPLICATION_VND_DOT_SEEMAIL("application/vnd.seemail"),
+    APPLICATION_VND_DOT_SEEMAIL("application/vnd.seemail", "see"),
 
     /**
      * APPLICATION_VND_DOT_SEMA.
      */
-    APPLICATION_VND_DOT_SEMA("application/vnd.sema"),
+    APPLICATION_VND_DOT_SEMA("application/vnd.sema", "sema"),
 
     /**
      * APPLICATION_VND_DOT_SEMD.
      */
-    APPLICATION_VND_DOT_SEMD("application/vnd.semd"),
+    APPLICATION_VND_DOT_SEMD("application/vnd.semd", "semd"),
 
     /**
      * APPLICATION_VND_DOT_SEMF.
      */
-    APPLICATION_VND_DOT_SEMF("application/vnd.semf"),
+    APPLICATION_VND_DOT_SEMF("application/vnd.semf", "semf"),
 
     /**
      * APPLICATION_VND_DOT_SHANA_DOT_INFORMED_DOT_FORMDATA.
      */
-    APPLICATION_VND_DOT_SHANA_DOT_INFORMED_DOT_FORMDATA("application/vnd.shana.informed.formdata"),
+    APPLICATION_VND_DOT_SHANA_DOT_INFORMED_DOT_FORMDATA("application/vnd.shana.informed.formdata", "ifm"),
 
     /**
      * APPLICATION_VND_DOT_SHANA_DOT_INFORMED_DOT_FORMTEMPLATE.
      */
-    APPLICATION_VND_DOT_SHANA_DOT_INFORMED_DOT_FORMTEMPLATE("application/vnd.shana.informed.formtemplate"),
+    APPLICATION_VND_DOT_SHANA_DOT_INFORMED_DOT_FORMTEMPLATE("application/vnd.shana.informed.formtemplate", "itp"),
 
     /**
      * APPLICATION_VND_DOT_SHANA_DOT_INFORMED_DOT_INTERCHANGE.
      */
-    APPLICATION_VND_DOT_SHANA_DOT_INFORMED_DOT_INTERCHANGE("application/vnd.shana.informed.interchange"),
+    APPLICATION_VND_DOT_SHANA_DOT_INFORMED_DOT_INTERCHANGE("application/vnd.shana.informed.interchange", "iif"),
 
     /**
      * APPLICATION_VND_DOT_SHANA_DOT_INFORMED_DOT_PACKAGE.
      */
-    APPLICATION_VND_DOT_SHANA_DOT_INFORMED_DOT_PACKAGE("application/vnd.shana.informed.package"),
+    APPLICATION_VND_DOT_SHANA_DOT_INFORMED_DOT_PACKAGE("application/vnd.shana.informed.package", "ipk"),
 
     /**
      * APPLICATION_VND_DOT_SIMTECH_MINDMAPPER.
      */
-    APPLICATION_VND_DOT_SIMTECH_MINDMAPPER("application/vnd.simtech-mindmapper"),
+    APPLICATION_VND_DOT_SIMTECH_MINDMAPPER("application/vnd.simtech-mindmapper", "twd", "twds"),
 
     /**
      * APPLICATION_VND_DOT_SMAF.
      */
-    APPLICATION_VND_DOT_SMAF("application/vnd.smaf"),
+    APPLICATION_VND_DOT_SMAF("application/vnd.smaf", "mmf"),
 
     /**
      * APPLICATION_VND_DOT_SMART_DOT_TEACHER.
      */
-    APPLICATION_VND_DOT_SMART_DOT_TEACHER("application/vnd.smart.teacher"),
+    APPLICATION_VND_DOT_SMART_DOT_TEACHER("application/vnd.smart.teacher", "teacher"),
 
     /**
      * APPLICATION_VND_DOT_SOFTWARE602_DOT_FILLER_DOT_FORM_PLUS_XML.
@@ -3413,17 +3416,17 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_SOLENT_DOT_SDKM_PLUS_XML.
      */
-    APPLICATION_VND_DOT_SOLENT_DOT_SDKM_PLUS_XML("application/vnd.solent.sdkm+xml"),
+    APPLICATION_VND_DOT_SOLENT_DOT_SDKM_PLUS_XML("application/vnd.solent.sdkm+xml", "sdkm", "sdkd"),
 
     /**
      * APPLICATION_VND_DOT_SPOTFIRE_DOT_DXP.
      */
-    APPLICATION_VND_DOT_SPOTFIRE_DOT_DXP("application/vnd.spotfire.dxp"),
+    APPLICATION_VND_DOT_SPOTFIRE_DOT_DXP("application/vnd.spotfire.dxp", "dxp"),
 
     /**
      * APPLICATION_VND_DOT_SPOTFIRE_DOT_SFS.
      */
-    APPLICATION_VND_DOT_SPOTFIRE_DOT_SFS("application/vnd.spotfire.sfs"),
+    APPLICATION_VND_DOT_SPOTFIRE_DOT_SFS("application/vnd.spotfire.sfs", "sfs"),
 
     /**
      * APPLICATION_VND_DOT_SSS_COD.
@@ -3443,37 +3446,37 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_STARDIVISION_DOT_CALC.
      */
-    APPLICATION_VND_DOT_STARDIVISION_DOT_CALC("application/vnd.stardivision.calc"),
+    APPLICATION_VND_DOT_STARDIVISION_DOT_CALC("application/vnd.stardivision.calc", "sdc"),
 
     /**
      * APPLICATION_VND_DOT_STARDIVISION_DOT_DRAW.
      */
-    APPLICATION_VND_DOT_STARDIVISION_DOT_DRAW("application/vnd.stardivision.draw"),
+    APPLICATION_VND_DOT_STARDIVISION_DOT_DRAW("application/vnd.stardivision.draw", "sda"),
 
     /**
      * APPLICATION_VND_DOT_STARDIVISION_DOT_IMPRESS.
      */
-    APPLICATION_VND_DOT_STARDIVISION_DOT_IMPRESS("application/vnd.stardivision.impress"),
+    APPLICATION_VND_DOT_STARDIVISION_DOT_IMPRESS("application/vnd.stardivision.impress", "sdd"),
 
     /**
      * APPLICATION_VND_DOT_STARDIVISION_DOT_MATH.
      */
-    APPLICATION_VND_DOT_STARDIVISION_DOT_MATH("application/vnd.stardivision.math"),
+    APPLICATION_VND_DOT_STARDIVISION_DOT_MATH("application/vnd.stardivision.math", "smf"),
 
     /**
      * APPLICATION_VND_DOT_STARDIVISION_DOT_WRITER.
      */
-    APPLICATION_VND_DOT_STARDIVISION_DOT_WRITER("application/vnd.stardivision.writer"),
+    APPLICATION_VND_DOT_STARDIVISION_DOT_WRITER("application/vnd.stardivision.writer", "sdw"),
 
     /**
      * APPLICATION_X_STAROFFICE_TEMPLATE.
      */
-    APPLICATION_X_STAROFFICE_TEMPLATE("application/x-staroffice-template"),
+    APPLICATION_X_STAROFFICE_TEMPLATE("application/x-staroffice-template", "vor"),
 
     /**
      * APPLICATION_VND_DOT_STARDIVISION_DOT_WRITER_GLOBAL.
      */
-    APPLICATION_VND_DOT_STARDIVISION_DOT_WRITER_GLOBAL("application/vnd.stardivision.writer-global"),
+    APPLICATION_VND_DOT_STARDIVISION_DOT_WRITER_GLOBAL("application/vnd.stardivision.writer-global", "sgl"),
 
     /**
      * APPLICATION_VND_DOT_STREET_STREAM.
@@ -3483,52 +3486,52 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_SUN_DOT_XML_DOT_CALC.
      */
-    APPLICATION_VND_DOT_SUN_DOT_XML_DOT_CALC("application/vnd.sun.xml.calc"),
+    APPLICATION_VND_DOT_SUN_DOT_XML_DOT_CALC("application/vnd.sun.xml.calc", "sxc"),
 
     /**
      * APPLICATION_VND_DOT_SUN_DOT_XML_DOT_CALC_DOT_TEMPLATE.
      */
-    APPLICATION_VND_DOT_SUN_DOT_XML_DOT_CALC_DOT_TEMPLATE("application/vnd.sun.xml.calc.template"),
+    APPLICATION_VND_DOT_SUN_DOT_XML_DOT_CALC_DOT_TEMPLATE("application/vnd.sun.xml.calc.template", "stc"),
 
     /**
      * APPLICATION_VND_DOT_SUN_DOT_XML_DOT_DRAW.
      */
-    APPLICATION_VND_DOT_SUN_DOT_XML_DOT_DRAW("application/vnd.sun.xml.draw"),
+    APPLICATION_VND_DOT_SUN_DOT_XML_DOT_DRAW("application/vnd.sun.xml.draw", "sxd"),
 
     /**
      * APPLICATION_VND_DOT_SUN_DOT_XML_DOT_DRAW_DOT_TEMPLATE.
      */
-    APPLICATION_VND_DOT_SUN_DOT_XML_DOT_DRAW_DOT_TEMPLATE("application/vnd.sun.xml.draw.template"),
+    APPLICATION_VND_DOT_SUN_DOT_XML_DOT_DRAW_DOT_TEMPLATE("application/vnd.sun.xml.draw.template", "std"),
 
     /**
      * APPLICATION_VND_DOT_SUN_DOT_XML_DOT_IMPRESS.
      */
-    APPLICATION_VND_DOT_SUN_DOT_XML_DOT_IMPRESS("application/vnd.sun.xml.impress"),
+    APPLICATION_VND_DOT_SUN_DOT_XML_DOT_IMPRESS("application/vnd.sun.xml.impress", "sxi"),
 
     /**
      * APPLICATION_VND_DOT_SUN_DOT_XML_DOT_IMPRESS_DOT_TEMPLATE.
      */
-    APPLICATION_VND_DOT_SUN_DOT_XML_DOT_IMPRESS_DOT_TEMPLATE("application/vnd.sun.xml.impress.template"),
+    APPLICATION_VND_DOT_SUN_DOT_XML_DOT_IMPRESS_DOT_TEMPLATE("application/vnd.sun.xml.impress.template", "sti"),
 
     /**
      * APPLICATION_VND_DOT_SUN_DOT_XML_DOT_MATH.
      */
-    APPLICATION_VND_DOT_SUN_DOT_XML_DOT_MATH("application/vnd.sun.xml.math"),
+    APPLICATION_VND_DOT_SUN_DOT_XML_DOT_MATH("application/vnd.sun.xml.math", "sxm"),
 
     /**
      * APPLICATION_VND_DOT_SUN_DOT_XML_DOT_WRITER.
      */
-    APPLICATION_VND_DOT_SUN_DOT_XML_DOT_WRITER("application/vnd.sun.xml.writer"),
+    APPLICATION_VND_DOT_SUN_DOT_XML_DOT_WRITER("application/vnd.sun.xml.writer", "sxw"),
 
     /**
      * APPLICATION_VND_DOT_SUN_DOT_XML_DOT_WRITER_DOT_GLOBAL.
      */
-    APPLICATION_VND_DOT_SUN_DOT_XML_DOT_WRITER_DOT_GLOBAL("application/vnd.sun.xml.writer.global"),
+    APPLICATION_VND_DOT_SUN_DOT_XML_DOT_WRITER_DOT_GLOBAL("application/vnd.sun.xml.writer.global", "sxg"),
 
     /**
      * APPLICATION_VND_DOT_SUN_DOT_XML_DOT_WRITER_DOT_TEMPLATE.
      */
-    APPLICATION_VND_DOT_SUN_DOT_XML_DOT_WRITER_DOT_TEMPLATE("application/vnd.sun.xml.writer.template"),
+    APPLICATION_VND_DOT_SUN_DOT_XML_DOT_WRITER_DOT_TEMPLATE("application/vnd.sun.xml.writer.template", "stw"),
 
     /**
      * APPLICATION_VND_DOT_SUN_DOT_WADL_PLUS_XML.
@@ -3538,12 +3541,12 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_SUS_CALENDAR.
      */
-    APPLICATION_VND_DOT_SUS_CALENDAR("application/vnd.sus-calendar"),
+    APPLICATION_VND_DOT_SUS_CALENDAR("application/vnd.sus-calendar", "sus", "susp"),
 
     /**
      * APPLICATION_VND_DOT_SVD.
      */
-    APPLICATION_VND_DOT_SVD("application/vnd.svd"),
+    APPLICATION_VND_DOT_SVD("application/vnd.svd", "svd"),
 
     /**
      * APPLICATION_VND_DOT_SWIFTVIEW_ICS.
@@ -3553,22 +3556,22 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_SYMBIAN_DOT_INSTALL.
      */
-    APPLICATION_VND_DOT_SYMBIAN_DOT_INSTALL("application/vnd.symbian.install"),
+    APPLICATION_VND_DOT_SYMBIAN_DOT_INSTALL("application/vnd.symbian.install", "sis", "sisx"),
 
     /**
      * APPLICATION_VND_DOT_SYNCML_PLUS_XML.
      */
-    APPLICATION_VND_DOT_SYNCML_PLUS_XML("application/vnd.syncml+xml"),
+    APPLICATION_VND_DOT_SYNCML_PLUS_XML("application/vnd.syncml+xml", "xsm"),
 
     /**
      * APPLICATION_VND_DOT_SYNCML_DOT_DM_PLUS_WBXML.
      */
-    APPLICATION_VND_DOT_SYNCML_DOT_DM_PLUS_WBXML("application/vnd.syncml.dm+wbxml"),
+    APPLICATION_VND_DOT_SYNCML_DOT_DM_PLUS_WBXML("application/vnd.syncml.dm+wbxml", "bdm"),
 
     /**
      * APPLICATION_VND_DOT_SYNCML_DOT_DM_PLUS_XML.
      */
-    APPLICATION_VND_DOT_SYNCML_DOT_DM_PLUS_XML("application/vnd.syncml.dm+xml"),
+    APPLICATION_VND_DOT_SYNCML_DOT_DM_PLUS_XML("application/vnd.syncml.dm+xml", "xdm"),
 
     /**
      * APPLICATION_VND_DOT_SYNCML_DOT_DM_DOT_NOTIFICATION.
@@ -3583,32 +3586,32 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_TAO_DOT_INTENT_MODULE_ARCHIVE.
      */
-    APPLICATION_VND_DOT_TAO_DOT_INTENT_MODULE_ARCHIVE("application/vnd.tao.intent-module-archive"),
+    APPLICATION_VND_DOT_TAO_DOT_INTENT_MODULE_ARCHIVE("application/vnd.tao.intent-module-archive", "tao"),
 
     /**
      * APPLICATION_VND_DOT_TCPDUMP_DOT_PCAP.
      */
-    APPLICATION_VND_DOT_TCPDUMP_DOT_PCAP("application/vnd.tcpdump.pcap"),
+    APPLICATION_VND_DOT_TCPDUMP_DOT_PCAP("application/vnd.tcpdump.pcap", "pcap", "cap", "dmp"),
 
     /**
      * APPLICATION_VND_DOT_TMOBILE_LIVETV.
      */
-    APPLICATION_VND_DOT_TMOBILE_LIVETV("application/vnd.tmobile-livetv"),
+    APPLICATION_VND_DOT_TMOBILE_LIVETV("application/vnd.tmobile-livetv", "tmo"),
 
     /**
      * APPLICATION_VND_DOT_TRID_DOT_TPT.
      */
-    APPLICATION_VND_DOT_TRID_DOT_TPT("application/vnd.trid.tpt"),
+    APPLICATION_VND_DOT_TRID_DOT_TPT("application/vnd.trid.tpt", "tpt"),
 
     /**
      * APPLICATION_VND_DOT_TRISCAPE_DOT_MXS.
      */
-    APPLICATION_VND_DOT_TRISCAPE_DOT_MXS("application/vnd.triscape.mxs"),
+    APPLICATION_VND_DOT_TRISCAPE_DOT_MXS("application/vnd.triscape.mxs", "mxs"),
 
     /**
      * APPLICATION_VND_DOT_TRUEAPP.
      */
-    APPLICATION_VND_DOT_TRUEAPP("application/vnd.trueapp"),
+    APPLICATION_VND_DOT_TRUEAPP("application/vnd.trueapp", "tra"),
 
     /**
      * APPLICATION_VND_DOT_TRUEDOC.
@@ -3618,27 +3621,27 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_UFDL.
      */
-    APPLICATION_VND_DOT_UFDL("application/vnd.ufdl"),
+    APPLICATION_VND_DOT_UFDL("application/vnd.ufdl", "ufd", "ufdl"),
 
     /**
      * APPLICATION_VND_DOT_UIQ_DOT_THEME.
      */
-    APPLICATION_VND_DOT_UIQ_DOT_THEME("application/vnd.uiq.theme"),
+    APPLICATION_VND_DOT_UIQ_DOT_THEME("application/vnd.uiq.theme", "utz"),
 
     /**
      * APPLICATION_VND_DOT_UMAJIN.
      */
-    APPLICATION_VND_DOT_UMAJIN("application/vnd.umajin"),
+    APPLICATION_VND_DOT_UMAJIN("application/vnd.umajin", "umj"),
 
     /**
      * APPLICATION_VND_DOT_UNITY.
      */
-    APPLICATION_VND_DOT_UNITY("application/vnd.unity"),
+    APPLICATION_VND_DOT_UNITY("application/vnd.unity", "unityweb"),
 
     /**
      * APPLICATION_VND_DOT_UOML_PLUS_XML.
      */
-    APPLICATION_VND_DOT_UOML_PLUS_XML("application/vnd.uoml+xml"),
+    APPLICATION_VND_DOT_UOML_PLUS_XML("application/vnd.uoml+xml", "uoml"),
 
     /**
      * APPLICATION_VND_DOT_UPLANET_DOT_ALERT.
@@ -3708,7 +3711,7 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_VCX.
      */
-    APPLICATION_VND_DOT_VCX("application/vnd.vcx"),
+    APPLICATION_VND_DOT_VCX("application/vnd.vcx", "vcx"),
 
     /**
      * APPLICATION_VND_DOT_VD_STUDY.
@@ -3728,42 +3731,42 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_VISIO.
      */
-    APPLICATION_VND_DOT_VISIO("application/vnd.visio"),
+    APPLICATION_VND_DOT_VISIO("application/vnd.visio", "vsd", "vst", "vss", "vsw"),
 
     /**
      * APPLICATION_VND_DOT_MS_VISIO_DOT_DRAWING.
      */
-    APPLICATION_VND_DOT_MS_VISIO_DOT_DRAWING("application/vnd.ms-visio.drawing"),
+    APPLICATION_VND_DOT_MS_VISIO_DOT_DRAWING("application/vnd.ms-visio.drawing", "vsdx"),
 
     /**
      * APPLICATION_VND_DOT_MS_VISIO_DOT_TEMPLATE.
      */
-    APPLICATION_VND_DOT_MS_VISIO_DOT_TEMPLATE("application/vnd.ms-visio.template"),
+    APPLICATION_VND_DOT_MS_VISIO_DOT_TEMPLATE("application/vnd.ms-visio.template", "vstx"),
 
     /**
      * APPLICATION_VND_DOT_MS_VISIO_DOT_STENCIL.
      */
-    APPLICATION_VND_DOT_MS_VISIO_DOT_STENCIL("application/vnd.ms-visio.stencil"),
+    APPLICATION_VND_DOT_MS_VISIO_DOT_STENCIL("application/vnd.ms-visio.stencil", "vssx"),
 
     /**
      * APPLICATION_VND_DOT_MS_VISIO_DOT_DRAWING_DOT_MACROENABLED_DOT_12.
      */
-    APPLICATION_VND_DOT_MS_VISIO_DOT_DRAWING_DOT_MACROENABLED_DOT_12("application/vnd.ms-visio.drawing.macroEnabled.12"),
+    APPLICATION_VND_DOT_MS_VISIO_DOT_DRAWING_DOT_MACROENABLED_DOT_12("application/vnd.ms-visio.drawing.macroEnabled.12", "vsdm"),
 
     /**
      * APPLICATION_VND_DOT_MS_VISIO_DOT_TEMPLATE_DOT_MACROENABLED_DOT_12.
      */
-    APPLICATION_VND_DOT_MS_VISIO_DOT_TEMPLATE_DOT_MACROENABLED_DOT_12("application/vnd.ms-visio.template.macroEnabled.12"),
+    APPLICATION_VND_DOT_MS_VISIO_DOT_TEMPLATE_DOT_MACROENABLED_DOT_12("application/vnd.ms-visio.template.macroEnabled.12", "vstm"),
 
     /**
      * APPLICATION_VND_DOT_MS_VISIO_DOT_STENCIL_DOT_MACROENABLED_DOT_12.
      */
-    APPLICATION_VND_DOT_MS_VISIO_DOT_STENCIL_DOT_MACROENABLED_DOT_12("application/vnd.ms-visio.stencil.macroEnabled.12"),
+    APPLICATION_VND_DOT_MS_VISIO_DOT_STENCIL_DOT_MACROENABLED_DOT_12("application/vnd.ms-visio.stencil.macroEnabled.12", "vssm"),
 
     /**
      * APPLICATION_VND_DOT_VISIONARY.
      */
-    APPLICATION_VND_DOT_VISIONARY("application/vnd.visionary"),
+    APPLICATION_VND_DOT_VISIONARY("application/vnd.visionary", "vis"),
 
     /**
      * APPLICATION_VND_DOT_VIVIDENCE_DOT_SCRIPTFILE.
@@ -3773,7 +3776,7 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_VSF.
      */
-    APPLICATION_VND_DOT_VSF("application/vnd.vsf"),
+    APPLICATION_VND_DOT_VSF("application/vnd.vsf", "vsf"),
 
     /**
      * APPLICATION_VND_DOT_WAP_DOT_SIC.
@@ -3788,22 +3791,22 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_WAP_DOT_WBXML.
      */
-    APPLICATION_VND_DOT_WAP_DOT_WBXML("application/vnd.wap.wbxml"),
+    APPLICATION_VND_DOT_WAP_DOT_WBXML("application/vnd.wap.wbxml", "wbxml"),
 
     /**
      * APPLICATION_VND_DOT_WAP_DOT_WMLC.
      */
-    APPLICATION_VND_DOT_WAP_DOT_WMLC("application/vnd.wap.wmlc"),
+    APPLICATION_VND_DOT_WAP_DOT_WMLC("application/vnd.wap.wmlc", "wmlc"),
 
     /**
      * APPLICATION_VND_DOT_WAP_DOT_WMLSCRIPTC.
      */
-    APPLICATION_VND_DOT_WAP_DOT_WMLSCRIPTC("application/vnd.wap.wmlscriptc"),
+    APPLICATION_VND_DOT_WAP_DOT_WMLSCRIPTC("application/vnd.wap.wmlscriptc", "wmlsc"),
 
     /**
      * APPLICATION_VND_DOT_WEBTURBO.
      */
-    APPLICATION_VND_DOT_WEBTURBO("application/vnd.webturbo"),
+    APPLICATION_VND_DOT_WEBTURBO("application/vnd.webturbo", "wtb"),
 
     /**
      * APPLICATION_VND_DOT_WFA_DOT_WSC.
@@ -3823,12 +3826,12 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_WORDPERFECT.
      */
-    APPLICATION_VND_DOT_WORDPERFECT("application/vnd.wordperfect"),
+    APPLICATION_VND_DOT_WORDPERFECT("application/vnd.wordperfect", "wpd"),
 
     /**
      * APPLICATION_VND_DOT_WQD.
      */
-    APPLICATION_VND_DOT_WQD("application/vnd.wqd"),
+    APPLICATION_VND_DOT_WQD("application/vnd.wqd", "wqd"),
 
     /**
      * APPLICATION_VND_DOT_WRQ_HP3000_LABELLED.
@@ -3838,7 +3841,7 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_WT_DOT_STF.
      */
-    APPLICATION_VND_DOT_WT_DOT_STF("application/vnd.wt.stf"),
+    APPLICATION_VND_DOT_WT_DOT_STF("application/vnd.wt.stf", "stf"),
 
     /**
      * APPLICATION_VND_DOT_WV_DOT_CSP_PLUS_WBXML.
@@ -3858,12 +3861,12 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_XARA.
      */
-    APPLICATION_VND_DOT_XARA("application/vnd.xara"),
+    APPLICATION_VND_DOT_XARA("application/vnd.xara", "xar"),
 
     /**
      * APPLICATION_VND_DOT_XFDL.
      */
-    APPLICATION_VND_DOT_XFDL("application/vnd.xfdl"),
+    APPLICATION_VND_DOT_XFDL("application/vnd.xfdl", "xfdl"),
 
     /**
      * APPLICATION_VND_DOT_XFDL_DOT_WEBFORM.
@@ -3903,57 +3906,57 @@ public enum MimeType {
     /**
      * APPLICATION_VND_DOT_YAMAHA_DOT_HV_DIC.
      */
-    APPLICATION_VND_DOT_YAMAHA_DOT_HV_DIC("application/vnd.yamaha.hv-dic"),
+    APPLICATION_VND_DOT_YAMAHA_DOT_HV_DIC("application/vnd.yamaha.hv-dic", "hvd"),
 
     /**
      * APPLICATION_VND_DOT_YAMAHA_DOT_HV_SCRIPT.
      */
-    APPLICATION_VND_DOT_YAMAHA_DOT_HV_SCRIPT("application/vnd.yamaha.hv-script"),
+    APPLICATION_VND_DOT_YAMAHA_DOT_HV_SCRIPT("application/vnd.yamaha.hv-script", "hvs"),
 
     /**
      * APPLICATION_VND_DOT_YAMAHA_DOT_HV_VOICE.
      */
-    APPLICATION_VND_DOT_YAMAHA_DOT_HV_VOICE("application/vnd.yamaha.hv-voice"),
+    APPLICATION_VND_DOT_YAMAHA_DOT_HV_VOICE("application/vnd.yamaha.hv-voice", "hvp"),
 
     /**
      * APPLICATION_VND_DOT_YAMAHA_DOT_OPENSCOREFORMAT.
      */
-    APPLICATION_VND_DOT_YAMAHA_DOT_OPENSCOREFORMAT("application/vnd.yamaha.openscoreformat"),
+    APPLICATION_VND_DOT_YAMAHA_DOT_OPENSCOREFORMAT("application/vnd.yamaha.openscoreformat", "osf"),
 
     /**
      * APPLICATION_VND_DOT_YAMAHA_DOT_OPENSCOREFORMAT_DOT_OSFPVG_PLUS_XML.
      */
-    APPLICATION_VND_DOT_YAMAHA_DOT_OPENSCOREFORMAT_DOT_OSFPVG_PLUS_XML("application/vnd.yamaha.openscoreformat.osfpvg+xml"),
+    APPLICATION_VND_DOT_YAMAHA_DOT_OPENSCOREFORMAT_DOT_OSFPVG_PLUS_XML("application/vnd.yamaha.openscoreformat.osfpvg+xml", "osfpvg"),
 
     /**
      * APPLICATION_VND_DOT_YAMAHA_DOT_SMAF_AUDIO.
      */
-    APPLICATION_VND_DOT_YAMAHA_DOT_SMAF_AUDIO("application/vnd.yamaha.smaf-audio"),
+    APPLICATION_VND_DOT_YAMAHA_DOT_SMAF_AUDIO("application/vnd.yamaha.smaf-audio", "saf"),
 
     /**
      * APPLICATION_VND_DOT_YAMAHA_DOT_SMAF_PHRASE.
      */
-    APPLICATION_VND_DOT_YAMAHA_DOT_SMAF_PHRASE("application/vnd.yamaha.smaf-phrase"),
+    APPLICATION_VND_DOT_YAMAHA_DOT_SMAF_PHRASE("application/vnd.yamaha.smaf-phrase", "spf"),
 
     /**
      * APPLICATION_VND_DOT_YELLOWRIVER_CUSTOM_MENU.
      */
-    APPLICATION_VND_DOT_YELLOWRIVER_CUSTOM_MENU("application/vnd.yellowriver-custom-menu"),
+    APPLICATION_VND_DOT_YELLOWRIVER_CUSTOM_MENU("application/vnd.yellowriver-custom-menu", "cmp"),
 
     /**
      * APPLICATION_VND_DOT_ZUL.
      */
-    APPLICATION_VND_DOT_ZUL("application/vnd.zul"),
+    APPLICATION_VND_DOT_ZUL("application/vnd.zul", "zir", "zirz"),
 
     /**
      * APPLICATION_VND_DOT_ZZAZZ_DOT_DECK_PLUS_XML.
      */
-    APPLICATION_VND_DOT_ZZAZZ_DOT_DECK_PLUS_XML("application/vnd.zzazz.deck+xml"),
+    APPLICATION_VND_DOT_ZZAZZ_DOT_DECK_PLUS_XML("application/vnd.zzazz.deck+xml", "zaz"),
 
     /**
      * APPLICATION_VOICEXML_PLUS_XML.
      */
-    APPLICATION_VOICEXML_PLUS_XML("application/voicexml+xml"),
+    APPLICATION_VOICEXML_PLUS_XML("application/voicexml+xml", "vxml"),
 
     /**
      * APPLICATION_WATCHERINFO_PLUS_XML.
@@ -3973,7 +3976,7 @@ public enum MimeType {
     /**
      * APPLICATION_WINHLP.
      */
-    APPLICATION_WINHLP("application/winhlp"),
+    APPLICATION_WINHLP("application/winhlp", "hlp"),
 
     /**
      * APPLICATION_WITA.
@@ -3988,12 +3991,12 @@ public enum MimeType {
     /**
      * APPLICATION_WSDL_PLUS_XML.
      */
-    APPLICATION_WSDL_PLUS_XML("application/wsdl+xml"),
+    APPLICATION_WSDL_PLUS_XML("application/wsdl+xml", "wsdl"),
 
     /**
      * APPLICATION_WSPOLICY_PLUS_XML.
      */
-    APPLICATION_WSPOLICY_PLUS_XML("application/wspolicy+xml"),
+    APPLICATION_WSPOLICY_PLUS_XML("application/wspolicy+xml", "wspolicy"),
 
     /**
      * APPLICATION_X_123.
@@ -4003,67 +4006,67 @@ public enum MimeType {
     /**
      * APPLICATION_X_ABIWORD.
      */
-    APPLICATION_X_ABIWORD("application/x-abiword"),
+    APPLICATION_X_ABIWORD("application/x-abiword", "abw"),
 
     /**
      * APPLICATION_X_ACE_COMPRESSED.
      */
-    APPLICATION_X_ACE_COMPRESSED("application/x-ace-compressed"),
+    APPLICATION_X_ACE_COMPRESSED("application/x-ace-compressed", "ace"),
 
     /**
      * APPLICATION_X_AXCRYPT.
      */
-    APPLICATION_X_AXCRYPT("application/x-axcrypt"),
+    APPLICATION_X_AXCRYPT("application/x-axcrypt", "axx"),
 
     /**
      * APPLICATION_X_ADOBE_INDESIGN.
      */
-    APPLICATION_X_ADOBE_INDESIGN("application/x-adobe-indesign"),
+    APPLICATION_X_ADOBE_INDESIGN("application/x-adobe-indesign", "indd"),
 
     /**
      * APPLICATION_X_ADOBE_INDESIGN_INTERCHANGE.
      */
-    APPLICATION_X_ADOBE_INDESIGN_INTERCHANGE("application/x-adobe-indesign-interchange"),
+    APPLICATION_X_ADOBE_INDESIGN_INTERCHANGE("application/x-adobe-indesign-interchange", "inx"),
 
     /**
      * APPLICATION_X_APPLE_DISKIMAGE.
      */
-    APPLICATION_X_APPLE_DISKIMAGE("application/x-apple-diskimage"),
+    APPLICATION_X_APPLE_DISKIMAGE("application/x-apple-diskimage", "dmg"),
 
     /**
      * APPLICATION_X_APPLEWORKS.
      */
-    APPLICATION_X_APPLEWORKS("application/x-appleworks"),
+    APPLICATION_X_APPLEWORKS("application/x-appleworks", "cwk"),
 
     /**
      * APPLICATION_X_ARCHIVE.
      */
-    APPLICATION_X_ARCHIVE("application/x-archive"),
+    APPLICATION_X_ARCHIVE("application/x-archive", "ar", "a"),
 
     /**
      * APPLICATION_X_ARJ.
      */
-    APPLICATION_X_ARJ("application/x-arj"),
+    APPLICATION_X_ARJ("application/x-arj", "arj"),
 
     /**
      * APPLICATION_X_AUTHORWARE_BIN.
      */
-    APPLICATION_X_AUTHORWARE_BIN("application/x-authorware-bin"),
+    APPLICATION_X_AUTHORWARE_BIN("application/x-authorware-bin", "aab", "x32", "u32", "vox"),
 
     /**
      * APPLICATION_X_AUTHORWARE_MAP.
      */
-    APPLICATION_X_AUTHORWARE_MAP("application/x-authorware-map"),
+    APPLICATION_X_AUTHORWARE_MAP("application/x-authorware-map", "aam"),
 
     /**
      * APPLICATION_X_AUTHORWARE_SEG.
      */
-    APPLICATION_X_AUTHORWARE_SEG("application/x-authorware-seg"),
+    APPLICATION_X_AUTHORWARE_SEG("application/x-authorware-seg", "aas"),
 
     /**
      * APPLICATION_X_BCPIO.
      */
-    APPLICATION_X_BCPIO("application/x-bcpio"),
+    APPLICATION_X_BCPIO("application/x-bcpio", "bcpio"),
 
     /**
      * APPLICATION_X_BERKELEY_DB.
@@ -4128,12 +4131,12 @@ public enum MimeType {
     /**
      * APPLICATION_X_BIBTEX_TEXT_FILE.
      */
-    APPLICATION_X_BIBTEX_TEXT_FILE("application/x-bibtex-text-file"),
+    APPLICATION_X_BIBTEX_TEXT_FILE("application/x-bibtex-text-file", "bib", "bibtex"),
 
     /**
      * APPLICATION_X_BITTORRENT.
      */
-    APPLICATION_X_BITTORRENT("application/x-bittorrent"),
+    APPLICATION_X_BITTORRENT("application/x-bittorrent", "torrent"),
 
     /**
      * APPLICATION_X_BPLIST.
@@ -4143,97 +4146,97 @@ public enum MimeType {
     /**
      * APPLICATION_X_BZIP.
      */
-    APPLICATION_X_BZIP("application/x-bzip"),
+    APPLICATION_X_BZIP("application/x-bzip", "bz", "tbz"),
 
     /**
      * APPLICATION_X_BZIP2.
      */
-    APPLICATION_X_BZIP2("application/x-bzip2"),
+    APPLICATION_X_BZIP2("application/x-bzip2", "bz2", "tbz2", "boz"),
 
     /**
      * APPLICATION_X_CDLINK.
      */
-    APPLICATION_X_CDLINK("application/x-cdlink"),
+    APPLICATION_X_CDLINK("application/x-cdlink", "vcd"),
 
     /**
      * APPLICATION_X_CHAT.
      */
-    APPLICATION_X_CHAT("application/x-chat"),
+    APPLICATION_X_CHAT("application/x-chat", "chat"),
 
     /**
      * APPLICATION_X_CHESS_PGN.
      */
-    APPLICATION_X_CHESS_PGN("application/x-chess-pgn"),
+    APPLICATION_X_CHESS_PGN("application/x-chess-pgn", "pgn"),
 
     /**
      * APPLICATION_X_CHROME_PACKAGE.
      */
-    APPLICATION_X_CHROME_PACKAGE("application/x-chrome-package"),
+    APPLICATION_X_CHROME_PACKAGE("application/x-chrome-package", "crx"),
 
     /**
      * APPLICATION_X_COMPRESS.
      */
-    APPLICATION_X_COMPRESS("application/x-compress"),
+    APPLICATION_X_COMPRESS("application/x-compress", "z"),
 
     /**
      * APPLICATION_X_CORELPRESENTATIONS.
      */
-    APPLICATION_X_CORELPRESENTATIONS("application/x-corelpresentations"),
+    APPLICATION_X_CORELPRESENTATIONS("application/x-corelpresentations", "shw"),
 
     /**
      * APPLICATION_X_CPIO.
      */
-    APPLICATION_X_CPIO("application/x-cpio"),
+    APPLICATION_X_CPIO("application/x-cpio", "cpio"),
 
     /**
      * APPLICATION_X_CSH.
      */
-    APPLICATION_X_CSH("application/x-csh"),
+    APPLICATION_X_CSH("application/x-csh", "csh", "tcsh"),
 
     /**
      * APPLICATION_X_DEBIAN_PACKAGE.
      */
-    APPLICATION_X_DEBIAN_PACKAGE("application/x-debian-package"),
+    APPLICATION_X_DEBIAN_PACKAGE("application/x-debian-package", "deb", "udeb"),
 
     /**
      * APPLICATION_X_DEX.
      */
-    APPLICATION_X_DEX("application/x-dex"),
+    APPLICATION_X_DEX("application/x-dex", "dex"),
 
     /**
      * APPLICATION_X_DIRECTOR.
      */
-    APPLICATION_X_DIRECTOR("application/x-director"),
+    APPLICATION_X_DIRECTOR("application/x-director", "dir", "dcr", "dxr", "cst", "cct", "cxt", "w3d", "fgd", "swa"),
 
     /**
      * APPLICATION_X_DOOM.
      */
-    APPLICATION_X_DOOM("application/x-doom"),
+    APPLICATION_X_DOOM("application/x-doom", "wad"),
 
     /**
      * APPLICATION_X_DTBNCX_PLUS_XML.
      */
-    APPLICATION_X_DTBNCX_PLUS_XML("application/x-dtbncx+xml"),
+    APPLICATION_X_DTBNCX_PLUS_XML("application/x-dtbncx+xml", "ncx"),
 
     /**
      * APPLICATION_X_DTBOOK_PLUS_XML.
      */
-    APPLICATION_X_DTBOOK_PLUS_XML("application/x-dtbook+xml"),
+    APPLICATION_X_DTBOOK_PLUS_XML("application/x-dtbook+xml", "dtb"),
 
     /**
      * APPLICATION_X_DTBRESOURCE_PLUS_XML.
      */
-    APPLICATION_X_DTBRESOURCE_PLUS_XML("application/x-dtbresource+xml"),
+    APPLICATION_X_DTBRESOURCE_PLUS_XML("application/x-dtbresource+xml", "res"),
 
     /**
      * APPLICATION_X_DVI.
      */
-    APPLICATION_X_DVI("application/x-dvi"),
+    APPLICATION_X_DVI("application/x-dvi", "dvi"),
 
     /**
      * APPLICATION_X_ELC.
      */
-    APPLICATION_X_ELC("application/x-elc"),
+    APPLICATION_X_ELC("application/x-elc", "elc"),
 
     /**
      * APPLICATION_X_ELF.
@@ -4243,12 +4246,12 @@ public enum MimeType {
     /**
      * MESSAGE_X_EMLX.
      */
-    MESSAGE_X_EMLX("message/x-emlx"),
+    MESSAGE_X_EMLX("message/x-emlx", "emlx"),
 
     /**
      * APPLICATION_X_KILLUSTRATOR.
      */
-    APPLICATION_X_KILLUSTRATOR("application/x-killustrator"),
+    APPLICATION_X_KILLUSTRATOR("application/x-killustrator", "kil"),
 
     /**
      * APPLICATION_X_OBJECT.
@@ -4273,27 +4276,27 @@ public enum MimeType {
     /**
      * APPLICATION_X_DOSEXEC.
      */
-    APPLICATION_X_DOSEXEC("application/x-dosexec"),
+    APPLICATION_X_DOSEXEC("application/x-dosexec", "exe"),
 
     /**
      * APPLICATION_X_EMF.
      */
-    APPLICATION_X_EMF("application/x-emf"),
+    APPLICATION_X_EMF("application/x-emf", "emf"),
 
     /**
      * APPLICATION_X_ERDAS_HFA.
      */
-    APPLICATION_X_ERDAS_HFA("application/x-erdas-hfa"),
+    APPLICATION_X_ERDAS_HFA("application/x-erdas-hfa", "hfa"),
 
     /**
      * APPLICATION_X_FILEMAKER.
      */
-    APPLICATION_X_FILEMAKER("application/x-filemaker"),
+    APPLICATION_X_FILEMAKER("application/x-filemaker", "fp7"),
 
     /**
      * APPLICATION_X_FONT_BDF.
      */
-    APPLICATION_X_FONT_BDF("application/x-font-bdf"),
+    APPLICATION_X_FONT_BDF("application/x-font-bdf", "bdf"),
 
     /**
      * APPLICATION_X_FONT_DOS.
@@ -4308,7 +4311,7 @@ public enum MimeType {
     /**
      * APPLICATION_X_FONT_GHOSTSCRIPT.
      */
-    APPLICATION_X_FONT_GHOSTSCRIPT("application/x-font-ghostscript"),
+    APPLICATION_X_FONT_GHOSTSCRIPT("application/x-font-ghostscript", "gsf"),
 
     /**
      * APPLICATION_X_FONT_LIBGRX.
@@ -4318,22 +4321,22 @@ public enum MimeType {
     /**
      * APPLICATION_X_FONT_LINUX_PSF.
      */
-    APPLICATION_X_FONT_LINUX_PSF("application/x-font-linux-psf"),
+    APPLICATION_X_FONT_LINUX_PSF("application/x-font-linux-psf", "psf"),
 
     /**
      * APPLICATION_X_FONT_OTF.
      */
-    APPLICATION_X_FONT_OTF("application/x-font-otf"),
+    APPLICATION_X_FONT_OTF("application/x-font-otf", "otf"),
 
     /**
      * APPLICATION_X_FONT_PCF.
      */
-    APPLICATION_X_FONT_PCF("application/x-font-pcf"),
+    APPLICATION_X_FONT_PCF("application/x-font-pcf", "pcf"),
 
     /**
      * APPLICATION_X_FONT_SNF.
      */
-    APPLICATION_X_FONT_SNF("application/x-font-snf"),
+    APPLICATION_X_FONT_SNF("application/x-font-snf", "snf"),
 
     /**
      * APPLICATION_X_FONT_SPEEDO.
@@ -4348,22 +4351,22 @@ public enum MimeType {
     /**
      * APPLICATION_X_FONT_TTF.
      */
-    APPLICATION_X_FONT_TTF("application/x-font-ttf"),
+    APPLICATION_X_FONT_TTF("application/x-font-ttf", "ttf", "ttc"),
 
     /**
      * APPLICATION_X_FONT_TYPE1.
      */
-    APPLICATION_X_FONT_TYPE1("application/x-font-type1"),
+    APPLICATION_X_FONT_TYPE1("application/x-font-type1", "pfa", "pfb"),
 
     /**
      * APPLICATION_X_FONT_ADOBE_METRIC.
      */
-    APPLICATION_X_FONT_ADOBE_METRIC("application/x-font-adobe-metric"),
+    APPLICATION_X_FONT_ADOBE_METRIC("application/x-font-adobe-metric", "afm", "acfm", "amfm"),
 
     /**
      * APPLICATION_X_FONT_PRINTER_METRIC.
      */
-    APPLICATION_X_FONT_PRINTER_METRIC("application/x-font-printer-metric"),
+    APPLICATION_X_FONT_PRINTER_METRIC("application/x-font-printer-metric", "pfm"),
 
     /**
      * APPLICATION_X_FONT_VFONT.
@@ -4378,37 +4381,37 @@ public enum MimeType {
     /**
      * APPLICATION_X_FUTURESPLASH.
      */
-    APPLICATION_X_FUTURESPLASH("application/x-futuresplash"),
+    APPLICATION_X_FUTURESPLASH("application/x-futuresplash", "spl"),
 
     /**
      * APPLICATION_X_GNUCASH.
      */
-    APPLICATION_X_GNUCASH("application/x-gnucash"),
+    APPLICATION_X_GNUCASH("application/x-gnucash", "gnucash"),
 
     /**
      * APPLICATION_X_GNUMERIC.
      */
-    APPLICATION_X_GNUMERIC("application/x-gnumeric"),
+    APPLICATION_X_GNUMERIC("application/x-gnumeric", "gnumeric"),
 
     /**
      * APPLICATION_X_GRIB.
      */
-    APPLICATION_X_GRIB("application/x-grib"),
+    APPLICATION_X_GRIB("application/x-grib", "grb", "grb1", "grb2"),
 
     /**
      * APPLICATION_X_GTAR.
      */
-    APPLICATION_X_GTAR("application/x-gtar"),
+    APPLICATION_X_GTAR("application/x-gtar", "gtar"),
 
     /**
      * APPLICATION_GZIP.
      */
-    APPLICATION_GZIP("application/gzip"),
+    APPLICATION_GZIP("application/gzip", "gz", "tgz", "emz"),
 
     /**
      * APPLICATION_X_HDF.
      */
-    APPLICATION_X_HDF("application/x-hdf"),
+    APPLICATION_X_HDF("application/x-hdf", "hdf", "he5", "h5"),
 
     /**
      * APPLICATION_X_HWP.
@@ -4423,7 +4426,7 @@ public enum MimeType {
     /**
      * APPLICATION_X_IBOOKS_PLUS_ZIP.
      */
-    APPLICATION_X_IBOOKS_PLUS_ZIP("application/x-ibooks+zip"),
+    APPLICATION_X_IBOOKS_PLUS_ZIP("application/x-ibooks+zip", "ibooks"),
 
     /**
      * APPLICATION_X_ISATAB_INVESTIGATION.
@@ -4443,22 +4446,22 @@ public enum MimeType {
     /**
      * APPLICATION_X_ISO9660_IMAGE.
      */
-    APPLICATION_X_ISO9660_IMAGE("application/x-iso9660-image"),
+    APPLICATION_X_ISO9660_IMAGE("application/x-iso9660-image", "iso"),
 
     /**
      * APPLICATION_X_ITUNES_IPA.
      */
-    APPLICATION_X_ITUNES_IPA("application/x-itunes-ipa"),
+    APPLICATION_X_ITUNES_IPA("application/x-itunes-ipa", "ipa"),
 
     /**
      * APPLICATION_X_JAVA_JNLP_FILE.
      */
-    APPLICATION_X_JAVA_JNLP_FILE("application/x-java-jnlp-file"),
+    APPLICATION_X_JAVA_JNLP_FILE("application/x-java-jnlp-file", "jnlp"),
 
     /**
      * APPLICATION_X_JAVA_PACK200.
      */
-    APPLICATION_X_JAVA_PACK200("application/x-java-pack200"),
+    APPLICATION_X_JAVA_PACK200("application/x-java-pack200", "pack"),
 
     /**
      * APPLICATION_X_KDELNK.
@@ -4468,7 +4471,7 @@ public enum MimeType {
     /**
      * APPLICATION_X_LATEX.
      */
-    APPLICATION_X_LATEX("application/x-latex"),
+    APPLICATION_X_LATEX("application/x-latex", "latex"),
 
     /**
      * APPLICATION_X_LHA.
@@ -4483,57 +4486,57 @@ public enum MimeType {
     /**
      * APPLICATION_X_MOBIPOCKET_EBOOK.
      */
-    APPLICATION_X_MOBIPOCKET_EBOOK("application/x-mobipocket-ebook"),
+    APPLICATION_X_MOBIPOCKET_EBOOK("application/x-mobipocket-ebook", "prc", "mobi"),
 
     /**
      * APPLICATION_X_MS_APPLICATION.
      */
-    APPLICATION_X_MS_APPLICATION("application/x-ms-application"),
+    APPLICATION_X_MS_APPLICATION("application/x-ms-application", "application"),
 
     /**
      * APPLICATION_X_MS_WMD.
      */
-    APPLICATION_X_MS_WMD("application/x-ms-wmd"),
+    APPLICATION_X_MS_WMD("application/x-ms-wmd", "wmd"),
 
     /**
      * APPLICATION_X_MS_WMZ.
      */
-    APPLICATION_X_MS_WMZ("application/x-ms-wmz"),
+    APPLICATION_X_MS_WMZ("application/x-ms-wmz", "wmz"),
 
     /**
      * APPLICATION_X_MS_XBAP.
      */
-    APPLICATION_X_MS_XBAP("application/x-ms-xbap"),
+    APPLICATION_X_MS_XBAP("application/x-ms-xbap", "xbap"),
 
     /**
      * APPLICATION_X_MSACCESS.
      */
-    APPLICATION_X_MSACCESS("application/x-msaccess"),
+    APPLICATION_X_MSACCESS("application/x-msaccess", "mdb"),
 
     /**
      * APPLICATION_X_MSBINDER.
      */
-    APPLICATION_X_MSBINDER("application/x-msbinder"),
+    APPLICATION_X_MSBINDER("application/x-msbinder", "obd"),
 
     /**
      * APPLICATION_X_MSCARDFILE.
      */
-    APPLICATION_X_MSCARDFILE("application/x-mscardfile"),
+    APPLICATION_X_MSCARDFILE("application/x-mscardfile", "crd"),
 
     /**
      * APPLICATION_X_MSCLIP.
      */
-    APPLICATION_X_MSCLIP("application/x-msclip"),
+    APPLICATION_X_MSCLIP("application/x-msclip", "clp"),
 
     /**
      * APPLICATION_X_MSDOWNLOAD.
      */
-    APPLICATION_X_MSDOWNLOAD("application/x-msdownload"),
+    APPLICATION_X_MSDOWNLOAD("application/x-msdownload", "dll", "com", "bat"),
 
     /**
      * APPLICATION_X_MS_INSTALLER.
      */
-    APPLICATION_X_MS_INSTALLER("application/x-ms-installer"),
+    APPLICATION_X_MS_INSTALLER("application/x-ms-installer", "msi", "msp", "mst"),
 
     /**
      * APPLICATION_X_MSDOWNLOADFORMATPE.
@@ -4568,37 +4571,37 @@ public enum MimeType {
     /**
      * APPLICATION_X_MSMEDIAVIEW.
      */
-    APPLICATION_X_MSMEDIAVIEW("application/x-msmediaview"),
+    APPLICATION_X_MSMEDIAVIEW("application/x-msmediaview", "mvb", "m13", "m14"),
 
     /**
      * APPLICATION_X_MSMETAFILE.
      */
-    APPLICATION_X_MSMETAFILE("application/x-msmetafile"),
+    APPLICATION_X_MSMETAFILE("application/x-msmetafile", "wmf"),
 
     /**
      * APPLICATION_X_MSMONEY.
      */
-    APPLICATION_X_MSMONEY("application/x-msmoney"),
+    APPLICATION_X_MSMONEY("application/x-msmoney", "mny"),
 
     /**
      * APPLICATION_X_MSPUBLISHER.
      */
-    APPLICATION_X_MSPUBLISHER("application/x-mspublisher"),
+    APPLICATION_X_MSPUBLISHER("application/x-mspublisher", "pub"),
 
     /**
      * APPLICATION_X_MSSCHEDULE.
      */
-    APPLICATION_X_MSSCHEDULE("application/x-msschedule"),
+    APPLICATION_X_MSSCHEDULE("application/x-msschedule", "scd"),
 
     /**
      * APPLICATION_X_MSTERMINAL.
      */
-    APPLICATION_X_MSTERMINAL("application/x-msterminal"),
+    APPLICATION_X_MSTERMINAL("application/x-msterminal", "trm"),
 
     /**
      * APPLICATION_X_MSWRITE.
      */
-    APPLICATION_X_MSWRITE("application/x-mswrite"),
+    APPLICATION_X_MSWRITE("application/x-mswrite", "wri"),
 
     /**
      * APPLICATION_X_MYSQL_DB.
@@ -4618,142 +4621,142 @@ public enum MimeType {
     /**
      * APPLICATION_X_MYSQL_MISAM_COMPRESSED_INDEX.
      */
-    APPLICATION_X_MYSQL_MISAM_COMPRESSED_INDEX("application/x-mysql-misam-compressed-index"),
+    APPLICATION_X_MYSQL_MISAM_COMPRESSED_INDEX("application/x-mysql-misam-compressed-index", "MYI"),
 
     /**
      * APPLICATION_X_MYSQL_MISAM_DATA.
      */
-    APPLICATION_X_MYSQL_MISAM_DATA("application/x-mysql-misam-data"),
+    APPLICATION_X_MYSQL_MISAM_DATA("application/x-mysql-misam-data", "MYD"),
 
     /**
      * APPLICATION_X_NETCDF.
      */
-    APPLICATION_X_NETCDF("application/x-netcdf"),
+    APPLICATION_X_NETCDF("application/x-netcdf", "nc", "cdf"),
 
     /**
      * APPLICATION_X_PKCS12.
      */
-    APPLICATION_X_PKCS12("application/x-pkcs12"),
+    APPLICATION_X_PKCS12("application/x-pkcs12", "p12", "pfx"),
 
     /**
      * APPLICATION_X_PKCS7_CERTIFICATES.
      */
-    APPLICATION_X_PKCS7_CERTIFICATES("application/x-pkcs7-certificates"),
+    APPLICATION_X_PKCS7_CERTIFICATES("application/x-pkcs7-certificates", "p7b", "spc"),
 
     /**
      * APPLICATION_X_PKCS7_CERTREQRESP.
      */
-    APPLICATION_X_PKCS7_CERTREQRESP("application/x-pkcs7-certreqresp"),
+    APPLICATION_X_PKCS7_CERTREQRESP("application/x-pkcs7-certreqresp", "p7r"),
 
     /**
      * APPLICATION_X_PRT.
      */
-    APPLICATION_X_PRT("application/x-prt"),
+    APPLICATION_X_PRT("application/x-prt", "prt"),
 
     /**
      * APPLICATION_X_QUATTRO_PRO.
      */
-    APPLICATION_X_QUATTRO_PRO("application/x-quattro-pro"),
+    APPLICATION_X_QUATTRO_PRO("application/x-quattro-pro", "qpw", "wb1", "wb2", "wb3"),
 
     /**
      * APPLICATION_XQUERY.
      */
-    APPLICATION_XQUERY("application/xquery"),
+    APPLICATION_XQUERY("application/xquery", "xq", "xquery"),
 
     /**
      * APPLICATION_X_RAR_COMPRESSED.
      */
-    APPLICATION_X_RAR_COMPRESSED("application/x-rar-compressed"),
+    APPLICATION_X_RAR_COMPRESSED("application/x-rar-compressed", "rar"),
 
     /**
      * APPLICATION_X_ROXIO_TOAST.
      */
-    APPLICATION_X_ROXIO_TOAST("application/x-roxio-toast"),
+    APPLICATION_X_ROXIO_TOAST("application/x-roxio-toast", "toast"),
 
     /**
      * APPLICATION_X_RPM.
      */
-    APPLICATION_X_RPM("application/x-rpm"),
+    APPLICATION_X_RPM("application/x-rpm", "rpm"),
 
     /**
      * APPLICATION_X_SAS.
      */
-    APPLICATION_X_SAS("application/x-sas"),
+    APPLICATION_X_SAS("application/x-sas", "sas"),
 
     /**
      * APPLICATION_X_SAS_PROGRAM_DATA.
      */
-    APPLICATION_X_SAS_PROGRAM_DATA("application/x-sas-program-data"),
+    APPLICATION_X_SAS_PROGRAM_DATA("application/x-sas-program-data", "ss7", "sas7bpgm"),
 
     /**
      * APPLICATION_X_SAS_AUDIT.
      */
-    APPLICATION_X_SAS_AUDIT("application/x-sas-audit"),
+    APPLICATION_X_SAS_AUDIT("application/x-sas-audit", "st7", "sas7baud"),
 
     /**
      * APPLICATION_X_SAS_DATA.
      */
-    APPLICATION_X_SAS_DATA("application/x-sas-data"),
+    APPLICATION_X_SAS_DATA("application/x-sas-data", "sd7", "sas7bdat"),
 
     /**
      * APPLICATION_X_SAS_VIEW.
      */
-    APPLICATION_X_SAS_VIEW("application/x-sas-view"),
+    APPLICATION_X_SAS_VIEW("application/x-sas-view", "sv7", "sas7bvew"),
 
     /**
      * APPLICATION_X_SAS_DATA_INDEX.
      */
-    APPLICATION_X_SAS_DATA_INDEX("application/x-sas-data-index"),
+    APPLICATION_X_SAS_DATA_INDEX("application/x-sas-data-index", "si7", "sas7bndx"),
 
     /**
      * APPLICATION_X_SAS_CATALOG.
      */
-    APPLICATION_X_SAS_CATALOG("application/x-sas-catalog"),
+    APPLICATION_X_SAS_CATALOG("application/x-sas-catalog", "sc7", "sas7bcat"),
 
     /**
      * APPLICATION_X_SAS_ACCESS.
      */
-    APPLICATION_X_SAS_ACCESS("application/x-sas-access"),
+    APPLICATION_X_SAS_ACCESS("application/x-sas-access", "sa7", "sas7bacs"),
 
     /**
      * APPLICATION_X_SAS_FDB.
      */
-    APPLICATION_X_SAS_FDB("application/x-sas-fdb"),
+    APPLICATION_X_SAS_FDB("application/x-sas-fdb", "sf7", "sas7bfdb"),
 
     /**
      * APPLICATION_X_SAS_MDDB.
      */
-    APPLICATION_X_SAS_MDDB("application/x-sas-mddb"),
+    APPLICATION_X_SAS_MDDB("application/x-sas-mddb", "sm7", "sas7bmdb"),
 
     /**
      * APPLICATION_X_SAS_DMDB.
      */
-    APPLICATION_X_SAS_DMDB("application/x-sas-dmdb"),
+    APPLICATION_X_SAS_DMDB("application/x-sas-dmdb", "s7m", "sas7bdmd"),
 
     /**
      * APPLICATION_X_SAS_ITEMSTOR.
      */
-    APPLICATION_X_SAS_ITEMSTOR("application/x-sas-itemstor"),
+    APPLICATION_X_SAS_ITEMSTOR("application/x-sas-itemstor", "sr7", "sas7bitm"),
 
     /**
      * APPLICATION_X_SAS_UTILITY.
      */
-    APPLICATION_X_SAS_UTILITY("application/x-sas-utility"),
+    APPLICATION_X_SAS_UTILITY("application/x-sas-utility", "su7", "sas7butl"),
 
     /**
      * APPLICATION_X_SAS_PUTILITY.
      */
-    APPLICATION_X_SAS_PUTILITY("application/x-sas-putility"),
+    APPLICATION_X_SAS_PUTILITY("application/x-sas-putility", "sp7", "sas7bput"),
 
     /**
      * APPLICATION_X_SAS_TRANSPORT.
      */
-    APPLICATION_X_SAS_TRANSPORT("application/x-sas-transport"),
+    APPLICATION_X_SAS_TRANSPORT("application/x-sas-transport", "stx"),
 
     /**
      * APPLICATION_X_SAS_BACKUP.
      */
-    APPLICATION_X_SAS_BACKUP("application/x-sas-backup"),
+    APPLICATION_X_SAS_BACKUP("application/x-sas-backup", "sas7bbak"),
 
     /**
      * APPLICATION_X_SC.
@@ -4763,37 +4766,37 @@ public enum MimeType {
     /**
      * APPLICATION_X_SH.
      */
-    APPLICATION_X_SH("application/x-sh"),
+    APPLICATION_X_SH("application/x-sh", "sh", "bash"),
 
     /**
      * APPLICATION_X_SHAR.
      */
-    APPLICATION_X_SHAR("application/x-shar"),
+    APPLICATION_X_SHAR("application/x-shar", "shar"),
 
     /**
      * APPLICATION_X_SHAPEFILE.
      */
-    APPLICATION_X_SHAPEFILE("application/x-shapefile"),
+    APPLICATION_X_SHAPEFILE("application/x-shapefile", "shp"),
 
     /**
      * APPLICATION_X_SHOCKWAVE_FLASH.
      */
-    APPLICATION_X_SHOCKWAVE_FLASH("application/x-shockwave-flash"),
+    APPLICATION_X_SHOCKWAVE_FLASH("application/x-shockwave-flash", "swf"),
 
     /**
      * APPLICATION_X_SILVERLIGHT_APP.
      */
-    APPLICATION_X_SILVERLIGHT_APP("application/x-silverlight-app"),
+    APPLICATION_X_SILVERLIGHT_APP("application/x-silverlight-app", "xap"),
 
     /**
      * APPLICATION_X_SNAPPY_FRAMED.
      */
-    APPLICATION_X_SNAPPY_FRAMED("application/x-snappy-framed"),
+    APPLICATION_X_SNAPPY_FRAMED("application/x-snappy-framed", "sz"),
 
     /**
      * APPLICATION_X_SFDU.
      */
-    APPLICATION_X_SFDU("application/x-sfdu"),
+    APPLICATION_X_SFDU("application/x-sfdu", "sfdu"),
 
     /**
      * APPLICATION_X_SQLITE3.
@@ -4803,42 +4806,42 @@ public enum MimeType {
     /**
      * APPLICATION_X_STUFFIT.
      */
-    APPLICATION_X_STUFFIT("application/x-stuffit"),
+    APPLICATION_X_STUFFIT("application/x-stuffit", "sit"),
 
     /**
      * APPLICATION_X_STUFFITX.
      */
-    APPLICATION_X_STUFFITX("application/x-stuffitx"),
+    APPLICATION_X_STUFFITX("application/x-stuffitx", "sitx"),
 
     /**
      * APPLICATION_X_SV4CPIO.
      */
-    APPLICATION_X_SV4CPIO("application/x-sv4cpio"),
+    APPLICATION_X_SV4CPIO("application/x-sv4cpio", "sv4cpio"),
 
     /**
      * APPLICATION_X_SV4CRC.
      */
-    APPLICATION_X_SV4CRC("application/x-sv4crc"),
+    APPLICATION_X_SV4CRC("application/x-sv4crc", "sv4crc"),
 
     /**
      * APPLICATION_X_TAR.
      */
-    APPLICATION_X_TAR("application/x-tar"),
+    APPLICATION_X_TAR("application/x-tar", "tar"),
 
     /**
      * APPLICATION_X_TEX.
      */
-    APPLICATION_X_TEX("application/x-tex"),
+    APPLICATION_X_TEX("application/x-tex", "tex"),
 
     /**
      * APPLICATION_X_TEX_TFM.
      */
-    APPLICATION_X_TEX_TFM("application/x-tex-tfm"),
+    APPLICATION_X_TEX_TFM("application/x-tex-tfm", "tfm"),
 
     /**
      * APPLICATION_X_TEXINFO.
      */
-    APPLICATION_X_TEXINFO("application/x-texinfo"),
+    APPLICATION_X_TEXINFO("application/x-texinfo", "texinfo", "texi"),
 
     /**
      * APPLICATION_X_TIKA_MSOFFICE.
@@ -4863,7 +4866,7 @@ public enum MimeType {
     /**
      * APPLICATION_X_TIKA_MSWORKS_SPREADSHEET.
      */
-    APPLICATION_X_TIKA_MSWORKS_SPREADSHEET("application/x-tika-msworks-spreadsheet"),
+    APPLICATION_X_TIKA_MSWORKS_SPREADSHEET("application/x-tika-msworks-spreadsheet", "xlr"),
 
     /**
      * APPLICATION_X_TIKA_OLD_EXCEL.
@@ -4893,12 +4896,12 @@ public enum MimeType {
     /**
      * APPLICATION_X_UC2_COMPRESSED.
      */
-    APPLICATION_X_UC2_COMPRESSED("application/x-uc2-compressed"),
+    APPLICATION_X_UC2_COMPRESSED("application/x-uc2-compressed", "uc2"),
 
     /**
      * APPLICATION_X_USTAR.
      */
-    APPLICATION_X_USTAR("application/x-ustar"),
+    APPLICATION_X_USTAR("application/x-ustar", "ustar"),
 
     /**
      * APPLICATION_X_VHD.
@@ -4908,47 +4911,47 @@ public enum MimeType {
     /**
      * APPLICATION_X_VMDK.
      */
-    APPLICATION_X_VMDK("application/x-vmdk"),
+    APPLICATION_X_VMDK("application/x-vmdk", "vmdk"),
 
     /**
      * APPLICATION_X_WAIS_SOURCE.
      */
-    APPLICATION_X_WAIS_SOURCE("application/x-wais-source"),
+    APPLICATION_X_WAIS_SOURCE("application/x-wais-source", "src"),
 
     /**
      * APPLICATION_X_WEBARCHIVE.
      */
-    APPLICATION_X_WEBARCHIVE("application/x-webarchive"),
+    APPLICATION_X_WEBARCHIVE("application/x-webarchive", "webarchive"),
 
     /**
      * APPLICATION_X_X509_CA_CERT.
      */
-    APPLICATION_X_X509_CA_CERT("application/x-x509-ca-cert"),
+    APPLICATION_X_X509_CA_CERT("application/x-x509-ca-cert", "der", "crt"),
 
     /**
      * APPLICATION_X_XFIG.
      */
-    APPLICATION_X_XFIG("application/x-xfig"),
+    APPLICATION_X_XFIG("application/x-xfig", "fig"),
 
     /**
      * APPLICATION_X_XPINSTALL.
      */
-    APPLICATION_X_XPINSTALL("application/x-xpinstall"),
+    APPLICATION_X_XPINSTALL("application/x-xpinstall", "xpi"),
 
     /**
      * APPLICATION_X_XMIND.
      */
-    APPLICATION_X_XMIND("application/x-xmind"),
+    APPLICATION_X_XMIND("application/x-xmind", "xmind"),
 
     /**
      * APPLICATION_X_XZ.
      */
-    APPLICATION_X_XZ("application/x-xz"),
+    APPLICATION_X_XZ("application/x-xz", "xz"),
 
     /**
      * APPLICATION_X_ZOO.
      */
-    APPLICATION_X_ZOO("application/x-zoo"),
+    APPLICATION_X_ZOO("application/x-zoo", "zoo"),
 
     /**
      * APPLICATION_X400_BP.
@@ -4993,12 +4996,12 @@ public enum MimeType {
     /**
      * APPLICATION_XENC_PLUS_XML.
      */
-    APPLICATION_XENC_PLUS_XML("application/xenc+xml"),
+    APPLICATION_XENC_PLUS_XML("application/xenc+xml", "xenc"),
 
     /**
      * APPLICATION_XHTML_PLUS_XML.
      */
-    APPLICATION_XHTML_PLUS_XML("application/xhtml+xml"),
+    APPLICATION_XHTML_PLUS_XML("application/xhtml+xml", "xhtml", "xht"),
 
     /**
      * APPLICATION_XHTML_VOICE_PLUS_XML.
@@ -5008,12 +5011,12 @@ public enum MimeType {
     /**
      * APPLICATION_XML.
      */
-    APPLICATION_XML("application/xml"),
+    APPLICATION_XML("application/xml", "xml", "xsl", "xsd"),
 
     /**
      * APPLICATION_XML_DTD.
      */
-    APPLICATION_XML_DTD("application/xml-dtd"),
+    APPLICATION_XML_DTD("application/xml-dtd", "dtd"),
 
     /**
      * APPLICATION_XML_EXTERNAL_PARSED_ENTITY.
@@ -5028,32 +5031,32 @@ public enum MimeType {
     /**
      * APPLICATION_XOP_PLUS_XML.
      */
-    APPLICATION_XOP_PLUS_XML("application/xop+xml"),
+    APPLICATION_XOP_PLUS_XML("application/xop+xml", "xop"),
 
     /**
      * APPLICATION_XSLFO_PLUS_XML.
      */
-    APPLICATION_XSLFO_PLUS_XML("application/xslfo+xml"),
+    APPLICATION_XSLFO_PLUS_XML("application/xslfo+xml", "xslfo", "fo"),
 
     /**
      * APPLICATION_XSLT_PLUS_XML.
      */
-    APPLICATION_XSLT_PLUS_XML("application/xslt+xml"),
+    APPLICATION_XSLT_PLUS_XML("application/xslt+xml", "xslt"),
 
     /**
      * APPLICATION_XSPF_PLUS_XML.
      */
-    APPLICATION_XSPF_PLUS_XML("application/xspf+xml"),
+    APPLICATION_XSPF_PLUS_XML("application/xspf+xml", "xspf"),
 
     /**
      * APPLICATION_XV_PLUS_XML.
      */
-    APPLICATION_XV_PLUS_XML("application/xv+xml"),
+    APPLICATION_XV_PLUS_XML("application/xv+xml", "mxml", "xhvml", "xvml", "xvm"),
 
     /**
      * APPLICATION_ZIP.
      */
-    APPLICATION_ZIP("application/zip"),
+    APPLICATION_ZIP("application/zip", "zip"),
 
     /**
      * APPLICATION_ZLIB.
@@ -5063,7 +5066,7 @@ public enum MimeType {
     /**
      * APPLICATION_X_7Z_COMPRESSED.
      */
-    APPLICATION_X_7Z_COMPRESSED("application/x-7z-compressed"),
+    APPLICATION_X_7Z_COMPRESSED("application/x-7z-compressed", "7z"),
 
     /**
      * AUDIO_32KADPCM.
@@ -5088,12 +5091,12 @@ public enum MimeType {
     /**
      * AUDIO_ADPCM.
      */
-    AUDIO_ADPCM("audio/adpcm"),
+    AUDIO_ADPCM("audio/adpcm", "adp"),
 
     /**
      * AUDIO_AMR.
      */
-    AUDIO_AMR("audio/amr"),
+    AUDIO_AMR("audio/amr", "amr"),
 
     /**
      * AUDIO_AMR_WB.
@@ -5113,7 +5116,7 @@ public enum MimeType {
     /**
      * AUDIO_BASIC.
      */
-    AUDIO_BASIC("audio/basic"),
+    AUDIO_BASIC("audio/basic", "au", "snd"),
 
     /**
      * AUDIO_BV16.
@@ -5338,7 +5341,7 @@ public enum MimeType {
     /**
      * AUDIO_MIDI.
      */
-    AUDIO_MIDI("audio/midi"),
+    AUDIO_MIDI("audio/midi", "mid", "midi", "kar", "rmi"),
 
     /**
      * AUDIO_MOBILE_XMF.
@@ -5348,7 +5351,7 @@ public enum MimeType {
     /**
      * AUDIO_MP4.
      */
-    AUDIO_MP4("audio/mp4"),
+    AUDIO_MP4("audio/mp4", "mp4a", "m4a", "m4b"),
 
     /**
      * AUDIO_MP4A_LATM.
@@ -5368,7 +5371,7 @@ public enum MimeType {
     /**
      * AUDIO_MPEG.
      */
-    AUDIO_MPEG("audio/mpeg"),
+    AUDIO_MPEG("audio/mpeg", "mpga", "mp2", "mp2a", "mp3", "m2a", "m3a"),
 
     /**
      * AUDIO_MPEG4_GENERIC.
@@ -5378,12 +5381,12 @@ public enum MimeType {
     /**
      * AUDIO_OGG.
      */
-    AUDIO_OGG("audio/ogg"),
+    AUDIO_OGG("audio/ogg", "oga"),
 
     /**
      * AUDIO_VORBIS.
      */
-    AUDIO_VORBIS("audio/vorbis"),
+    AUDIO_VORBIS("audio/vorbis", "ogg"),
 
     /**
      * AUDIO_X_OGGFLAC.
@@ -5398,12 +5401,12 @@ public enum MimeType {
     /**
      * AUDIO_OPUS.
      */
-    AUDIO_OPUS("audio/opus"),
+    AUDIO_OPUS("audio/opus", "opus"),
 
     /**
      * AUDIO_SPEEX.
      */
-    AUDIO_SPEEX("audio/speex"),
+    AUDIO_SPEEX("audio/speex", "spx"),
 
     /**
      * AUDIO_PARITYFEC.
@@ -5533,7 +5536,7 @@ public enum MimeType {
     /**
      * AUDIO_VND_DOT_ADOBE_DOT_SOUNDBOOTH.
      */
-    AUDIO_VND_DOT_ADOBE_DOT_SOUNDBOOTH("audio/vnd.adobe.soundbooth"),
+    AUDIO_VND_DOT_ADOBE_DOT_SOUNDBOOTH("audio/vnd.adobe.soundbooth", "asnd"),
 
     /**
      * AUDIO_VND_DOT_CELP.
@@ -5563,7 +5566,7 @@ public enum MimeType {
     /**
      * AUDIO_VND_DOT_DIGITAL_WINDS.
      */
-    AUDIO_VND_DOT_DIGITAL_WINDS("audio/vnd.digital-winds"),
+    AUDIO_VND_DOT_DIGITAL_WINDS("audio/vnd.digital-winds", "eol"),
 
     /**
      * AUDIO_VND_DOT_DLNA_DOT_ADTS.
@@ -5608,12 +5611,12 @@ public enum MimeType {
     /**
      * AUDIO_VND_DOT_DTS.
      */
-    AUDIO_VND_DOT_DTS("audio/vnd.dts"),
+    AUDIO_VND_DOT_DTS("audio/vnd.dts", "dts"),
 
     /**
      * AUDIO_VND_DOT_DTS_DOT_HD.
      */
-    AUDIO_VND_DOT_DTS_DOT_HD("audio/vnd.dts.hd"),
+    AUDIO_VND_DOT_DTS_DOT_HD("audio/vnd.dts.hd", "dtshd"),
 
     /**
      * AUDIO_VND_DOT_EVERAD_DOT_PLJ.
@@ -5628,12 +5631,12 @@ public enum MimeType {
     /**
      * AUDIO_VND_DOT_LUCENT_DOT_VOICE.
      */
-    AUDIO_VND_DOT_LUCENT_DOT_VOICE("audio/vnd.lucent.voice"),
+    AUDIO_VND_DOT_LUCENT_DOT_VOICE("audio/vnd.lucent.voice", "lvp"),
 
     /**
      * AUDIO_VND_DOT_MS_PLAYREADY_DOT_MEDIA_DOT_PYA.
      */
-    AUDIO_VND_DOT_MS_PLAYREADY_DOT_MEDIA_DOT_PYA("audio/vnd.ms-playready.media.pya"),
+    AUDIO_VND_DOT_MS_PLAYREADY_DOT_MEDIA_DOT_PYA("audio/vnd.ms-playready.media.pya", "pya"),
 
     /**
      * AUDIO_VND_DOT_NOKIA_DOT_MOBILE_XMF.
@@ -5648,17 +5651,17 @@ public enum MimeType {
     /**
      * AUDIO_VND_DOT_NUERA_DOT_ECELP4800.
      */
-    AUDIO_VND_DOT_NUERA_DOT_ECELP4800("audio/vnd.nuera.ecelp4800"),
+    AUDIO_VND_DOT_NUERA_DOT_ECELP4800("audio/vnd.nuera.ecelp4800", "ecelp4800"),
 
     /**
      * AUDIO_VND_DOT_NUERA_DOT_ECELP7470.
      */
-    AUDIO_VND_DOT_NUERA_DOT_ECELP7470("audio/vnd.nuera.ecelp7470"),
+    AUDIO_VND_DOT_NUERA_DOT_ECELP7470("audio/vnd.nuera.ecelp7470", "ecelp7470"),
 
     /**
      * AUDIO_VND_DOT_NUERA_DOT_ECELP9600.
      */
-    AUDIO_VND_DOT_NUERA_DOT_ECELP9600("audio/vnd.nuera.ecelp9600"),
+    AUDIO_VND_DOT_NUERA_DOT_ECELP9600("audio/vnd.nuera.ecelp9600", "ecelp9600"),
 
     /**
      * AUDIO_VND_DOT_OCTEL_DOT_SBC.
@@ -5693,7 +5696,7 @@ public enum MimeType {
     /**
      * AUDIO_X_AAC.
      */
-    AUDIO_X_AAC("audio/x-aac"),
+    AUDIO_X_AAC("audio/x-aac", "aac"),
 
     /**
      * AUDIO_X_ADBCM.
@@ -5703,7 +5706,7 @@ public enum MimeType {
     /**
      * AUDIO_X_AIFF.
      */
-    AUDIO_X_AIFF("audio/x-aiff"),
+    AUDIO_X_AIFF("audio/x-aiff", "aif", "aiff", "aifc"),
 
     /**
      * AUDIO_X_DEC_BASIC.
@@ -5718,92 +5721,92 @@ public enum MimeType {
     /**
      * AUDIO_X_FLAC.
      */
-    AUDIO_X_FLAC("audio/x-flac"),
+    AUDIO_X_FLAC("audio/x-flac", "flac"),
 
     /**
      * AUDIO_X_MOD.
      */
-    AUDIO_X_MOD("audio/x-mod"),
+    AUDIO_X_MOD("audio/x-mod", "mod"),
 
     /**
      * AUDIO_X_MPEGURL.
      */
-    AUDIO_X_MPEGURL("audio/x-mpegurl"),
+    AUDIO_X_MPEGURL("audio/x-mpegurl", "m3u"),
 
     /**
      * AUDIO_X_MS_WAX.
      */
-    AUDIO_X_MS_WAX("audio/x-ms-wax"),
+    AUDIO_X_MS_WAX("audio/x-ms-wax", "wax"),
 
     /**
      * AUDIO_X_MS_WMA.
      */
-    AUDIO_X_MS_WMA("audio/x-ms-wma"),
+    AUDIO_X_MS_WMA("audio/x-ms-wma", "wma"),
 
     /**
      * AUDIO_X_PN_REALAUDIO.
      */
-    AUDIO_X_PN_REALAUDIO("audio/x-pn-realaudio"),
+    AUDIO_X_PN_REALAUDIO("audio/x-pn-realaudio", "ram", "ra"),
 
     /**
      * AUDIO_X_PN_REALAUDIO_PLUGIN.
      */
-    AUDIO_X_PN_REALAUDIO_PLUGIN("audio/x-pn-realaudio-plugin"),
+    AUDIO_X_PN_REALAUDIO_PLUGIN("audio/x-pn-realaudio-plugin", "rmp"),
 
     /**
      * AUDIO_X_WAV.
      */
-    AUDIO_X_WAV("audio/x-wav"),
+    AUDIO_X_WAV("audio/x-wav", "wav"),
 
     /**
      * CHEMICAL_X_CDX.
      */
-    CHEMICAL_X_CDX("chemical/x-cdx"),
+    CHEMICAL_X_CDX("chemical/x-cdx", "cdx"),
 
     /**
      * CHEMICAL_X_CIF.
      */
-    CHEMICAL_X_CIF("chemical/x-cif"),
+    CHEMICAL_X_CIF("chemical/x-cif", "cif"),
 
     /**
      * CHEMICAL_X_CMDF.
      */
-    CHEMICAL_X_CMDF("chemical/x-cmdf"),
+    CHEMICAL_X_CMDF("chemical/x-cmdf", "cmdf"),
 
     /**
      * CHEMICAL_X_CML.
      */
-    CHEMICAL_X_CML("chemical/x-cml"),
+    CHEMICAL_X_CML("chemical/x-cml", "cml"),
 
     /**
      * CHEMICAL_X_CSML.
      */
-    CHEMICAL_X_CSML("chemical/x-csml"),
+    CHEMICAL_X_CSML("chemical/x-csml", "csml"),
 
     /**
      * CHEMICAL_X_PDB.
      */
-    CHEMICAL_X_PDB("chemical/x-pdb"),
+    CHEMICAL_X_PDB("chemical/x-pdb", "pdb"),
 
     /**
      * CHEMICAL_X_XYZ.
      */
-    CHEMICAL_X_XYZ("chemical/x-xyz"),
+    CHEMICAL_X_XYZ("chemical/x-xyz", "xyz"),
 
     /**
      * IMAGE_X_MS_BMP.
      */
-    IMAGE_X_MS_BMP("image/x-ms-bmp"),
+    IMAGE_X_MS_BMP("image/x-ms-bmp", "bmp", "dib"),
 
     /**
      * IMAGE_X_BPG.
      */
-    IMAGE_X_BPG("image/x-bpg"),
+    IMAGE_X_BPG("image/x-bpg", "bpg"),
 
     /**
      * IMAGE_CGM.
      */
-    IMAGE_CGM("image/cgm"),
+    IMAGE_CGM("image/cgm", "cgm"),
 
     /**
      * IMAGE_EXAMPLE.
@@ -5818,42 +5821,42 @@ public enum MimeType {
     /**
      * IMAGE_G3FAX.
      */
-    IMAGE_G3FAX("image/g3fax"),
+    IMAGE_G3FAX("image/g3fax", "g3"),
 
     /**
      * IMAGE_GIF.
      */
-    IMAGE_GIF("image/gif"),
+    IMAGE_GIF("image/gif", "gif"),
 
     /**
      * IMAGE_ICNS.
      */
-    IMAGE_ICNS("image/icns"),
+    IMAGE_ICNS("image/icns", "icns"),
 
     /**
      * IMAGE_IEF.
      */
-    IMAGE_IEF("image/ief"),
+    IMAGE_IEF("image/ief", "ief"),
 
     /**
      * IMAGE_JP2.
      */
-    IMAGE_JP2("image/jp2"),
+    IMAGE_JP2("image/jp2", "jp2"),
 
     /**
      * IMAGE_JPEG.
      */
-    IMAGE_JPEG("image/jpeg"),
+    IMAGE_JPEG("image/jpeg", "jpg", "jpeg", "jpe", "jif", "jfif", "jfi"),
 
     /**
      * IMAGE_JPM.
      */
-    IMAGE_JPM("image/jpm"),
+    IMAGE_JPM("image/jpm", "jpm", "jpgm"),
 
     /**
      * IMAGE_JPX.
      */
-    IMAGE_JPX("image/jpx"),
+    IMAGE_JPX("image/jpx", "jpf"),
 
     /**
      * IMAGE_NAPLPS.
@@ -5863,17 +5866,17 @@ public enum MimeType {
     /**
      * IMAGE_NITF.
      */
-    IMAGE_NITF("image/nitf"),
+    IMAGE_NITF("image/nitf", "ntf", "nitf"),
 
     /**
      * IMAGE_PNG.
      */
-    IMAGE_PNG("image/png"),
+    IMAGE_PNG("image/png", "png"),
 
     /**
      * IMAGE_PRS_DOT_BTIF.
      */
-    IMAGE_PRS_DOT_BTIF("image/prs.btif"),
+    IMAGE_PRS_DOT_BTIF("image/prs.btif", "btif"),
 
     /**
      * IMAGE_PRS_DOT_PTI.
@@ -5883,7 +5886,7 @@ public enum MimeType {
     /**
      * IMAGE_SVG_PLUS_XML.
      */
-    IMAGE_SVG_PLUS_XML("image/svg+xml"),
+    IMAGE_SVG_PLUS_XML("image/svg+xml", "svg", "svgz"),
 
     /**
      * IMAGE_T38.
@@ -5893,7 +5896,7 @@ public enum MimeType {
     /**
      * IMAGE_TIFF.
      */
-    IMAGE_TIFF("image/tiff"),
+    IMAGE_TIFF("image/tiff", "tiff", "tif"),
 
     /**
      * IMAGE_TIFF_FX.
@@ -5903,12 +5906,12 @@ public enum MimeType {
     /**
      * IMAGE_VND_DOT_ADOBE_DOT_PHOTOSHOP.
      */
-    IMAGE_VND_DOT_ADOBE_DOT_PHOTOSHOP("image/vnd.adobe.photoshop"),
+    IMAGE_VND_DOT_ADOBE_DOT_PHOTOSHOP("image/vnd.adobe.photoshop", "psd"),
 
     /**
      * IMAGE_VND_DOT_ADOBE_DOT_PREMIERE.
      */
-    IMAGE_VND_DOT_ADOBE_DOT_PREMIERE("image/vnd.adobe.premiere"),
+    IMAGE_VND_DOT_ADOBE_DOT_PREMIERE("image/vnd.adobe.premiere", "ppj"),
 
     /**
      * IMAGE_VND_DOT_CNS_DOT_INF2.
@@ -5918,22 +5921,22 @@ public enum MimeType {
     /**
      * IMAGE_VND_DOT_DJVU.
      */
-    IMAGE_VND_DOT_DJVU("image/vnd.djvu"),
+    IMAGE_VND_DOT_DJVU("image/vnd.djvu", "djvu", "djv"),
 
     /**
      * IMAGE_VND_DOT_DWG.
      */
-    IMAGE_VND_DOT_DWG("image/vnd.dwg"),
+    IMAGE_VND_DOT_DWG("image/vnd.dwg", "dwg"),
 
     /**
      * IMAGE_VND_DOT_DXB.
      */
-    IMAGE_VND_DOT_DXB("image/vnd.dxb"),
+    IMAGE_VND_DOT_DXB("image/vnd.dxb", "dxb"),
 
     /**
      * IMAGE_VND_DOT_DXF.
      */
-    IMAGE_VND_DOT_DXF("image/vnd.dxf"),
+    IMAGE_VND_DOT_DXF("image/vnd.dxf", "dxf"),
 
     /**
      * IMAGE_VND_DOT_DXFFORMATBINARY.
@@ -5948,27 +5951,27 @@ public enum MimeType {
     /**
      * IMAGE_VND_DOT_FASTBIDSHEET.
      */
-    IMAGE_VND_DOT_FASTBIDSHEET("image/vnd.fastbidsheet"),
+    IMAGE_VND_DOT_FASTBIDSHEET("image/vnd.fastbidsheet", "fbs"),
 
     /**
      * IMAGE_VND_DOT_FPX.
      */
-    IMAGE_VND_DOT_FPX("image/vnd.fpx"),
+    IMAGE_VND_DOT_FPX("image/vnd.fpx", "fpx"),
 
     /**
      * IMAGE_VND_DOT_FST.
      */
-    IMAGE_VND_DOT_FST("image/vnd.fst"),
+    IMAGE_VND_DOT_FST("image/vnd.fst", "fst"),
 
     /**
      * IMAGE_VND_DOT_FUJIXEROX_DOT_EDMICS_MMR.
      */
-    IMAGE_VND_DOT_FUJIXEROX_DOT_EDMICS_MMR("image/vnd.fujixerox.edmics-mmr"),
+    IMAGE_VND_DOT_FUJIXEROX_DOT_EDMICS_MMR("image/vnd.fujixerox.edmics-mmr", "mmr"),
 
     /**
      * IMAGE_VND_DOT_FUJIXEROX_DOT_EDMICS_RLC.
      */
-    IMAGE_VND_DOT_FUJIXEROX_DOT_EDMICS_RLC("image/vnd.fujixerox.edmics-rlc"),
+    IMAGE_VND_DOT_FUJIXEROX_DOT_EDMICS_RLC("image/vnd.fujixerox.edmics-rlc", "rlc"),
 
     /**
      * IMAGE_VND_DOT_GLOBALGRAPHICS_DOT_PGB.
@@ -5978,7 +5981,7 @@ public enum MimeType {
     /**
      * IMAGE_VND_DOT_MICROSOFT_DOT_ICON.
      */
-    IMAGE_VND_DOT_MICROSOFT_DOT_ICON("image/vnd.microsoft.icon"),
+    IMAGE_VND_DOT_MICROSOFT_DOT_ICON("image/vnd.microsoft.icon", "ico"),
 
     /**
      * IMAGE_VND_DOT_MIX.
@@ -5988,12 +5991,12 @@ public enum MimeType {
     /**
      * IMAGE_VND_DOT_MS_MODI.
      */
-    IMAGE_VND_DOT_MS_MODI("image/vnd.ms-modi"),
+    IMAGE_VND_DOT_MS_MODI("image/vnd.ms-modi", "mdi"),
 
     /**
      * IMAGE_VND_DOT_NET_FPX.
      */
-    IMAGE_VND_DOT_NET_FPX("image/vnd.net-fpx"),
+    IMAGE_VND_DOT_NET_FPX("image/vnd.net-fpx", "npx"),
 
     /**
      * IMAGE_VND_DOT_RADIANCE.
@@ -6023,37 +6026,37 @@ public enum MimeType {
     /**
      * IMAGE_VND_DOT_WAP_DOT_WBMP.
      */
-    IMAGE_VND_DOT_WAP_DOT_WBMP("image/vnd.wap.wbmp"),
+    IMAGE_VND_DOT_WAP_DOT_WBMP("image/vnd.wap.wbmp", "wbmp"),
 
     /**
      * IMAGE_WEBP.
      */
-    IMAGE_WEBP("image/webp"),
+    IMAGE_WEBP("image/webp", "webp"),
 
     /**
      * IMAGE_VND_DOT_XIFF.
      */
-    IMAGE_VND_DOT_XIFF("image/vnd.xiff"),
+    IMAGE_VND_DOT_XIFF("image/vnd.xiff", "xif"),
 
     /**
      * IMAGE_X_CMU_RASTER.
      */
-    IMAGE_X_CMU_RASTER("image/x-cmu-raster"),
+    IMAGE_X_CMU_RASTER("image/x-cmu-raster", "ras"),
 
     /**
      * IMAGE_X_CMX.
      */
-    IMAGE_X_CMX("image/x-cmx"),
+    IMAGE_X_CMX("image/x-cmx", "cmx"),
 
     /**
      * IMAGE_X_FREEHAND.
      */
-    IMAGE_X_FREEHAND("image/x-freehand"),
+    IMAGE_X_FREEHAND("image/x-freehand", "fh", "fhc", "fh4", "fh40", "fh5", "fh50", "fh7", "fh8", "fh9", "fh10", "fh11", "fh12", "ft7", "ft8", "ft9", "ft10", "ft11", "ft12"),
 
     /**
      * IMAGE_X_JP2_CODESTREAM.
      */
-    IMAGE_X_JP2_CODESTREAM("image/x-jp2-codestream"),
+    IMAGE_X_JP2_CODESTREAM("image/x-jp2-codestream", "j2c"),
 
     /**
      * IMAGE_X_JP2_CONTAINER.
@@ -6068,162 +6071,162 @@ public enum MimeType {
     /**
      * IMAGE_X_PCX.
      */
-    IMAGE_X_PCX("image/x-pcx"),
+    IMAGE_X_PCX("image/x-pcx", "pcx"),
 
     /**
      * IMAGE_X_PICT.
      */
-    IMAGE_X_PICT("image/x-pict"),
+    IMAGE_X_PICT("image/x-pict", "pic", "pct", "pict"),
 
     /**
      * IMAGE_X_PORTABLE_ANYMAP.
      */
-    IMAGE_X_PORTABLE_ANYMAP("image/x-portable-anymap"),
+    IMAGE_X_PORTABLE_ANYMAP("image/x-portable-anymap", "pnm"),
 
     /**
      * IMAGE_X_PORTABLE_BITMAP.
      */
-    IMAGE_X_PORTABLE_BITMAP("image/x-portable-bitmap"),
+    IMAGE_X_PORTABLE_BITMAP("image/x-portable-bitmap", "pbm"),
 
     /**
      * IMAGE_X_PORTABLE_GRAYMAP.
      */
-    IMAGE_X_PORTABLE_GRAYMAP("image/x-portable-graymap"),
+    IMAGE_X_PORTABLE_GRAYMAP("image/x-portable-graymap", "pgm"),
 
     /**
      * IMAGE_X_PORTABLE_PIXMAP.
      */
-    IMAGE_X_PORTABLE_PIXMAP("image/x-portable-pixmap"),
+    IMAGE_X_PORTABLE_PIXMAP("image/x-portable-pixmap", "ppm"),
 
     /**
      * IMAGE_X_RAW_ADOBE.
      */
-    IMAGE_X_RAW_ADOBE("image/x-raw-adobe"),
+    IMAGE_X_RAW_ADOBE("image/x-raw-adobe", "dng"),
 
     /**
      * IMAGE_X_RAW_HASSELBLAD.
      */
-    IMAGE_X_RAW_HASSELBLAD("image/x-raw-hasselblad"),
+    IMAGE_X_RAW_HASSELBLAD("image/x-raw-hasselblad", "3fr"),
 
     /**
      * IMAGE_X_RAW_FUJI.
      */
-    IMAGE_X_RAW_FUJI("image/x-raw-fuji"),
+    IMAGE_X_RAW_FUJI("image/x-raw-fuji", "raf"),
 
     /**
      * IMAGE_X_RAW_CANON.
      */
-    IMAGE_X_RAW_CANON("image/x-raw-canon"),
+    IMAGE_X_RAW_CANON("image/x-raw-canon", "crw", "cr2"),
 
     /**
      * IMAGE_X_RAW_KODAK.
      */
-    IMAGE_X_RAW_KODAK("image/x-raw-kodak"),
+    IMAGE_X_RAW_KODAK("image/x-raw-kodak", "k25", "kdc", "dcs", "drf"),
 
     /**
      * IMAGE_X_RAW_MINOLTA.
      */
-    IMAGE_X_RAW_MINOLTA("image/x-raw-minolta"),
+    IMAGE_X_RAW_MINOLTA("image/x-raw-minolta", "mrw"),
 
     /**
      * IMAGE_X_RAW_NIKON.
      */
-    IMAGE_X_RAW_NIKON("image/x-raw-nikon"),
+    IMAGE_X_RAW_NIKON("image/x-raw-nikon", "nef", "nrw"),
 
     /**
      * IMAGE_X_RAW_OLYMPUS.
      */
-    IMAGE_X_RAW_OLYMPUS("image/x-raw-olympus"),
+    IMAGE_X_RAW_OLYMPUS("image/x-raw-olympus", "orf"),
 
     /**
      * IMAGE_X_RAW_PENTAX.
      */
-    IMAGE_X_RAW_PENTAX("image/x-raw-pentax"),
+    IMAGE_X_RAW_PENTAX("image/x-raw-pentax", "ptx", "pef"),
 
     /**
      * IMAGE_X_RAW_SONY.
      */
-    IMAGE_X_RAW_SONY("image/x-raw-sony"),
+    IMAGE_X_RAW_SONY("image/x-raw-sony", "arw", "srf", "sr2"),
 
     /**
      * IMAGE_X_RAW_SIGMA.
      */
-    IMAGE_X_RAW_SIGMA("image/x-raw-sigma"),
+    IMAGE_X_RAW_SIGMA("image/x-raw-sigma", "x3f"),
 
     /**
      * IMAGE_X_RAW_EPSON.
      */
-    IMAGE_X_RAW_EPSON("image/x-raw-epson"),
+    IMAGE_X_RAW_EPSON("image/x-raw-epson", "erf"),
 
     /**
      * IMAGE_X_RAW_MAMIYA.
      */
-    IMAGE_X_RAW_MAMIYA("image/x-raw-mamiya"),
+    IMAGE_X_RAW_MAMIYA("image/x-raw-mamiya", "mef"),
 
     /**
      * IMAGE_X_RAW_LEAF.
      */
-    IMAGE_X_RAW_LEAF("image/x-raw-leaf"),
+    IMAGE_X_RAW_LEAF("image/x-raw-leaf", "mos"),
 
     /**
      * IMAGE_X_RAW_PANASONIC.
      */
-    IMAGE_X_RAW_PANASONIC("image/x-raw-panasonic"),
+    IMAGE_X_RAW_PANASONIC("image/x-raw-panasonic", "raw", "rw2"),
 
     /**
      * IMAGE_X_RAW_PHASEONE.
      */
-    IMAGE_X_RAW_PHASEONE("image/x-raw-phaseone"),
+    IMAGE_X_RAW_PHASEONE("image/x-raw-phaseone", "iiq"),
 
     /**
      * IMAGE_X_RAW_RED.
      */
-    IMAGE_X_RAW_RED("image/x-raw-red"),
+    IMAGE_X_RAW_RED("image/x-raw-red", "r3d"),
 
     /**
      * IMAGE_X_RAW_IMACON.
      */
-    IMAGE_X_RAW_IMACON("image/x-raw-imacon"),
+    IMAGE_X_RAW_IMACON("image/x-raw-imacon", "fff"),
 
     /**
      * IMAGE_X_RAW_LOGITECH.
      */
-    IMAGE_X_RAW_LOGITECH("image/x-raw-logitech"),
+    IMAGE_X_RAW_LOGITECH("image/x-raw-logitech", "pxn"),
 
     /**
      * IMAGE_X_RAW_CASIO.
      */
-    IMAGE_X_RAW_CASIO("image/x-raw-casio"),
+    IMAGE_X_RAW_CASIO("image/x-raw-casio", "bay"),
 
     /**
      * IMAGE_X_RAW_RAWZOR.
      */
-    IMAGE_X_RAW_RAWZOR("image/x-raw-rawzor"),
+    IMAGE_X_RAW_RAWZOR("image/x-raw-rawzor", "rwz"),
 
     /**
      * IMAGE_X_RGB.
      */
-    IMAGE_X_RGB("image/x-rgb"),
+    IMAGE_X_RGB("image/x-rgb", "rgb"),
 
     /**
      * IMAGE_X_XBITMAP.
      */
-    IMAGE_X_XBITMAP("image/x-xbitmap"),
+    IMAGE_X_XBITMAP("image/x-xbitmap", "xbm"),
 
     /**
      * IMAGE_X_XCF.
      */
-    IMAGE_X_XCF("image/x-xcf"),
+    IMAGE_X_XCF("image/x-xcf", "xcf"),
 
     /**
      * IMAGE_X_XPIXMAP.
      */
-    IMAGE_X_XPIXMAP("image/x-xpixmap"),
+    IMAGE_X_XPIXMAP("image/x-xpixmap", "xpm"),
 
     /**
      * IMAGE_X_XWINDOWDUMP.
      */
-    IMAGE_X_XWINDOWDUMP("image/x-xwindowdump"),
+    IMAGE_X_XWINDOWDUMP("image/x-xwindowdump", "xwd"),
 
     /**
      * MESSAGE_CPIM.
@@ -6293,7 +6296,7 @@ public enum MimeType {
     /**
      * MESSAGE_RFC822.
      */
-    MESSAGE_RFC822("message/rfc822"),
+    MESSAGE_RFC822("message/rfc822", "eml", "mime", "mht", "mhtml"),
 
     /**
      * MESSAGE_S_HTTP.
@@ -6328,17 +6331,17 @@ public enum MimeType {
     /**
      * MODEL_IGES.
      */
-    MODEL_IGES("model/iges"),
+    MODEL_IGES("model/iges", "igs", "iges"),
 
     /**
      * MODEL_MESH.
      */
-    MODEL_MESH("model/mesh"),
+    MODEL_MESH("model/mesh", "msh", "mesh", "silo"),
 
     /**
      * MODEL_VND_DOT_DWF.
      */
-    MODEL_VND_DOT_DWF("model/vnd.dwf"),
+    MODEL_VND_DOT_DWF("model/vnd.dwf", "dwf"),
 
     /**
      * MODEL_VND_DOT_DWFVERSION6.
@@ -6358,7 +6361,7 @@ public enum MimeType {
     /**
      * MODEL_VND_DOT_DWFX_PLUS_XPS.
      */
-    MODEL_VND_DOT_DWFX_PLUS_XPS("model/vnd.dwfx+xps"),
+    MODEL_VND_DOT_DWFX_PLUS_XPS("model/vnd.dwfx+xps", "dwfx"),
 
     /**
      * MODEL_VND_DOT_FLATLAND_DOT_3DML.
@@ -6368,7 +6371,7 @@ public enum MimeType {
     /**
      * MODEL_VND_DOT_GDL.
      */
-    MODEL_VND_DOT_GDL("model/vnd.gdl"),
+    MODEL_VND_DOT_GDL("model/vnd.gdl", "gdl"),
 
     /**
      * MODEL_VND_DOT_GS_GDL.
@@ -6383,7 +6386,7 @@ public enum MimeType {
     /**
      * MODEL_VND_DOT_GTW.
      */
-    MODEL_VND_DOT_GTW("model/vnd.gtw"),
+    MODEL_VND_DOT_GTW("model/vnd.gtw", "gtw"),
 
     /**
      * MODEL_VND_DOT_MOML_PLUS_XML.
@@ -6393,7 +6396,7 @@ public enum MimeType {
     /**
      * MODEL_VND_DOT_MTS.
      */
-    MODEL_VND_DOT_MTS("model/vnd.mts"),
+    MODEL_VND_DOT_MTS("model/vnd.mts", "mts"),
 
     /**
      * MODEL_VND_DOT_PARASOLID_DOT_TRANSMIT_DOT_BINARY.
@@ -6408,12 +6411,12 @@ public enum MimeType {
     /**
      * MODEL_VND_DOT_VTU.
      */
-    MODEL_VND_DOT_VTU("model/vnd.vtu"),
+    MODEL_VND_DOT_VTU("model/vnd.vtu", "vtu"),
 
     /**
      * MODEL_VRML.
      */
-    MODEL_VRML("model/vrml"),
+    MODEL_VRML("model/vrml", "wrl", "vrml"),
 
     /**
      * MULTIPART_ALTERNATIVE.
@@ -6488,57 +6491,57 @@ public enum MimeType {
     /**
      * APPLICATION_DIF_PLUS_XML.
      */
-    APPLICATION_DIF_PLUS_XML("application/dif+xml"),
+    APPLICATION_DIF_PLUS_XML("application/dif+xml", "dif"),
 
     /**
      * TEXT_X_ACTIONSCRIPT.
      */
-    TEXT_X_ACTIONSCRIPT("text/x-actionscript"),
+    TEXT_X_ACTIONSCRIPT("text/x-actionscript", "as"),
 
     /**
      * TEXT_X_ADA.
      */
-    TEXT_X_ADA("text/x-ada"),
+    TEXT_X_ADA("text/x-ada", "ada", "adb", "ads"),
 
     /**
      * TEXT_X_APPLESCRIPT.
      */
-    TEXT_X_APPLESCRIPT("text/x-applescript"),
+    TEXT_X_APPLESCRIPT("text/x-applescript", "applescript"),
 
     /**
      * TEXT_ASP.
      */
-    TEXT_ASP("text/asp"),
+    TEXT_ASP("text/asp", "asp"),
 
     /**
      * TEXT_ASPDOTNET.
      */
-    TEXT_ASPDOTNET("text/aspdotnet"),
+    TEXT_ASPDOTNET("text/aspdotnet", "aspx"),
 
     /**
      * TEXT_X_ASPECTJ.
      */
-    TEXT_X_ASPECTJ("text/x-aspectj"),
+    TEXT_X_ASPECTJ("text/x-aspectj", "aj"),
 
     /**
      * TEXT_X_ASSEMBLY.
      */
-    TEXT_X_ASSEMBLY("text/x-assembly"),
+    TEXT_X_ASSEMBLY("text/x-assembly", "s", "S", "asm"),
 
     /**
      * TEXT_CALENDAR.
      */
-    TEXT_CALENDAR("text/calendar"),
+    TEXT_CALENDAR("text/calendar", "ics", "ifb"),
 
     /**
      * TEXT_CSS.
      */
-    TEXT_CSS("text/css"),
+    TEXT_CSS("text/css", "css"),
 
     /**
      * TEXT_CSV.
      */
-    TEXT_CSV("text/csv"),
+    TEXT_CSV("text/csv", "csv"),
 
     /**
      * TEXT_DIRECTORY.
@@ -6568,7 +6571,7 @@ public enum MimeType {
     /**
      * TEXT_HTML.
      */
-    TEXT_HTML("text/html"),
+    TEXT_HTML("text/html", "html", "htm"),
 
     /**
      * TEXT_PARITYFEC.
@@ -6578,7 +6581,7 @@ public enum MimeType {
     /**
      * TEXT_PLAIN.
      */
-    TEXT_PLAIN("text/plain"),
+    TEXT_PLAIN("text/plain", "txt", "text", "conf", "cfg", "def", "list", "in", "aart", "ac", "am", "classpath", "cmd", "config", "cwiki", "data", "dcl", "egrm", "ent", "ft", "fn", "fv", "grm", "g", "ihtml", "jmx", "junit", "jx", "manifest", "m4", "mf", "MF", "meta", "n3", "pen", "pod", "pom", "project", "rng", "rnx", "roles", "tld", "types", "vm", "vsl", "wsdd", "xargs", "xcat", "xconf", "xegrm", "xgrm", "xlex", "xlog", "xmap", "xroles", "xsamples", "xsp", "xweb", "xwelcome"),
 
     /**
      * TEXT_PRS_DOT_FALLENSTEIN_DOT_RST.
@@ -6588,7 +6591,7 @@ public enum MimeType {
     /**
      * TEXT_PRS_DOT_LINES_DOT_TAG.
      */
-    TEXT_PRS_DOT_LINES_DOT_TAG("text/prs.lines.tag"),
+    TEXT_PRS_DOT_LINES_DOT_TAG("text/prs.lines.tag", "dsc"),
 
     /**
      * TEXT_RED.
@@ -6603,7 +6606,7 @@ public enum MimeType {
     /**
      * TEXT_RICHTEXT.
      */
-    TEXT_RICHTEXT("text/richtext"),
+    TEXT_RICHTEXT("text/richtext", "rtx"),
 
     /**
      * TEXT_RTP_ENC_AESCM128.
@@ -6618,7 +6621,7 @@ public enum MimeType {
     /**
      * TEXT_SGML.
      */
-    TEXT_SGML("text/sgml"),
+    TEXT_SGML("text/sgml", "sgml", "sgm"),
 
     /**
      * TEXT_T140.
@@ -6628,12 +6631,12 @@ public enum MimeType {
     /**
      * TEXT_TAB_SEPARATED_VALUES.
      */
-    TEXT_TAB_SEPARATED_VALUES("text/tab-separated-values"),
+    TEXT_TAB_SEPARATED_VALUES("text/tab-separated-values", "tsv"),
 
     /**
      * TEXT_TROFF.
      */
-    TEXT_TROFF("text/troff"),
+    TEXT_TROFF("text/troff", "t", "tr", "roff", "man", "me", "ms"),
 
     /**
      * TEXT_ULPFEC.
@@ -6643,7 +6646,7 @@ public enum MimeType {
     /**
      * TEXT_URI_LIST.
      */
-    TEXT_URI_LIST("text/uri-list"),
+    TEXT_URI_LIST("text/uri-list", "uri", "uris", "urls"),
 
     /**
      * TEXT_VND_DOT_ABC.
@@ -6653,22 +6656,22 @@ public enum MimeType {
     /**
      * TEXT_VND_DOT_CURL.
      */
-    TEXT_VND_DOT_CURL("text/vnd.curl"),
+    TEXT_VND_DOT_CURL("text/vnd.curl", "curl"),
 
     /**
      * TEXT_VND_DOT_CURL_DOT_DCURL.
      */
-    TEXT_VND_DOT_CURL_DOT_DCURL("text/vnd.curl.dcurl"),
+    TEXT_VND_DOT_CURL_DOT_DCURL("text/vnd.curl.dcurl", "dcurl"),
 
     /**
      * TEXT_VND_DOT_CURL_DOT_SCURL.
      */
-    TEXT_VND_DOT_CURL_DOT_SCURL("text/vnd.curl.scurl"),
+    TEXT_VND_DOT_CURL_DOT_SCURL("text/vnd.curl.scurl", "scurl"),
 
     /**
      * TEXT_VND_DOT_CURL_DOT_MCURL.
      */
-    TEXT_VND_DOT_CURL_DOT_MCURL("text/vnd.curl.mcurl"),
+    TEXT_VND_DOT_CURL_DOT_MCURL("text/vnd.curl.mcurl", "mcurl"),
 
     /**
      * TEXT_VND_DOT_DMCLIENTSCRIPT.
@@ -6683,32 +6686,32 @@ public enum MimeType {
     /**
      * TEXT_VND_DOT_FLY.
      */
-    TEXT_VND_DOT_FLY("text/vnd.fly"),
+    TEXT_VND_DOT_FLY("text/vnd.fly", "fly"),
 
     /**
      * TEXT_VND_DOT_FMI_DOT_FLEXSTOR.
      */
-    TEXT_VND_DOT_FMI_DOT_FLEXSTOR("text/vnd.fmi.flexstor"),
+    TEXT_VND_DOT_FMI_DOT_FLEXSTOR("text/vnd.fmi.flexstor", "flx"),
 
     /**
      * TEXT_VND_DOT_GRAPHVIZ.
      */
-    TEXT_VND_DOT_GRAPHVIZ("text/vnd.graphviz"),
+    TEXT_VND_DOT_GRAPHVIZ("text/vnd.graphviz", "gv"),
 
     /**
      * TEXT_VND_DOT_IN3D_DOT_3DML.
      */
-    TEXT_VND_DOT_IN3D_DOT_3DML("text/vnd.in3d.3dml"),
+    TEXT_VND_DOT_IN3D_DOT_3DML("text/vnd.in3d.3dml", "3dml"),
 
     /**
      * TEXT_VND_DOT_IN3D_DOT_SPOT.
      */
-    TEXT_VND_DOT_IN3D_DOT_SPOT("text/vnd.in3d.spot"),
+    TEXT_VND_DOT_IN3D_DOT_SPOT("text/vnd.in3d.spot", "spot"),
 
     /**
      * TEXT_VND_DOT_IPTC_DOT_ANPA.
      */
-    TEXT_VND_DOT_IPTC_DOT_ANPA("text/vnd.iptc.anpa"),
+    TEXT_VND_DOT_IPTC_DOT_ANPA("text/vnd.iptc.anpa", "anpa"),
 
     /**
      * TEXT_VND_DOT_IPTC_DOT_NEWSML.
@@ -6748,7 +6751,7 @@ public enum MimeType {
     /**
      * TEXT_VND_DOT_SUN_DOT_J2ME_DOT_APP_DESCRIPTOR.
      */
-    TEXT_VND_DOT_SUN_DOT_J2ME_DOT_APP_DESCRIPTOR("text/vnd.sun.j2me.app-descriptor"),
+    TEXT_VND_DOT_SUN_DOT_J2ME_DOT_APP_DESCRIPTOR("text/vnd.sun.j2me.app-descriptor", "jad"),
 
     /**
      * TEXT_VND_DOT_TROLLTECH_DOT_LINGUIST.
@@ -6768,182 +6771,182 @@ public enum MimeType {
     /**
      * TEXT_VND_DOT_WAP_DOT_WML.
      */
-    TEXT_VND_DOT_WAP_DOT_WML("text/vnd.wap.wml"),
+    TEXT_VND_DOT_WAP_DOT_WML("text/vnd.wap.wml", "wml"),
 
     /**
      * TEXT_VND_DOT_WAP_DOT_WMLSCRIPT.
      */
-    TEXT_VND_DOT_WAP_DOT_WMLSCRIPT("text/vnd.wap.wmlscript"),
+    TEXT_VND_DOT_WAP_DOT_WMLSCRIPT("text/vnd.wap.wmlscript", "wmls"),
 
     /**
      * TEXT_VTT.
      */
-    TEXT_VTT("text/vtt"),
+    TEXT_VTT("text/vtt", "vtt"),
 
     /**
      * TEXT_X_AWK.
      */
-    TEXT_X_AWK("text/x-awk"),
+    TEXT_X_AWK("text/x-awk", "awk"),
 
     /**
      * TEXT_X_BASIC.
      */
-    TEXT_X_BASIC("text/x-basic"),
+    TEXT_X_BASIC("text/x-basic", "bas", "Bas", "BAS"),
 
     /**
      * TEXT_X_C_PLUS__PLUS_HDR.
      */
-    TEXT_X_C_PLUS__PLUS_HDR("text/x-c++hdr"),
+    TEXT_X_C_PLUS__PLUS_HDR("text/x-c++hdr", "hpp", "hxx", "hh", "H", "h++", "hp", "HPP"),
 
     /**
      * TEXT_X_C_PLUS__PLUS_SRC.
      */
-    TEXT_X_C_PLUS__PLUS_SRC("text/x-c++src"),
+    TEXT_X_C_PLUS__PLUS_SRC("text/x-c++src", "cpp", "cxx", "cc", "C", "c++", "CPP"),
 
     /**
      * TEXT_X_CGI.
      */
-    TEXT_X_CGI("text/x-cgi"),
+    TEXT_X_CGI("text/x-cgi", "cgi"),
 
     /**
      * TEXT_X_CHDR.
      */
-    TEXT_X_CHDR("text/x-chdr"),
+    TEXT_X_CHDR("text/x-chdr", "h"),
 
     /**
      * TEXT_X_CLOJURE.
      */
-    TEXT_X_CLOJURE("text/x-clojure"),
+    TEXT_X_CLOJURE("text/x-clojure", "clj"),
 
     /**
      * TEXT_X_COFFEESCRIPT.
      */
-    TEXT_X_COFFEESCRIPT("text/x-coffeescript"),
+    TEXT_X_COFFEESCRIPT("text/x-coffeescript", "coffee"),
 
     /**
      * TEXT_X_CSRC.
      */
-    TEXT_X_CSRC("text/x-csrc"),
+    TEXT_X_CSRC("text/x-csrc", "c"),
 
     /**
      * TEXT_X_CSHARP.
      */
-    TEXT_X_CSHARP("text/x-csharp"),
+    TEXT_X_CSHARP("text/x-csharp", "cs"),
 
     /**
      * TEXT_X_COBOL.
      */
-    TEXT_X_COBOL("text/x-cobol"),
+    TEXT_X_COBOL("text/x-cobol", "cbl", "Cbl", "CBL", "cob", "Cob", "COB"),
 
     /**
      * TEXT_X_COLDFUSION.
      */
-    TEXT_X_COLDFUSION("text/x-coldfusion"),
+    TEXT_X_COLDFUSION("text/x-coldfusion", "cfm", "cfml", "cfc"),
 
     /**
      * TEXT_X_COMMON_LISP.
      */
-    TEXT_X_COMMON_LISP("text/x-common-lisp"),
+    TEXT_X_COMMON_LISP("text/x-common-lisp", "cl", "jl", "lisp", "lsp"),
 
     /**
      * TEXT_X_DIFF.
      */
-    TEXT_X_DIFF("text/x-diff"),
+    TEXT_X_DIFF("text/x-diff", "diff", "patch"),
 
     /**
      * TEXT_X_EIFFEL.
      */
-    TEXT_X_EIFFEL("text/x-eiffel"),
+    TEXT_X_EIFFEL("text/x-eiffel", "e"),
 
     /**
      * TEXT_X_EMACS_LISP.
      */
-    TEXT_X_EMACS_LISP("text/x-emacs-lisp"),
+    TEXT_X_EMACS_LISP("text/x-emacs-lisp", "el"),
 
     /**
      * TEXT_X_ERLANG.
      */
-    TEXT_X_ERLANG("text/x-erlang"),
+    TEXT_X_ERLANG("text/x-erlang", "erl"),
 
     /**
      * TEXT_X_EXPECT.
      */
-    TEXT_X_EXPECT("text/x-expect"),
+    TEXT_X_EXPECT("text/x-expect", "exp"),
 
     /**
      * TEXT_X_FORTH.
      */
-    TEXT_X_FORTH("text/x-forth"),
+    TEXT_X_FORTH("text/x-forth", "4th"),
 
     /**
      * TEXT_X_FORTRAN.
      */
-    TEXT_X_FORTRAN("text/x-fortran"),
+    TEXT_X_FORTRAN("text/x-fortran", "f", "F", "for", "f77", "f90"),
 
     /**
      * TEXT_X_GO.
      */
-    TEXT_X_GO("text/x-go"),
+    TEXT_X_GO("text/x-go", "go"),
 
     /**
      * TEXT_X_GROOVY.
      */
-    TEXT_X_GROOVY("text/x-groovy"),
+    TEXT_X_GROOVY("text/x-groovy", "groovy"),
 
     /**
      * TEXT_X_HASKELL.
      */
-    TEXT_X_HASKELL("text/x-haskell"),
+    TEXT_X_HASKELL("text/x-haskell", "hs", "lhs"),
 
     /**
      * TEXT_X_IDL.
      */
-    TEXT_X_IDL("text/x-idl"),
+    TEXT_X_IDL("text/x-idl", "idl"),
 
     /**
      * TEXT_X_INI.
      */
-    TEXT_X_INI("text/x-ini"),
+    TEXT_X_INI("text/x-ini", "ini"),
 
     /**
      * TEXT_X_JAVA_SOURCE.
      */
-    TEXT_X_JAVA_SOURCE("text/x-java-source"),
+    TEXT_X_JAVA_SOURCE("text/x-java-source", "java"),
 
     /**
      * TEXT_X_JAVA_PROPERTIES.
      */
-    TEXT_X_JAVA_PROPERTIES("text/x-java-properties"),
+    TEXT_X_JAVA_PROPERTIES("text/x-java-properties", "properties"),
 
     /**
      * TEXT_X_JSP.
      */
-    TEXT_X_JSP("text/x-jsp"),
+    TEXT_X_JSP("text/x-jsp", "jsp"),
 
     /**
      * TEXT_X_LESS.
      */
-    TEXT_X_LESS("text/x-less"),
+    TEXT_X_LESS("text/x-less", "less"),
 
     /**
      * TEXT_X_LEX.
      */
-    TEXT_X_LEX("text/x-lex"),
+    TEXT_X_LEX("text/x-lex", "l"),
 
     /**
      * TEXT_X_LOG.
      */
-    TEXT_X_LOG("text/x-log"),
+    TEXT_X_LOG("text/x-log", "log"),
 
     /**
      * TEXT_X_LUA.
      */
-    TEXT_X_LUA("text/x-lua"),
+    TEXT_X_LUA("text/x-lua", "lua"),
 
     /**
      * TEXT_X_ML.
      */
-    TEXT_X_ML("text/x-ml"),
+    TEXT_X_ML("text/x-ml", "ml"),
 
     /**
      * TEXT_X_MATLAB.
@@ -6953,97 +6956,97 @@ public enum MimeType {
     /**
      * APPLICATION_X_MATLAB_DATA.
      */
-    APPLICATION_X_MATLAB_DATA("application/x-matlab-data"),
+    APPLICATION_X_MATLAB_DATA("application/x-matlab-data", "mat"),
 
     /**
      * TEXT_X_MODULA.
      */
-    TEXT_X_MODULA("text/x-modula"),
+    TEXT_X_MODULA("text/x-modula", "m3", "i3", "mg", "ig"),
 
     /**
      * TEXT_X_OBJCSRC.
      */
-    TEXT_X_OBJCSRC("text/x-objcsrc"),
+    TEXT_X_OBJCSRC("text/x-objcsrc", "m"),
 
     /**
      * TEXT_X_OCAML.
      */
-    TEXT_X_OCAML("text/x-ocaml"),
+    TEXT_X_OCAML("text/x-ocaml", "ocaml", "mli"),
 
     /**
      * TEXT_X_PASCAL.
      */
-    TEXT_X_PASCAL("text/x-pascal"),
+    TEXT_X_PASCAL("text/x-pascal", "p", "pp", "pas", "PAS", "dpr"),
 
     /**
      * TEXT_X_PERL.
      */
-    TEXT_X_PERL("text/x-perl"),
+    TEXT_X_PERL("text/x-perl", "pl", "pm", "al", "perl"),
 
     /**
      * TEXT_X_PHP.
      */
-    TEXT_X_PHP("text/x-php"),
+    TEXT_X_PHP("text/x-php", "php", "php3", "php4"),
 
     /**
      * TEXT_X_PROLOG.
      */
-    TEXT_X_PROLOG("text/x-prolog"),
+    TEXT_X_PROLOG("text/x-prolog", "pro"),
 
     /**
      * TEXT_X_PYTHON.
      */
-    TEXT_X_PYTHON("text/x-python"),
+    TEXT_X_PYTHON("text/x-python", "py"),
 
     /**
      * TEXT_X_RST.
      */
-    TEXT_X_RST("text/x-rst"),
+    TEXT_X_RST("text/x-rst", "rest", "rst", "restx"),
 
     /**
      * TEXT_X_REXX.
      */
-    TEXT_X_REXX("text/x-rexx"),
+    TEXT_X_REXX("text/x-rexx", "rexx"),
 
     /**
      * TEXT_X_RUBY.
      */
-    TEXT_X_RUBY("text/x-ruby"),
+    TEXT_X_RUBY("text/x-ruby", "rb"),
 
     /**
      * TEXT_X_SCALA.
      */
-    TEXT_X_SCALA("text/x-scala"),
+    TEXT_X_SCALA("text/x-scala", "scala"),
 
     /**
      * TEXT_X_SCHEME.
      */
-    TEXT_X_SCHEME("text/x-scheme"),
+    TEXT_X_SCHEME("text/x-scheme", "scm"),
 
     /**
      * TEXT_X_SED.
      */
-    TEXT_X_SED("text/x-sed"),
+    TEXT_X_SED("text/x-sed", "sed"),
 
     /**
      * TEXT_X_SQL.
      */
-    TEXT_X_SQL("text/x-sql"),
+    TEXT_X_SQL("text/x-sql", "sql"),
 
     /**
      * TEXT_X_SETEXT.
      */
-    TEXT_X_SETEXT("text/x-setext"),
+    TEXT_X_SETEXT("text/x-setext", "etx"),
 
     /**
      * TEXT_X_STSRC.
      */
-    TEXT_X_STSRC("text/x-stsrc"),
+    TEXT_X_STSRC("text/x-stsrc", "st"),
 
     /**
      * TEXT_X_TCL.
      */
-    TEXT_X_TCL("text/x-tcl"),
+    TEXT_X_TCL("text/x-tcl", "itk", "tcl", "tk"),
 
     /**
      * TEXT_X_TIKA_TEXT_BASED_MESSAGE.
@@ -7053,62 +7056,62 @@ public enum MimeType {
     /**
      * TEXT_X_UUENCODE.
      */
-    TEXT_X_UUENCODE("text/x-uuencode"),
+    TEXT_X_UUENCODE("text/x-uuencode", "uu"),
 
     /**
      * TEXT_X_VBASIC.
      */
-    TEXT_X_VBASIC("text/x-vbasic"),
+    TEXT_X_VBASIC("text/x-vbasic", "cls", "Cls", "CLS", "frm", "Frm", "FRM"),
 
     /**
      * TEXT_X_VBDOTNET.
      */
-    TEXT_X_VBDOTNET("text/x-vbdotnet"),
+    TEXT_X_VBDOTNET("text/x-vbdotnet", "vb"),
 
     /**
      * TEXT_X_VBSCRIPT.
      */
-    TEXT_X_VBSCRIPT("text/x-vbscript"),
+    TEXT_X_VBSCRIPT("text/x-vbscript", "vbs"),
 
     /**
      * TEXT_X_VCALENDAR.
      */
-    TEXT_X_VCALENDAR("text/x-vcalendar"),
+    TEXT_X_VCALENDAR("text/x-vcalendar", "vcs"),
 
     /**
      * TEXT_X_VCARD.
      */
-    TEXT_X_VCARD("text/x-vcard"),
+    TEXT_X_VCARD("text/x-vcard", "vcf"),
 
     /**
      * TEXT_X_VERILOG.
      */
-    TEXT_X_VERILOG("text/x-verilog"),
+    TEXT_X_VERILOG("text/x-verilog", "v"),
 
     /**
      * TEXT_X_VHDL.
      */
-    TEXT_X_VHDL("text/x-vhdl"),
+    TEXT_X_VHDL("text/x-vhdl", "vhd", "vhdl"),
 
     /**
      * TEXT_X_WEB_MARKDOWN.
      */
-    TEXT_X_WEB_MARKDOWN("text/x-web-markdown"),
+    TEXT_X_WEB_MARKDOWN("text/x-web-markdown", "md", "mdtext", "mkd", "markdown"),
 
     /**
      * TEXT_X_YACC.
      */
-    TEXT_X_YACC("text/x-yacc"),
+    TEXT_X_YACC("text/x-yacc", "y"),
 
     /**
      * TEXT_X_YAML.
      */
-    TEXT_X_YAML("text/x-yaml"),
+    TEXT_X_YAML("text/x-yaml", "yaml"),
 
     /**
      * VIDEO_3GPP.
      */
-    VIDEO_3GPP("video/3gpp"),
+    VIDEO_3GPP("video/3gpp", "3gp"),
 
     /**
      * VIDEO_3GPP_TT.
@@ -7118,7 +7121,7 @@ public enum MimeType {
     /**
      * VIDEO_3GPP2.
      */
-    VIDEO_3GPP2("video/3gpp2"),
+    VIDEO_3GPP2("video/3gpp2", "3g2"),
 
     /**
      * VIDEO_BMPEG.
@@ -7148,12 +7151,12 @@ public enum MimeType {
     /**
      * VIDEO_H261.
      */
-    VIDEO_H261("video/h261"),
+    VIDEO_H261("video/h261", "h261"),
 
     /**
      * VIDEO_H263.
      */
-    VIDEO_H263("video/h263"),
+    VIDEO_H263("video/h263", "h263"),
 
     /**
      * VIDEO_H263_1998.
@@ -7168,12 +7171,12 @@ public enum MimeType {
     /**
      * VIDEO_H264.
      */
-    VIDEO_H264("video/h264"),
+    VIDEO_H264("video/h264", "h264"),
 
     /**
      * VIDEO_JPEG.
      */
-    VIDEO_JPEG("video/jpeg"),
+    VIDEO_JPEG("video/jpeg", "jpgv"),
 
     /**
      * VIDEO_JPEG2000.
@@ -7183,7 +7186,7 @@ public enum MimeType {
     /**
      * VIDEO_MJ2.
      */
-    VIDEO_MJ2("video/mj2"),
+    VIDEO_MJ2("video/mj2", "mj2", "mjp2"),
 
     /**
      * VIDEO_MP1S.
@@ -7203,7 +7206,7 @@ public enum MimeType {
     /**
      * VIDEO_MP4.
      */
-    VIDEO_MP4("video/mp4"),
+    VIDEO_MP4("video/mp4", "mp4", "mp4v", "mpg4"),
 
     /**
      * VIDEO_MP4V_ES.
@@ -7213,7 +7216,7 @@ public enum MimeType {
     /**
      * VIDEO_MPEG.
      */
-    VIDEO_MPEG("video/mpeg"),
+    VIDEO_MPEG("video/mpeg", "mpeg", "mpg", "mpe", "m1v", "m2v"),
 
     /**
      * VIDEO_MPEG4_GENERIC.
@@ -7233,7 +7236,7 @@ public enum MimeType {
     /**
      * VIDEO_OGG.
      */
-    VIDEO_OGG("video/ogg"),
+    VIDEO_OGG("video/ogg", "ogv"),
 
     /**
      * VIDEO_DAALA.
@@ -7248,12 +7251,12 @@ public enum MimeType {
     /**
      * VIDEO_X_DIRAC.
      */
-    VIDEO_X_DIRAC("video/x-dirac"),
+    VIDEO_X_DIRAC("video/x-dirac", "drc"),
 
     /**
      * VIDEO_X_OGM.
      */
-    VIDEO_X_OGM("video/x-ogm"),
+    VIDEO_X_OGM("video/x-ogm", "ogm"),
 
     /**
      * VIDEO_X_OGGUVS.
@@ -7283,7 +7286,7 @@ public enum MimeType {
     /**
      * VIDEO_QUICKTIME.
      */
-    VIDEO_QUICKTIME("video/quicktime"),
+    VIDEO_QUICKTIME("video/quicktime", "qt", "mov"),
 
     /**
      * VIDEO_RAW.
@@ -7328,7 +7331,7 @@ public enum MimeType {
     /**
      * VIDEO_VND_DOT_FVT.
      */
-    VIDEO_VND_DOT_FVT("video/vnd.fvt"),
+    VIDEO_VND_DOT_FVT("video/vnd.fvt", "fvt"),
 
     /**
      * VIDEO_VND_DOT_HNS_DOT_VIDEO.
@@ -7378,12 +7381,12 @@ public enum MimeType {
     /**
      * VIDEO_VND_DOT_MPEGURL.
      */
-    VIDEO_VND_DOT_MPEGURL("video/vnd.mpegurl"),
+    VIDEO_VND_DOT_MPEGURL("video/vnd.mpegurl", "mxu", "m4u"),
 
     /**
      * VIDEO_VND_DOT_MS_PLAYREADY_DOT_MEDIA_DOT_PYV.
      */
-    VIDEO_VND_DOT_MS_PLAYREADY_DOT_MEDIA_DOT_PYV("video/vnd.ms-playready.media.pyv"),
+    VIDEO_VND_DOT_MS_PLAYREADY_DOT_MEDIA_DOT_PYV("video/vnd.ms-playready.media.pyv", "pyv"),
 
     /**
      * VIDEO_VND_DOT_NOKIA_DOT_INTERLEAVED_MULTIMEDIA.
@@ -7423,77 +7426,77 @@ public enum MimeType {
     /**
      * VIDEO_VND_DOT_VIVO.
      */
-    VIDEO_VND_DOT_VIVO("video/vnd.vivo"),
+    VIDEO_VND_DOT_VIVO("video/vnd.vivo", "viv"),
 
     /**
      * VIDEO_X_F4V.
      */
-    VIDEO_X_F4V("video/x-f4v"),
+    VIDEO_X_F4V("video/x-f4v", "f4v"),
 
     /**
      * VIDEO_X_FLC.
      */
-    VIDEO_X_FLC("video/x-flc"),
+    VIDEO_X_FLC("video/x-flc", "flc"),
 
     /**
      * VIDEO_X_FLI.
      */
-    VIDEO_X_FLI("video/x-fli"),
+    VIDEO_X_FLI("video/x-fli", "fli"),
 
     /**
      * VIDEO_X_FLV.
      */
-    VIDEO_X_FLV("video/x-flv"),
+    VIDEO_X_FLV("video/x-flv", "flv"),
 
     /**
      * VIDEO_X_JNG.
      */
-    VIDEO_X_JNG("video/x-jng"),
+    VIDEO_X_JNG("video/x-jng", "jng"),
 
     /**
      * VIDEO_X_M4V.
      */
-    VIDEO_X_M4V("video/x-m4v"),
+    VIDEO_X_M4V("video/x-m4v", "m4v"),
 
     /**
      * VIDEO_X_MNG.
      */
-    VIDEO_X_MNG("video/x-mng"),
+    VIDEO_X_MNG("video/x-mng", "mng"),
 
     /**
      * VIDEO_X_MS_ASF.
      */
-    VIDEO_X_MS_ASF("video/x-ms-asf"),
+    VIDEO_X_MS_ASF("video/x-ms-asf", "asf", "asx"),
 
     /**
      * VIDEO_X_MS_WM.
      */
-    VIDEO_X_MS_WM("video/x-ms-wm"),
+    VIDEO_X_MS_WM("video/x-ms-wm", "wm"),
 
     /**
      * VIDEO_X_MS_WMV.
      */
-    VIDEO_X_MS_WMV("video/x-ms-wmv"),
+    VIDEO_X_MS_WMV("video/x-ms-wmv", "wmv"),
 
     /**
      * VIDEO_X_MS_WMX.
      */
-    VIDEO_X_MS_WMX("video/x-ms-wmx"),
+    VIDEO_X_MS_WMX("video/x-ms-wmx", "wmx"),
 
     /**
      * VIDEO_X_MS_WVX.
      */
-    VIDEO_X_MS_WVX("video/x-ms-wvx"),
+    VIDEO_X_MS_WVX("video/x-ms-wvx", "wvx"),
 
     /**
      * VIDEO_X_MSVIDEO.
      */
-    VIDEO_X_MSVIDEO("video/x-msvideo"),
+    VIDEO_X_MSVIDEO("video/x-msvideo", "avi"),
 
     /**
      * VIDEO_X_SGI_MOVIE.
      */
-    VIDEO_X_SGI_MOVIE("video/x-sgi-movie"),
+    VIDEO_X_SGI_MOVIE("video/x-sgi-movie", "movie"),
 
     /**
      * APPLICATION_X_MATROSKA.
@@ -7503,62 +7506,70 @@ public enum MimeType {
     /**
      * VIDEO_X_MATROSKA.
      */
-    VIDEO_X_MATROSKA("video/x-matroska"),
+    VIDEO_X_MATROSKA("video/x-matroska", "mkv"),
 
     /**
      * AUDIO_X_MATROSKA.
      */
-    AUDIO_X_MATROSKA("audio/x-matroska"),
+    AUDIO_X_MATROSKA("audio/x-matroska", "mka"),
 
     /**
      * VIDEO_WEBM.
      */
-    VIDEO_WEBM("video/webm"),
+    VIDEO_WEBM("video/webm", "webm"),
 
     /**
      * X_CONFERENCE_X_COOLTALK.
      */
-    X_CONFERENCE_X_COOLTALK("x-conference/x-cooltalk"),
+    X_CONFERENCE_X_COOLTALK("x-conference/x-cooltalk", "ice"),
 
     /**
      * APPLICATION_X_FICTIONBOOK_PLUS_XML.
      */
-    APPLICATION_X_FICTIONBOOK_PLUS_XML("application/x-fictionbook+xml"),
+    APPLICATION_X_FICTIONBOOK_PLUS_XML("application/x-fictionbook+xml", "fb2"),
 
     /**
      * TEXT_X_ASCIIDOC.
      */
-    TEXT_X_ASCIIDOC("text/x-asciidoc"),
+    TEXT_X_ASCIIDOC("text/x-asciidoc", "asciidoc", "adoc", "ad", "ad.txt", "adoc.txt"),
 
     /**
      * TEXT_X_D.
      */
-    TEXT_X_D("text/x-d"),
+    TEXT_X_D("text/x-d", "d"),
 
     /**
      * TEXT_X_HAML.
      */
-    TEXT_X_HAML("text/x-haml"),
+    TEXT_X_HAML("text/x-haml", "haml"),
 
     /**
      * TEXT_X_HAXE.
      */
-    TEXT_X_HAXE("text/x-haxe"),
+    TEXT_X_HAXE("text/x-haxe", "hx"),
 
     /**
      * TEXT_X_RSRC.
      */
-    TEXT_X_RSRC("text/x-rsrc");
+    TEXT_X_RSRC("text/x-rsrc", "r"),
+
+    /**
+     * UNKNOWN.
+     */
+    UNKNOWN("");
 
     @NonNull
     private final String value;
+    @NonNull
+    private List<@NonNull String> extensionsList;
     private final boolean isImage;
     private final boolean isAudio;
     private final boolean isText;
     private final boolean isVideo;
 
-    MimeType(@NonNull final String value) {
+    MimeType(@NonNull final String value, @NonNull String @NonNull... extensions) {
         this.value = value;
+        this.extensionsList = Arrays.asList(extensions);
         this.isImage = value.startsWith("image/");
         this.isAudio = value.startsWith("audio/");
         this.isText = value.startsWith("text/");
@@ -7567,7 +7578,7 @@ public enum MimeType {
 
     /**
      * Get the value.
-     *
+     * 
      * @return value.
      */
     @NonNull
@@ -7577,7 +7588,7 @@ public enum MimeType {
 
     /**
      * Is MimeType of type image ?
-     *
+     * 
      * @return <code>true</code> if MimeType of type image.
      */
     public final boolean isImage() {
@@ -7586,7 +7597,7 @@ public enum MimeType {
 
     /**
      * Is MimeType of type audio ?
-     *
+     * 
      * @return <code>true</code> if MimeType of type audio.
      */
     public final boolean isAudio() {
@@ -7595,7 +7606,7 @@ public enum MimeType {
 
     /**
      * Is MimeType of type text ?
-     *
+     * 
      * @return <code>true</code> if MimeType of type text.
      */
     public final boolean isText() {
@@ -7604,7 +7615,7 @@ public enum MimeType {
 
     /**
      * Is MimeType of type video ?
-     *
+     * 
      * @return <code>true</code> if MimeType of type video.
      */
     public final boolean isVideo() {
@@ -7613,14 +7624,14 @@ public enum MimeType {
 
     /**
      * Get MimeType enum value corresponding to the given String mimeType.
-     *
+     * 
      * @param mimeType
      * @return MimeType
      */
-    @Nullable
+    @NonNull
     public static final MimeType getMimeType(@Nullable final String mimeType) {
         if (mimeType == null) {
-            return null;
+            return UNKNOWN;
         } else {
             for (final MimeType e : MimeType.values()) {
                 if (mimeType.equals(e.getValue())) {
@@ -7628,7 +7639,41 @@ public enum MimeType {
                 }
             }
         }
-        return null;
+        return UNKNOWN;
+    }
+
+    /**
+     * Get MimeType enum value corresponding to the given String extension.
+     * 
+     * @param extension
+     * @return MimeType
+     */
+    @NonNull
+    public static final MimeType getMimeTypeByExtension(@Nullable final String extension) {
+        if (extension == null || extension.length() == 0) {
+            return UNKNOWN;
+        } else {
+            for (final MimeType e : MimeType.values()) {
+                final List<@NonNull String> extensionsList = e.getExtensionsList();
+                for (final @NonNull String ext : extensionsList) {
+                    if (ext.toLowerCase().equals(extension.toLowerCase())) {
+                        return e;
+                    }
+                }
+            }
+        }
+        return UNKNOWN;
+    }
+
+    /**
+     * Get the extensions list.
+     * 
+     * @return the extensionsList.
+     */
+    @NonNull
+    public final List<@NonNull String> getExtensionsList() {
+        return this.extensionsList;
     }
 
 }
+
